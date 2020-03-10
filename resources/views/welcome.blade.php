@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel is working!
+                    Laravel IS WORKING!
                 </div>
 
                 <div class="links">
