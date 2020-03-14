@@ -37,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home<a>
+                            <a class="nav-link navbar-brand" href="/">Home<a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about">About</a>
