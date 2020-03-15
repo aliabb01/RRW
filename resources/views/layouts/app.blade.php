@@ -11,20 +11,26 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script type="text/javascript" src="{{ URL::asset('js/nav-anim.js') }}"></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Animation style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <!-- Page Loading -->
+    
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="logo/logo.png" alt="" height="100" width="100">
+                <a class="navbar-brand animated slideInLeft" href="welcome">
+                    <img src="logo/logo.png" alt="ApollonRailway" height="70" width="160">
                   </a>
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <!--ApollonRailway -->
@@ -37,21 +43,55 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link navbar-brand" href="/">Home<a>
+                            <a class="nav-link navbar-brand active" href="welcome">Home<a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about">About</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Services
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <style>  /* Delete this .dropdown methods if you want the clickable dropdown menu */
+                                @media(min-width:992px){
+                                    .dropdown:hover > .dropdown-menu{
+                                    display:block;
+                                }
+                                .dropdown-menu{
+                                    margin:0;
+                                }
+                                .dropdown > .dropdown-toggle:active{
+                                    pointer-events:none;
+                                }
+
+                                body{
+                                    background-image: url("logo/background.jpg");
+                                    background-size: cover;
+                                    background-repeat:no-repeat;
+                                                                    
+                                }
+
+                                    .navbar-nav .nav-item.active .nav-link,
+                                    .navbar-nav .nav-item:hover .nav-link {
+                                            color: skyblue;
+                                            background-color: red;
+                                            border-radius: 15%;
+                                        }
+
+                                }                              
+                            </style> 
+                            <div class="dropdown-menu animated lightSpeedIn" aria-labelledby="navbarDropdownMenuLink">
                               <a class="dropdown-item" href="#">Action</a>
                               <a class="dropdown-item" href="#">Another action</a>
                               <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                           </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="feedback">Feedback</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact">Contact Us</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
