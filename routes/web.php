@@ -33,4 +33,15 @@ Route::get('about', function () {
     return view('about');
 });
 
+Route::get('feedback', function () {
+    return view('feedback');
+});
+
+Route::get('contact', function () {
+    return view('contact');
+});
+Route::get('contact-us', function () {
+    return view('contact');
+});
+
 Auth::routes();
