@@ -12,11 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('user', ['middleware' => 'auth', function () {
     return view('user');
 }]);
@@ -43,5 +41,6 @@ Route::get('contact', function () {
 Route::get('contact-us', function () {
     return view('contact');
 });
+
 
 Auth::routes();
