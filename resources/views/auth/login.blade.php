@@ -17,7 +17,7 @@
     </style>
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card-transparent border-primary mb-1">
+            <div class="card-transparent border-primary mb-1 animated zoomIn">
               <div class="card-header text-light text-center bg-dark lead ">{{ __('LOGIN') }}</div>
                 <div class="card-body bg-primary text-light">
                     <form method="POST" action="{{ route('login') }}">

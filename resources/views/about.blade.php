@@ -2,43 +2,56 @@
 
 @section('content')
 <div class="text-center who">
-  <h1>Who are we <img class="question" src="https://img.icons8.com/nolan/96/question-mark.png" /></h1>  
+  <h1>Who are we <img class="question animated shake" src="https://img.icons8.com/nolan/96/question-mark.png" /></h1>  
 </div>
 
 <div class="container column">
 
-  <div class="card c1" style="width: 18rem;">
-    <div class="card-header text-center c1h">
+  <div class="card c1 animated zoomIn" id="c1" style="width: 18rem;">
+    <div class="card-header text-center c1h" id="c1h">
       <img src="https://06edkm734f-flywheel.netdna-ssl.com/wp-content/uploads/2018/01/Who-are-we-icon.svg" class="card-img-top who-img" alt="Who are we">
       <h3 class="card-title">Who are we?</h3>
     </div>
-    
     <div class="card-body">      
       <h5 class="card-text">We are Apollon Railway. A railway company based in Kaunas, Lithuania.</h5>
     </div>
-    
-    
-
   </div>
+
 </div>
 
 <style>
   .card-body{
-    height:250px;
+    height:250px;    
+  }
+
+  .card-text{
     
   }
 
   .c1{
     margin-top:20px;
     border-radius: 10%;
+    
+  }
+
+  .c1:hover{
+    transform: scale(1.080);
+    transition: transform .8s ease-in-out;
+    
   }
 
   .c1h{
-    background-color:deepskyblue;    
+    background-color:deepskyblue;  
+    filter:contrast(195%);     
+  }
+
+  #c1:hover > #c1h{
+    filter: grayscale(0);
+    color:white;
   }
 
   .question {
-    margin-left:
+    
   }
 
   .who {

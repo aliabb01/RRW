@@ -150,8 +150,23 @@
                                         left: 0;
                                     }
 
-                                    #log:hover~#ico-log {
-                                        color: green;
+                                    #log{
+                                        margin:0;
+                                    }
+
+                                    #log:hover ~ #ico-log{
+                                        color:green;
+                                        transition:color .5s;
+                                    }
+                                    
+                                    #reg{
+                                        margin:0;
+                                        margin-left:15px;
+                                    }
+
+                                    #reg:hover ~ #ico-reg{
+                                        color:red;
+                                        transition:color .5s;
                                     }
                                 }
 
@@ -164,7 +179,7 @@
                                 }     
                                 
                                 .bg-nav {
-                                        background-color: #42424D;
+                                        background-color:#42424D; /* grey */
                                     }  
 
                                     .navbar-toggler{
@@ -191,17 +206,21 @@
 
                         <!-- Authentication Links -->
                         @guest
-                        <i class="fas fa-sign-in-alt icon ico-log"></i>
-                        <li class="nav-item different">
+                        
+                        <li class="nav-item different" id="log">
                             <a class="nav-link log {{ Request::is('login') ? 'active' : '' }}"
                                 href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
+                        <i class="fas fa-sign-in-alt icon" id="ico-log"></i>
+
                         @if (Route::has('register'))
-                        <i class="fas fa-user-plus icon"></i>
-                        <li class="nav-item different">
+                        
+                        <li class="nav-item different" id="reg">
                             <a class="nav-link reg {{ Request::is('register') ? 'active' : '' }}"
                                 href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
+                        <i class="fas fa-user-plus icon" id="ico-reg"></i>
+
                         @endif
                         @else
                         <li class="nav-item dropdown">

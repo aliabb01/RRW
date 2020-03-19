@@ -19,7 +19,7 @@
     </style>
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card-transparent">
+            <div class="card-transparent animated zoomIn">
                 <div class="card-header text-center text-light bg-dark lead">{{ __('Register') }}  :</div>
                 <div class="card-body text-light bg-primary">
                     <form method="POST" action="{{ route('register') }}">
