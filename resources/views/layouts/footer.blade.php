@@ -51,7 +51,7 @@
             </ul>
         </div>
         <div class="col social">
-            <h1 class="text-center">Connect</h1>
+            <h1 class="text-center">Contact Us By</h1>
             <ul>
                 <li><i class="fab fa-facebook-square facebook fb"></i></li>
                 <li><i class="fab fa-twitter twitter"></i></li>
@@ -74,7 +74,7 @@
         position: sticky;
         height: auto;
         background-color: #070617;
-        margin-top:25%;
+        margin-top:5%;
     }
 
     .footer .col {
@@ -139,45 +139,21 @@
     }
 
     .facebook:hover {
-        color: #3B5998;
+        color: aqua;
+        background-color:#3B5998;
+        border-radius:25%;
     }
 
     .instagram {
-        padding: 2px;
+        padding: 10px;
     }
 
     .instagram:hover {
-
-        position: relative;
-        margin: .5*$size auto 0;
-        width: $size;
-        height: $size;
-        border-radius: 18.5%;
-        box-shadow: 0 0 $blur rgba(#000, .5);
+        background-color:aqua;
+        border-radius:25%;
         background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
 
-        &:before,
-        &:after {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: $inner;
-            height: $inner;
-            border: solid $bw #fff;
-            transform: translate(-50%, -50%);
-            content: '';
-        }
-
-        &:before {
-            border-radius: 18.5%;
-        }
-
-        &:after {
-            width: $diam;
-            height: $diam;
-            border-radius: 50%;
-            box-shadow: $off (-$off) 0 (-.8*$off) #fff;
-        }
+        
     }
 
     .twitter{
@@ -185,7 +161,9 @@
     }
 
     .twitter:hover {
-        color: #00B6F1;
+        background-color:#00B6F1;
+        border-radius:25%;
+        color: aqua;
         transition: .1s;
         -webkit-transition: .1s;
         -moz-transition: .1s;
@@ -196,7 +174,9 @@
     }
 
     .github:hover{
-        color: white;
+        background-color:darkslategray;
+        border-radius:25%;
+        color: aqua;
         transition: .1s;
         -webkit-transition: .1s;
         -moz-transition: .1s; 

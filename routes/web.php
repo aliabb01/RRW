@@ -38,8 +38,13 @@ Route::get('feedback', function () {
 Route::get('contact', function () {
     return view('contact');
 });
+
 Route::get('contact-us', function () {
     return view('contact');
+});
+
+Route::get('services-special', function () {
+    return view('services.special');
 });
 
 Route::get('login/github', 'Auth\LoginController@redirectToProvider');

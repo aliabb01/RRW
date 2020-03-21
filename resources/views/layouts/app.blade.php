@@ -76,8 +76,9 @@
                                     .line {
                                         border-right: 2px solid white;
                                         height: 55px;
-                                        margin-right: 25px;
+                                       /* margin-right: 25px;*/
                                         border-radius: 25%;
+                                        transform: rotate(45deg);
                                     }
 
                                     /* Delete this .dropdown methods if you want the clickable dropdown menu */
@@ -95,8 +96,12 @@
 
                                     .drop-ser{
                                         width:200%;
-                                        
-                                        font-size:1rem;
+                                        font-size:1rem;                                        
+                                    }
+
+                                    .dropdown-item:hover{
+                                        background-color:rgb(0, 125, 200);
+                                        color:white;
                                     }
 
                                     .nav-item {
@@ -184,9 +189,9 @@
                                 body {
                                     /*background-image: url(../logo/background4.jpg);*/
                                     background-image: url('logo/background.jpg');
-                                    background-size: cover;
-                                    background-repeat: no-repeat;
-                                    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
                                 }     
                                 
                                 .bg-nav {
@@ -197,10 +202,10 @@
                                         display: block;
                                     }                        
                             </style>
-                            <div class="dropdown-menu animated lightSpeedIn drop-ser" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Special offers</a>
-                                <a class="dropdown-item" href="#">Advertising</a>
-                                <a class="dropdown-item" href="#">Baggage Transportation</a>
+                            <div class="dropdown-menu animated lightSpeedIn fast drop-ser" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item " href="services-special">Special offers</a>
+                                <a class="dropdown-item" href="services-advertising">Advertising</a>
+                                <a class="dropdown-item" href="services-baggage">Baggage Transportation</a>
                             </div>
                         </li>
                         <li class="nav-item different {{ Request::is('feedback') ? 'active' : '' }}">
@@ -257,7 +262,7 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4">
+        <main class="">
             @yield('content')
             
         </main>

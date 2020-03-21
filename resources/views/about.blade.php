@@ -30,8 +30,7 @@
 
   .c1{
     margin-top:20px;
-    border-radius: 10%;
-    
+    border-radius: 10%;    
   }
 
   .c1:hover{
@@ -58,7 +57,6 @@
 
   .who {
     background-color: lightgreen;
-    margin-top:-25px;
     width:100%;
   }
 
