@@ -207,7 +207,7 @@
                             <a class="nav-link lead" href="feedback">{{ __('msg.feedback')}}</a>
                         </li>
                         <li class="nav-item different {{ Request::is('contact') ? 'active' : '' }}">
-                            <a class="nav-link lead" href="contact">{{ __('msg.contact-us')}}</a>
+                            <a class="nav-link lead" href="contact">{{ __('msg.help&support')}}</a>
                         </li>
                     </ul>
 
