@@ -20,7 +20,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/bootstrap-social.css') }}" rel="stylesheet"/>   <!-- For social network buttons -->
     
     <!-- Animation style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -32,8 +33,11 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-nav shadow-sm" id="navbar">
-            <a class="navbar-brand animated slideInLeft slow" href="welcome">
-                <img class="logo" src="logo/logo.png" alt="ApollonRailway" height="70" width="160">
+            <a class="navbar-brand " href="welcome">
+               <!-- <img class="logo" src="logo/logo.png" alt="ApollonRailway" height="70" width="160"> -->
+               <span style="font-size: 1.8rem">Apollon</span> 
+               <img class="animated slideInDown slow" src="logo/logo2.png" alt="">
+               <span style="font-size: 1.8rem">Railway</span>
             </a>
             <a class="navbar-brand" href="{{ url('') }}">
                 <!--ApollonRailway -->
@@ -87,6 +91,12 @@
 
                                     .dropdown-S>.dropdown-toggle:active {
                                         pointer-events: none;
+                                    }
+
+                                    .drop-ser{
+                                        width:200%;
+                                        
+                                        font-size:1rem;
                                     }
 
                                     .nav-item {
@@ -168,6 +178,7 @@
                                         color:red;
                                         transition:color .5s;
                                     }
+                                    
                                 }
 
                                 body {
@@ -179,17 +190,17 @@
                                 }     
                                 
                                 .bg-nav {
-                                        background-color:#42424D; /* grey */
+                                        background-color:rgb(0, 49, 102); /* grey */
                                     }  
 
                                     .navbar-toggler{
                                         display: block;
                                     }                        
                             </style>
-                            <div class="dropdown-menu animated lightSpeedIn" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-menu animated lightSpeedIn drop-ser" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Special offers</a>
+                                <a class="dropdown-item" href="#">Advertising</a>
+                                <a class="dropdown-item" href="#">Baggage Transportation</a>
                             </div>
                         </li>
                         <li class="nav-item different {{ Request::is('feedback') ? 'active' : '' }}">
