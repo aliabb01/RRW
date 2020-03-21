@@ -42,5 +42,8 @@ Route::get('contact-us', function () {
     return view('contact');
 });
 
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+
 
 Auth::routes();
