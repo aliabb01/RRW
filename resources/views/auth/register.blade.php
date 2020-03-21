@@ -13,15 +13,15 @@
             margin-top: 15%;
         }
 
-        .bg-primary{
-            opacity: .87;
+        .bg-reg{
+            background:rgb(153,153,255, 0.85);
         }
     </style>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-transparent animated zoomIn">
                 <div class="card-header text-center text-light bg-dark lead">{{ __('Register') }}  :</div>
-                <div class="card-body text-light bg-primary">
+                <div class="card-body text-light bg-reg">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

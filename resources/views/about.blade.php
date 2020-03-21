@@ -36,18 +36,20 @@
 
   .c1:hover{
     transform: scale(1.080);
-    transition: transform .8s ease-in-out;
+    transition: color .8s ease-in-out;
     
   }
 
   .c1h{
     background-color:deepskyblue;  
     filter:contrast(195%);     
+    transition: color 0.8s, ease;
   }
 
   #c1:hover > #c1h{
     filter: grayscale(0);
-    color:white;
+   /* color:white;*/
+  
   }
 
   .question {
