@@ -10,6 +10,9 @@
 
     <title>ApollonRailway</title>
 
+    <!-- Favicon -->
+    <link rel="icon" href="{{ URL::asset('/logo/favicon.png') }}" type="image/x-icon" />
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/d02e083562.js" crossorigin="anonymous"></script>
@@ -20,29 +23,165 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('css/bootstrap-social.css') }}" rel="stylesheet"/>   <!-- For social network buttons -->
-    
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap-social.css') }}" rel="stylesheet" /> <!-- For social network buttons -->
+
     <!-- Animation style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <!-- Page Loading -->
 
 </head>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
 
+    @media(min-width:900px) {
+        .logo {
+            margin-left: 50px;
+        }
+
+        .line {
+            border-right: 2px solid white;
+            height: 55px;
+            /* margin-right: 25px;*/
+            border-radius: 25%;
+            transform: rotate(45deg);
+        }
+
+        /* Delete this .dropdown methods if you want the clickable dropdown menu */
+        .dropdown-S:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            margin: 0;
+        }
+
+        .dropdown-S>.dropdown-toggle:active {
+            pointer-events: none;
+        }
+
+        .drop-ser {
+            width: 200%;
+            font-size: 1rem;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgb(0, 125, 200);
+            color: white;
+        }
+
+        .nav-item {
+            /* 15px between each nav-item */
+            margin-right: 15px;
+        }
+
+        .navbar-nav .nav-item:hover .nav-link {
+            color: lightskyblue;
+            /*color of nav-link*/
+            /* blue part of logo: rgb(76, 174, 255);*/
+            text-shadow: 0px 0px 7px skyblue;
+            /*box-shadow: */
+            margin-top: 2%;
+            transition: font-size .3s linear;
+        }
+
+        /*.nav-link {
+                                        --backColor: skyblue;
+                                        background:
+                                            linear-gradient(to top,
+                                            var(--backColor) 0%,
+                                            var(--backColor) 0px,
+                                            transparent 0px);
+                                        background-repeat: repeat-y;
+                                        text-decoration: none;
+                                    }
+
+                                    .nav-link:hover {
+                                        background:
+                                            linear-gradient(to top,
+                                            var(--backColor) 0%,
+                                            var(--backColor) 0px,
+                                            transparent);
+                                        transition: var(--backColor) 5s, color .5s;
+                                    }*/
+
+        /* Different is the bottom red border animation that comes when hovered on navbar item*/
+        .different {
+            border: none;
+            position: relative;
+        }
+
+        .different::after {
+            content: '';
+            position: absolute;
+            /* Change this to absolute/relative depending on nav-link:hover style */
+            width: 0px;
+            height: 2px;
+            /*left:50%*/
+            /*    ^       */
+            /* |  Delete this line to start the red border animation from left and not from center */
+            bottom: 0;
+            background-color: rgb(65, 154, 28);
+            transition: all ease-in-out .3s;
+            margin-bottom: 3px;
+        }
+
+        .different:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        #log {
+            margin: 0;
+        }
+
+        #log:hover~#ico-log {
+            color: green;
+            transition: color .5s;
+        }
+
+        #reg {
+            margin: 0;
+            margin-left: 15px;
+        }
+
+        #reg:hover~#ico-reg {
+            color: red;
+            transition: color .5s;
+        }
+
+
+    }
+    body {
+        /*background-image: url(../logo/background4.jpg);*/
+        background-image: url('logo/background.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .bg-nav {
+        background-color: rgb(0, 49, 102);
+        /* dark-grey--rgb(52, 58, 64); */
+        /* grey */
+    }
+
+    .navbar-toggler {
+        display: block;
+    }
+</style>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-nav shadow-sm" id="navbar">
             <a class="navbar-brand " href="welcome">
-               <!-- <img class="logo" src="logo/logo.png" alt="ApollonRailway" height="70" width="160"> -->
-               <span style="font-size: 1.8rem">Apollon</span> 
-               <img class="animated slideInDown slow" src="logo/logo2.png" alt="">
-               <span style="font-size: 1.8rem">Railway</span>
+                <!-- <img class="logo" src="logo/logo.png" alt="ApollonRailway" height="70" width="160"> -->
+                <span style="">Apollon</span>
+                <img class="animated slideInDown slow img-logo" src="logo/logo2.png" alt="">
             </a>
-            <a class="navbar-brand" href="{{ url('') }}">
-                <!--ApollonRailway -->
-            </a>
-            <hr class="line">
+            <!--  <hr class="line">  -->
 
             <div class="container">
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -67,142 +206,12 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ __('msg.services')}}
                             </a>
-                            <style>
-                                @media(min-width:992px) {
-                                    .logo {
-                                        margin-left: 50px;
-                                    }
 
-                                    .line {
-                                        border-right: 2px solid white;
-                                        height: 55px;
-                                       /* margin-right: 25px;*/
-                                        border-radius: 25%;
-                                        transform: rotate(45deg);
-                                    }
 
-                                    /* Delete this .dropdown methods if you want the clickable dropdown menu */
-                                    .dropdown-S:hover>.dropdown-menu {
-                                        display: block;
-                                    }
 
-                                    .dropdown-menu {
-                                        margin: 0;
-                                    }
 
-                                    .dropdown-S>.dropdown-toggle:active {
-                                        pointer-events: none;
-                                    }
-
-                                    .drop-ser{
-                                        width:200%;
-                                        font-size:1rem;                                        
-                                    }
-
-                                    .dropdown-item:hover{
-                                        background-color:rgb(0, 125, 200);
-                                        color:white;
-                                    }
-
-                                    .nav-item {
-                                        /* 15px between each nav-item */
-                                        margin-right: 15px;
-                                    }
-
-                                    .navbar-nav .nav-item:hover .nav-link {
-                                        color: lightskyblue;
-                                        /*color of nav-link*/
-                                        /* blue part of logo: rgb(76, 174, 255);*/
-                                        text-shadow: 0px 0px 7px skyblue;
-                                        /*box-shadow: */
-                                        margin-top: 2%;
-                                        transition: font-size .3s linear;
-                                    }
-
-                                    /*.nav-link {
-                                        --backColor: skyblue;
-                                        background:
-                                            linear-gradient(to top,
-                                            var(--backColor) 0%,
-                                            var(--backColor) 0px,
-                                            transparent 0px);
-                                        background-repeat: repeat-y;
-                                        text-decoration: none;
-                                    }
-
-                                    .nav-link:hover {
-                                        background:
-                                            linear-gradient(to top,
-                                            var(--backColor) 0%,
-                                            var(--backColor) 0px,
-                                            transparent);
-                                        transition: var(--backColor) 5s, color .5s;
-                                    }*/
-
-                                    /* Different is the bottom red border animation that comes when hovered on navbar item*/
-                                    .different {
-                                        border: none;
-                                        position: relative;
-                                    }
-
-                                    .different::after {
-                                        content: '';
-                                        position: absolute;
-                                        /* Change this to absolute/relative depending on nav-link:hover style */
-                                        width: 0px;
-                                        height: 2px;
-                                        /*left:50%*/
-                                        /*    ^       */
-                                        /* |  Delete this line to start the red border animation from left and not from center */
-                                        bottom: 0;
-                                        background-color: rgb(65, 154, 28);
-                                        transition: all ease-in-out .3s;
-                                        margin-bottom: 3px;
-                                    }
-
-                                    .different:hover::after {
-                                        width: 100%;
-                                        left: 0;
-                                    }
-
-                                    #log{
-                                        margin:0;
-                                    }
-
-                                    #log:hover ~ #ico-log{
-                                        color:green;
-                                        transition:color .5s;
-                                    }
-                                    
-                                    #reg{
-                                        margin:0;
-                                        margin-left:15px;
-                                    }
-
-                                    #reg:hover ~ #ico-reg{
-                                        color:red;
-                                        transition:color .5s;
-                                    }
-                                    
-                                }
-
-                                body {
-                                    /*background-image: url(../logo/background4.jpg);*/
-                                    background-image: url('logo/background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-                                }     
-                                
-                                .bg-nav {
-                                        background-color:rgb(0, 49, 102); /* grey */
-                                    }  
-
-                                    .navbar-toggler{
-                                        display: block;
-                                    }                        
-                            </style>
-                            <div class="dropdown-menu animated lightSpeedIn fast drop-ser" aria-labelledby="navbarDropdownMenuLink">
+                            <div class="dropdown-menu animated lightSpeedIn fast drop-ser"
+                                aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item " href="services-special">Special offers</a>
                                 <a class="dropdown-item" href="services-advertising">Advertising</a>
                                 <a class="dropdown-item" href="services-baggage">Baggage Transportation</a>
@@ -222,7 +231,7 @@
 
                         <!-- Authentication Links -->
                         @guest
-                        
+
                         <li class="nav-item different" id="log">
                             <a class="nav-link log {{ Request::is('login') ? 'active' : '' }}"
                                 href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -230,7 +239,7 @@
                         <i class="fas fa-sign-in-alt icon" id="ico-log"></i>
 
                         @if (Route::has('register'))
-                        
+
                         <li class="nav-item different" id="reg">
                             <a class="nav-link reg {{ Request::is('register') ? 'active' : '' }}"
                                 href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -264,12 +273,13 @@
         </nav>
         <main class="">
             @yield('content')
-            
+
         </main>
-        
+
     </div>
-    @include('layouts.footer')  
+    @include('layouts.footer')
 </body>
+
 
 
 </html>

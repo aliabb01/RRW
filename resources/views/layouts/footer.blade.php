@@ -74,11 +74,11 @@
         position: sticky;
         height: auto;
         background-color: #070617;
-        margin-top:5%;
+        /*margin-top:5%;*/  /* Was putting space between last element in homepage(welcome) and footer*/
     }
 
     .footer .col {
-        width: 190px;
+        width: 20%;
         height: auto;
         float: left;
         box-sizing: border-box;
