@@ -6,9 +6,14 @@ return [
     'about' => "About",
     'services' => "Services",
     'feedback' => "Feedback",
-    'help&support' => "Help & Support",
+    'help' => "Help",
     'login' => "Login",
     'register' => "Register",
+    'from' => "From",
+    'to' => "To",
+    'departure' => "Departure",
+    'arrival' => "Arrival",
+    'language' => "Language",
 ]
 
 ?>

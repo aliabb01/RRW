@@ -11,6 +11,7 @@
 
         .card-transparent {
             margin-top: 15%;
+            padding-bottom:20%; 
         }
 
         .bg-reg{

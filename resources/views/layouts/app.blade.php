@@ -38,7 +38,7 @@
         margin: 0px;
     }
 
-    @media(min-width:900px) {
+    @media only screen and (min-width:1024px) {
         .logo {
             margin-left: 50px;
         }
@@ -72,6 +72,10 @@
         .dropdown-item:hover {
             background-color: rgb(0, 125, 200);
             color: white;
+        }
+
+        .dr-lang{
+            text-decoration: none;
         }
 
         .nav-item {
@@ -153,9 +157,8 @@
             color: red;
             transition: color .5s;
         }
-
-
     }
+
     body {
         /*background-image: url(../logo/background4.jpg);*/
         background-image: url('logo/background.jpg');
@@ -163,39 +166,108 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
+
     .bg-nav {
         background-color: rgb(0, 49, 102);
         /* dark-grey--rgb(52, 58, 64); */
         /* grey */
     }
 
-    .navbar-toggler {
-        display: block;
+    
+
+    @media only screen and (min-width:768px) {
+        /* Medium devices (landscape tablets, 768px and up) */
+
+        .img-logo {
+            width: 75%;
+        }        
+    }
+
+    @media only screen and (max-width:768px){
+        .nav-link{
+            font-size:80%;
+        }
+        .logo-name{
+            font-size:80%;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        /* Large devices (phones, 600px and down) */
+
+        .img-logo {
+            width: 45%;
+        }
+    }
+
+    @media only screen and (max-width: 425px) {
+
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+
     }
 </style>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-nav shadow-sm" id="navbar">
             <a class="navbar-brand " href="welcome">
                 <!-- <img class="logo" src="logo/logo.png" alt="ApollonRailway" height="70" width="160"> -->
-                <span style="">Apollon</span>
+                <span class="logo-name" style="">Apollon</span>
                 <img class="animated slideInDown slow img-logo" src="logo/logo2.png" alt="">
             </a>
             <!--  <hr class="line">  -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+
+
+            <div class="dropdown dr-lang language-selector text-light">
+                {{ __('msg.language')}}  
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
+                  <i class="flag-icon flag-icon-gb"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="{{ url('locale/en') }}">
+                        <i class="flag-icon flag-icon-gb"></i>
+                      <span>English</span>
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="{{ url('locale/ru') }}">
+                        <i class="flag-icon flag-icon-ru"></i>
+                      <span>Russian</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ url('locale/lt') }}">
+                        <i class="flag-icon flag-icon-lt"></i>
+                      <span>Lithuanian</span>
+                    </a>
+                  </li>                  
+                </ul>
+            </div>
+
+
+         <!--   <ul>
+                <li><a href="{{ url('locale/en') }}"><i class="flag-icon flag-icon-us"></i> EN</a></li>
+                <li><a href="{{ url('locale/ru') }}"><i class="flag-icon flag-icon-ru"></i> RU</a></li>
+                <li><a href="{{ url('locale/lt') }}"><i class="flag-icon flag-icon-lt"></i> LT</a></li>
+            </ul>  -->
+            
             <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
 
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item different {{ Request::is('welcome') ? 'active' : '' }}">
-                            <a class="nav-link lead" href="welcome">{{ __('msg.home')}}<a>
+                            <a class="nav-link lead" href="welcome">{{ __('msg.home')}}</a>
                         </li>
                         <li class="nav-item different {{ Request::is('about') ? 'active' : '' }}">
                             <a class="nav-link lead" href="about">{{ __('msg.about')}}</a>
@@ -221,7 +293,7 @@
                             <a class="nav-link lead" href="feedback">{{ __('msg.feedback')}}</a>
                         </li>
                         <li class="nav-item different {{ Request::is('contact') ? 'active' : '' }}">
-                            <a class="nav-link lead" href="contact">{{ __('msg.help&support')}}</a>
+                            <a class="nav-link lead help" href="help">{{ __('msg.help')}}</a>
                         </li>
                     </ul>
 
@@ -234,7 +306,7 @@
 
                         <li class="nav-item different" id="log">
                             <a class="nav-link log {{ Request::is('login') ? 'active' : '' }}"
-                                href="{{ route('login') }}">{{ __('Login') }}</a>
+                                href="{{ route('login') }}">{{ __('msg.login') }}</a>
                         </li>
                         <i class="fas fa-sign-in-alt icon" id="ico-log"></i>
 
@@ -242,7 +314,7 @@
 
                         <li class="nav-item different" id="reg">
                             <a class="nav-link reg {{ Request::is('register') ? 'active' : '' }}"
-                                href="{{ route('register') }}">{{ __('Register') }}</a>
+                                href="{{ route('register') }}">{{ __('msg.register') }}</a>
                         </li>
                         <i class="fas fa-user-plus icon" id="ico-reg"></i>
 
@@ -278,6 +350,7 @@
 
     </div>
     @include('layouts.footer')
+
 </body>
 
 

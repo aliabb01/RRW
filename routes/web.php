@@ -35,16 +35,21 @@ Route::get('feedback', function () {
     return view('feedback');
 });
 
-Route::get('contact', function () {
-    return view('contact');
+Route::get('help', function () {
+    return view('help');
 });
 
-Route::get('contact-us', function () {
-    return view('contact');
+Route::get('help&support', function () {
+    return view('help');
 });
 
 Route::get('services-special', function () {
     return view('services.special');
+});
+
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
 });
 
 Route::get('login/github', 'Auth\LoginController@redirectToProvider');

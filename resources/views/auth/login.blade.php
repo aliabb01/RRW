@@ -15,6 +15,7 @@
 
         .card-transparent {
             margin-top: 15%;
+            padding-bottom:20%;            
         }
 
         .log-git {}
@@ -36,6 +37,7 @@
             color: transparent;
             -webkit-text-fill-color: transparent;
         }
+
     </style>
     <div class="row justify-content-center">
         <div class="col-md-8">
