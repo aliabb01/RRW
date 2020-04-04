@@ -3,17 +3,17 @@
 @section('content')
 
 <div class="cont">
-  <div class="cont1">
+
     <div class="justify-content-center cont1">
-      <input type="text" class="form-control from" id="" aria-describedby="" placeholder="{{ __('msg.from')}}">
-      <input type="text" class="form-control to" id="" aria-describedby="" placeholder="{{ __('msg.to')}}">
-      <input placeholder="{{ __('msg.departure')}}" class="form-control departure" type="text" onfocus="(this.type='date')"
+      <input type="text" class="form-control from search" id="" aria-describedby="" placeholder="{{ __('msg.from')}}">
+      <input type="text" class="form-control to search" id="" aria-describedby="" placeholder="{{ __('msg.to')}}">
+      <input placeholder="{{ __('msg.departure')}}" class="form-control departure search" type="text" onfocus="(this.type='date')"
         onblur="(this.type='text')" id="date" />
-      <input placeholder="{{ __('msg.arrival')}}" class="form-control arrival" type="text" onfocus="(this.type='date')"
+      <input placeholder="{{ __('msg.arrival')}}" class="form-control arrival search" type="text" onfocus="(this.type='date')"
         onblur="(this.type='text')" id="date" />
     </div>
 
-  </div>
+ 
 
   <div class="cont2">
     <img class="news-svg" src="logo/news.svg" alt="Kiwi standing on oval">
@@ -48,20 +48,25 @@
 
 
   .cont1 {
-    background-image: url('logo/background.jpg');
+    background-image: url('logo/background5.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
-    /*Fixed width issue*/
-    margin-top: 4%;
-    margin-bottom: 4%;
-    width: 92%;
+    /* ^---Fixed width issue---^ */
+    padding-top: 7.5%;
+    padding-bottom: 7.5%;      
   }
 
+  .search{
+    height:auto;
+    margin-top:13%;
+    margin-bottom:14%;
+    margin-right:0.3%;
+    width:15%;
+  }
 
-
-  .from {
+ /* .from {
     float: left;
     height: auto;
     margin-top: 15%;
@@ -97,7 +102,7 @@
     margin-left: 5%;
     margin-bottom: 17%;
     width: 25%;
-  }
+  }  */
 
   .cont2 {
     background-color: rgb(239, 240, 241);

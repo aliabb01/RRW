@@ -161,10 +161,7 @@
 
     body {
         /*background-image: url(../logo/background4.jpg);*/
-        background-image: url('logo/background.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        
     }
 
     .bg-nav {

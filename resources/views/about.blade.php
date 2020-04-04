@@ -20,6 +20,9 @@
 </div>
 
 <style>
+  body{
+  }
+
   .card-body{
     height:250px;    
   }
@@ -29,7 +32,8 @@
   }
 
   .c1{
-    margin-top:20px;
+    margin-top:2%;
+    margin-bottom:3%;
     border-radius: 10%;    
   }
 
