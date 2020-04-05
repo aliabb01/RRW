@@ -57,3 +57,15 @@ Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback
 
 
 Auth::routes();
+
+Route::resource('cities','citycontroller');
+
+Route::resource('cities.save','citycontroller@store');
+Route::resource('trains','traincontroller');
+Route::resource('trips','tripcontroller');
+Route::resource('passengers','passengercontroller');
+Route::resource('tickets','ticketcontroller');
+Route::post('/store','citycontroller@store');
+Route::put('/upd/{id}','citycontroller@update');
+Route::delete('/del/{id}','citycontroller@destroy');
+//Route::resource('/useres','usercontroller');

@@ -16,6 +16,7 @@
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
+        "laravelcollective/html": "^6.1",
         "nothingworks/blade-svg": "^0.3.4"
     },
     "require-dev": {

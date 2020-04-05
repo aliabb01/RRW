@@ -1,8 +1,6 @@
-
-
-
+@extends('layouts.app')
+@section('content')
     
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -13,6 +11,43 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
+      <h1>Cities </h1>
+      <br>
+      <li><a href="#"><i class="fas fa-plus-square"></i>new item</a></li>
+      <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">city_name</th>
+            <th scope="col">zip_code</th>
+            <th scope="col">discreption</th>
+            <th scope="col">distance</th>
+            <th  class="fas fa-edit"> edit</th>
+            <th></th>
+            <th class="fas fa-trash-alt">delete</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+            @foreach($cities as $i)
+            <tr>
+                <td>{{$i->id}}</td>
+                <td>{{$i->city_name}}</td>
+                <td>{{$i->zip_code}}</td>
+                <td>{{$i->description}}</td>
+                <td>{{$i->distance}}</td>
+               <td> {{link_to_route('cities.edit','edit',$i,['class'=>'btn btn-success'])}}
+              </td>
+                <td></td>
+                <td> {{link_to_route('cities.show','Delete',$i,['class'=>'btn btn-danger'])}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+      </table>
+      <div>
+      {{link_to_route('cities.create','add a new item',null,['class'=>'btn btn-primary'])}}
+      </div>
+      
       <style>
           @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
 *{
@@ -23,6 +58,7 @@
 }
 body {
   font-family: 'Roboto', sans-serif;
+  color: green;
 }
 .sidebar {
   position: fixed;
@@ -129,8 +165,8 @@ h2
     </header>
   <ul>
     <li><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
-   <li ><a href="/useres" ><i class="fas fa-user"></i>User</a></li> 
-    <li><a href="cities"><i class="fas fa-city"></i>cities</a></li>
+   <li ><a href="" ><i class="fas fa-user"></i>User</a></li> 
+    <li><a href="#"><i class="fas fa-city"></i>cities</a></li>
     <li><a href="#"><i class="fas fa-calendar-check"></i>ticket </a></li>
     <li><a href="#"><i class="fas fa-suitcase-rolling"></i>Passenger List</a></li>
     <li><a href="#"><i class="fas fa-train"></i>Trips</a></li>
@@ -138,6 +174,8 @@ h2
   </ul>
 </div>
  <section></section>
-
+ 
+ 
   </body>
 </html>
+@endsection
