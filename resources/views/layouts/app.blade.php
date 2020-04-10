@@ -29,6 +29,9 @@
     <!-- Animation style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
+    <!-- Flags -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
+
     <!-- Page Loading -->
 
 </head>
@@ -41,6 +44,15 @@
     @media only screen and (min-width:1024px) {
         .logo {
             margin-left: 50px;
+        }
+
+        .logo-name:hover{
+            filter: drop-shadow(0px 3px 7px);
+        }
+
+        .img-logo:hover{   /*  Changes the background color when hovered on color  */
+            filter:contrast(200%);
+            background-color:           
         }
 
         .line {
@@ -225,25 +237,25 @@
 
 
             <div class="dropdown dr-lang language-selector text-light">
-                {{ __('msg.language')}}  
+                {{ __('msg.language')}}  : 
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-                  <i class="flag-icon flag-icon-gb"></i>
+                  
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu ml-1">
                   <li>
-                    <a href="{{ url('locale/en') }}">
+                    <a class="dropdown-item" href="{{ url('locale/en') }}">
                         <i class="flag-icon flag-icon-gb"></i>
                       <span>English</span>
                     </a>
                   </li>
                   <li class="active">
-                    <a href="{{ url('locale/ru') }}">
+                    <a class="dropdown-item" href="{{ url('locale/ru') }}">
                         <i class="flag-icon flag-icon-ru"></i>
                       <span>Russian</span>
                     </a>
                   </li>
                   <li>
-                    <a href="{{ url('locale/lt') }}">
+                    <a class="dropdown-item" href="{{ url('locale/lt') }}">
                         <i class="flag-icon flag-icon-lt"></i>
                       <span>Lithuanian</span>
                     </a>
@@ -348,11 +360,12 @@
         </nav>
         <main class="">
             @yield('content')
-
+            
         </main>
 
     </div>
     @include('layouts.footer')
+    @yield('scripts')
 
 </body>
 

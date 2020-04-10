@@ -6,7 +6,11 @@
         body {
             background-image: url("logo/background2.jpg");
             background-size: cover;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat;            
+        }
+
+        .card-header{
+            font-style: bold;
         }
 
         .card-transparent {
@@ -15,14 +19,14 @@
         }
 
         .bg-reg{
-            background:rgb(153,153,255, 0.85);
-        }
+            background: rgb(255, 255, 255, 0.92);
+        }        
     </style>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-transparent animated zoomIn">
-                <div class="card-header text-center text-light bg-dark lead">{{ __('Register') }}  :</div>
-                <div class="card-body text-light bg-reg">
+                <div class="card-header text-center text-light bg-dark lead">{{ __('REGISTER') }}</div>
+                <div class="card-body text-dark bg-reg">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

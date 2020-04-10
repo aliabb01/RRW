@@ -4,24 +4,36 @@
 <div class="container">
     <style>
         body {
-            background-color:rgb(239,240,241);
+            background-color: rgb(239, 240, 241);
+            background-image: url("logo/background2.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
-        .bg-log{
-            background:rgb(153,153,255, 0.85);
+        .bg-log {
+            background: rgb(255, 255, 255, 0.92);
         }
+
 
         .card-transparent {
             margin-top: 15%;
-            padding-bottom:20%;            
+            padding-bottom: 20%;
+        }
+
+        .btn-social {
+            margin:auto;
+            margin-top:1%;
+            width: 45%;
         }
 
         .log-git {}
 
+
+
         .ico-git {}
 
         .btn-google {
-            background-color: lightblue;
+            background-color: whitesmoke;
         }
 
         .btn-google:hover {
@@ -35,13 +47,12 @@
             color: transparent;
             -webkit-text-fill-color: transparent;
         }
-
     </style>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center log-cont">
         <div class="col-md-8">
             <div class="card-transparent border-primary mb-1 animated zoomIn">
                 <div class="card-header text-light text-center bg-dark lead ">{{ __('LOGIN') }}</div>
-                <div class="card-body bg-log text-light">
+                <div class="card-body bg-log text-dark">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -97,7 +108,7 @@
                                 <button type="submit" class="btn btn-success">
                                     {{ __('Login') }}
                                 </button>
-                                <span class="col-md-2">or</span>
+                                <span class="col-md-2"> or</span>
                                 <a href="register"><button type="button" class="btn btn-danger">
                                         Sign Up!
                                     </button></a>
@@ -113,12 +124,23 @@
                     </form>
                     <br>
                     <hr class="bg-dark">
-                    <a href="{{ url('') }}" class="btn btn-social btn-google btn-lg text-primary"><span
+                    <a href="{{ url('login/google') }}" class="btn btn-social btn-google btn-lg text-primary"><span
                             class="fab fa-google log-google"></span>
-                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Sign In Using Google</a>
+                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Google</a>
+
+                    <a href="{{ url('login/facebook') }}" class="btn btn-social btn-facebook btn-lg log-face"><span
+                            class="fab fa-facebook"></span>
+                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Facebook</a>
+
+                        <a href="{{ url('login/twitter') }}" class="btn btn-social btn-twitter btn-lg log-twit"><span
+                            class="fab fa-twitter"></span>
+                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Twitter</a>
+
                     <a href="{{ url('login/github') }}" class="btn btn-social btn-github btn-lg log-git"><span
                             class="fab fa-github"></span>
-                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Sign In Using Github</a>
+                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Github</a>
+
+
                 </div>
             </div>
         </div>

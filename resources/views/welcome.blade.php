@@ -3,7 +3,10 @@
 @section('content')
 
 <div class="cont">
-
+<!-- <div class="spinner">  
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+  </div>  -->
     <div class="justify-content-center cont1">
       <input type="text" class="form-control from search" id="" aria-describedby="" placeholder="{{ __('msg.from')}}">
       <input type="text" class="form-control to search" id="" aria-describedby="" placeholder="{{ __('msg.to')}}">
@@ -32,11 +35,11 @@
 
   <div class="cont3">
     <h1 class="text-light new text-center"> New to us? <a href="register"><button type="button"
-          class="btn-lg btn-danger btn-cont3">
+          class="btn-lg btn-danger btn-cont3 btn-new">
           Sign Up!
         </button></a></h1>
     <h1 class="text-light timetable text-center"> Check our Timetables <a href=""><button type="button"
-          class="btn-lg btn-danger btn-cont3">
+          class="btn-lg btn-primary btn-cont3 btn-timetable">
           Check out!
         </button></a></h1>
 
@@ -46,6 +49,10 @@
 
 <style>
 
+.spinner{
+  margin:auto;
+  text-align: center;
+}
 
   .cont1 {
     background-image: url('logo/background5.jpg');
@@ -59,7 +66,7 @@
   }
 
   .search{
-    height:auto;
+    /*height:auto;*/
     margin-top:13%;
     margin-bottom:14%;
     margin-right:0.3%;
@@ -118,6 +125,10 @@
     margin-left: auto;
   }
 
+  .news-svg:hover{
+    
+  }
+
   .email {
     /*Enter email textbox*/
     margin: auto;
@@ -168,14 +179,25 @@
     display: inline-block;
     font-family: "Lucida Console", Monaco, monospace;
     width: 25%;
-
+    margin-left:2%;
   }
 
   .btn-cont3 {
-    margin-top: 25px;
+    margin-top: 2%;    
+  }
+
+  .btn-timetable:hover{
+    filter: contrast(75%);
   }
 
   body {}
 </style>
-
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+  $(window).load(function(){
+     $('.spinner').fadeOut();
+});
+</script>
+@stop
