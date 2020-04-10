@@ -59,9 +59,9 @@ class LoginController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -84,7 +84,7 @@ class LoginController extends Controller
                 'email' => $githubUser->getEmail(),
                 'name' => $githubUser->getName(),
                 'provider_id' => $githubUser->getId(),
-                /*'provider'  => 'github'   <-- for multiple social accounts use this*/
+                'provider'  => 'github'  /* <-- for multiple social accounts use this*/
             ]);
         }
 
@@ -98,6 +98,32 @@ class LoginController extends Controller
      
      /*   return redirect($this->redirectTo);    //redirectTo is home page, look Up )*/
 
-        // $user->token;
+        // $user->token;   
+        
+
+        //Facebook function should look something like this
+        try {
+            $user = Socialite::driver('facebook')->user();
+            $create['name'] = $user->getName();
+            $create['email'] = $user->getEmail();
+            $create['facebook_id'] = $user->getId();
+
+
+            $userModel = new User;
+            $createdUser = $userModel->addNew($create);
+            Auth::loginUsingId($createdUser->id);
+
+
+            return redirect()->route('home');
+
+
+        } catch (Exception $e) {
+
+
+            return redirect('auth/facebook');
+
+        }
     }
+
+    
 }
