@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
 use App\User;
-
+use App\SocialProvider;
 class LoginController extends Controller
 {
     /*
@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/welcome';
+//    protected $redirectTo = '/welcome';
     /*protected $redirectTo = RouteServiceProvider::HOME;*/
     
     protected function authenticated(Request $request, $user)
@@ -64,66 +64,46 @@ class LoginController extends Controller
         return Socialite::driver($provider)->redirect();
     }
 
+
     /**
      * Obtain the user information from GitHub.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
-        $githubUser = Socialite::driver('github')->user();
-
-        /*dd($githubUser);*/
-        $user = User::where('provider_id', $githubUser->getId())->first();  // Checks if user already logged into his account by github then selects his id and just logs in
-
-        if (!$user) {
-
-            // add user to database
-            $user = User::create([
-                'email' => $githubUser->getEmail(),
-                'name' => $githubUser->getName(),
-                'provider_id' => $githubUser->getId(),
-                'provider'  => 'github'  /* <-- for multiple social accounts use this*/
-            ]);
+        try
+        {
+            $socialUser = Socialite::driver($provider)->user();
         }
-
-        //login the user
-        Auth::login($user, true);
-
-        if ($user->isAdmin) {                            /*  If the user is admin (isAdmin=1 in DB) then redirect to admin page, if not then redirect to user*/
-            return redirect('admin');
+        catch(\Exception $e)
+        {
+            return redirect('/welcome');
         }
-        return redirect('user');
-     
-     /*   return redirect($this->redirectTo);    //redirectTo is home page, look Up )*/
+        //check if we have logged provider
+        $socialProvider = SocialProvider::where('provider_id',$socialUser->getId())->first();
+        if(!$socialProvider)
+        {
+            //create a new user and provider
+            $user = User::firstOrCreate(
+                ['email' => $socialUser->getEmail()],
+                ['name' => $socialUser->getName()]
+            );
 
-        // $user->token;   
-        
-
-        //Facebook function should look something like this
-        try {
-            $user = Socialite::driver('facebook')->user();
-            $create['name'] = $user->getName();
-            $create['email'] = $user->getEmail();
-            $create['facebook_id'] = $user->getId();
-
-
-            $userModel = new User;
-            $createdUser = $userModel->addNew($create);
-            Auth::loginUsingId($createdUser->id);
-
-
-            return redirect()->route('home');
-
-
-        } catch (Exception $e) {
-
-
-            return redirect('auth/facebook');
+            $user->socialProviders()->create(
+                ['provider_id' => $socialUser->getId(), 'provider' => $provider]
+            );
 
         }
+        else
+            $user = $socialProvider->user;
+
+        auth()->login($user);
+
+        return redirect('/welcome');
+
     }
+
 
     
 }

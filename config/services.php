@@ -36,22 +36,23 @@ return [
         'redirect' => env('GITHUB_CALLBACK'),
     ],
 
-    'google' => [
-        'client_id'     => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect'      => env('GOOGLE_REDIRECT')
-    ],
+   
 
     'facebook' => [
-        'client_id' => env('FACEBOOK_CLIENT_ID'),
-        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => env('FACEBOOK_CALLBACK_URL'),
+        'client_id' => '672937120128916',
+        'client_secret' => '635a7ef69ffa6f6c61430ffd71358ca8',
+        'redirect' => 'https://localhost:8000/auth/facebook/callback',
     ],
 
+    'google' => [
+        'client_id' => '941399147259-uf4a34f7mer3ucqm6fk7qfd6ufr9d3ep.apps.googleusercontent.com',
+        'client_secret' => 'kg9nDgcQPfx7fpIEpKGkVrHm',
+        'redirect' => 'http://localhost:8000/auth/google/callback',
+    ],
     'twitter' => [
-        'client_id' => 'app id',
-        'client_secret' => 'add secret',
-        'redirect' => 'http://learnl52.hd/auth/twitter/callback',
+        'client_id' => 'dBMKp786qSyXTKWWUb1AuGgpc',
+        'client_secret' => 'Isiul1IW7soPuSWUunXozrZfkeMqQhE5mVlRZbQOSf6yRatOnl',
+        'redirect' => 'http://localhost:8000/auth/twitter/callback',
     ],
 
 ];
