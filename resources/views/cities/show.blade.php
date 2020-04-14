@@ -48,7 +48,7 @@
       </div>
       <br>
       <button type="submit"  class="btn btn-primary">Delete</button>
-      <button type="submit"  class="btn btn-danger " > Back</button>
+      <a href="http://127.0.0.1:8000/cities" class="btn btn-danger" >back</a>
 </form>
 </body>
 </html>

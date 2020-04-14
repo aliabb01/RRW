@@ -1,12 +1,44 @@
+@extends('layouts.app')
+@section('content')
+    
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Apollon Admin</title>
+    <title>ADmin Appolo</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
+      <h1>Users </h1>
+      <br>
+      <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">is_Admin</th>
+            <th scope="col">name</th>
+            <th scope="col">email</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+            @foreach($useres as $i)
+            <tr>
+                <td>{{$i->id}}</td>
+                <td>{{$i->isAdmin}}</td>
+                <td>{{$i->name}}</td>
+                <td>{{$i->email}}</td>
+               
+               
+           
+            </tr>
+            @endforeach
+        </tbody>
+      </table>
+     
+      
       <style>
           @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
 *{
@@ -17,6 +49,7 @@
 }
 body {
   font-family: 'Roboto', sans-serif;
+  color: green;
 }
 .sidebar {
   position: fixed;
@@ -123,8 +156,8 @@ h2
     </header>
   <ul>
     <li><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
-   <li ><a href="useres" ><i class="fas fa-user"></i>User</a></li> 
-    <li><a href="cities"><i class="fas fa-city"></i>cities</a></li>
+   <li ><a href="" ><i class="fas fa-user"></i>User</a></li> 
+    <li><a href="#"><i class="fas fa-city"></i>cities</a></li>
     <li><a href="#"><i class="fas fa-calendar-check"></i>ticket </a></li>
     <li><a href="#"><i class="fas fa-suitcase-rolling"></i>Passenger List</a></li>
     <li><a href="#"><i class="fas fa-train"></i>Trips</a></li>
@@ -132,6 +165,8 @@ h2
   </ul>
 </div>
  <section></section>
-
+ 
+ 
   </body>
 </html>
+@endsection

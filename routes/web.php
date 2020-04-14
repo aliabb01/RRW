@@ -69,4 +69,4 @@ Route::resource('tickets','ticketcontroller');
 Route::post('/store','citycontroller@store');
 Route::put('/upd/{id}','citycontroller@update');
 Route::delete('/del/{id}','citycontroller@destroy');
-//Route::resource('/useres','usercontroller');
+Route::resource('useres','usercontroller');
