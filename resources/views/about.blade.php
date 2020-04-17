@@ -5,17 +5,28 @@
   <h1>Who are we <img class="question animated shake" src="https://img.icons8.com/nolan/96/question-mark.png" /></h1>  
 </div>
 
-<div class="container column">
+<div class="container row">
 
   <div class="card c1 animated zoomIn" id="c1" style="width: 18rem;">
     <div class="card-header text-center c1h" id="c1h">
-      <img src="https://06edkm734f-flywheel.netdna-ssl.com/wp-content/uploads/2018/01/Who-are-we-icon.svg" class="card-img-top who-img" alt="Who are we">
+      <img id="c1img" src="https://06edkm734f-flywheel.netdna-ssl.com/wp-content/uploads/2018/01/Who-are-we-icon.svg" class="card-img-top who-img" alt="Who are we">
       <h3 class="card-title">Who are we?</h3>
     </div>
     <div class="card-body">      
       <h5 class="card-text">We are Apollon Railway. A railway company based in Kaunas, Lithuania.</h5>
     </div>
   </div>
+  
+  <div class="card c2 animated zoomIn" id="c2" style="width: 18rem;">
+    <div class="card-header text-center c2h" id="c2h">
+      <img src="https://img.icons8.com/color/100/000000/ask-question.png"/>
+      <h3 class="card-title">What do we do?</h3>
+    </div>
+    <div class="card-body">      
+      <h5 class="card-text">We support reservation services for railways through our website.</h5>
+    </div>
+  </div>
+  
 
 </div>
 
@@ -23,8 +34,12 @@
   body{
   }
 
+  .card{
+    margin-left:10%;
+  }
+
   .card-body{
-    height:250px;    
+    height:250px;
   }
 
   .card-text{
@@ -51,6 +66,29 @@
 
   #c1:hover > #c1h{
     filter: grayscale(0);
+   /* color:white;*/
+  
+  }
+
+  .c2{
+    margin-top:2%;
+    margin-bottom:3%;
+    border-radius: 10%; 
+  }
+
+  .c2:hover{
+    transform: scale(1.080);
+    transition: color .8s ease-in-out;
+  }
+
+  .c2h{
+    background-color:coral;  
+        
+    transition: color 0.8s, ease;
+  }
+
+  #c2:hover > #c2h{
+    filter:contrast(195%); 
    /* color:white;*/
   
   }

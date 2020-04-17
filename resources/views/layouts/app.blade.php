@@ -32,6 +32,9 @@
     <!-- Flags -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
 
+    <!-- Admin -->
+
+    
     <!-- Page Loading -->
 
 </head>
@@ -89,7 +92,7 @@
         .dr-lang{
             text-decoration: none;
         }
-
+        
         .nav-item {
             /* 15px between each nav-item */
             margin-right: 15px;
@@ -103,6 +106,7 @@
             /*box-shadow: */
             margin-top: 2%;
             transition: font-size .3s linear;
+            
         }
 
         /*.nav-link {
@@ -125,7 +129,7 @@
                                         transition: var(--backColor) 5s, color .5s;
                                     }*/
 
-        /* Different is the bottom red border animation that comes when hovered on navbar item*/
+        /* Different is the bottom green border animation that comes when hovered on navbar item*/
         .different {
             border: none;
             position: relative;
@@ -360,7 +364,6 @@
         </nav>
         <main class="">
             @yield('content')
-            
         </main>
 
     </div>

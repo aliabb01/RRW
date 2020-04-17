@@ -4,9 +4,7 @@
 <div class="container">
     <style>
         body {
-            background-image: url("logo/background2.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;            
+            background-color: rgb(239, 240, 241);            
         }
 
         .card-header{

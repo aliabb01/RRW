@@ -5,9 +5,6 @@
     <style>
         body {
             background-color: rgb(239, 240, 241);
-            background-image: url("logo/background2.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
         }
 
         .bg-log {
@@ -124,19 +121,19 @@
                     </form>
                     <br>
                     <hr class="bg-dark">
-                    
-                    <a href="{{ url('auth/google') }}" class="btn btn-social btn-google btn-lg log-face text-primary"><span
-                        class="fab fa-google "></span>
-                    <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> google</a>
+                    <a href="{{ url('auth/google') }}" class="btn btn-social btn-google btn-lg text-primary"><span
+                            class="fab fa-google log-google"></span>
+                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Google</a>
+
                     <a href="{{ url('auth/facebook') }}" class="btn btn-social btn-facebook btn-lg log-face"><span
                             class="fab fa-facebook"></span>
                         <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Facebook</a>
-                        
+
                         <a href="{{ url('auth/twitter') }}" class="btn btn-social btn-twitter btn-lg log-twit"><span
                             class="fab fa-twitter"></span>
                         <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Twitter</a>
 
-                    <a href="{{ url('/auth/github') }}" class="btn btn-social btn-github btn-lg log-git"><span
+                    <a href="{{ url('auth/github') }}" class="btn btn-social btn-github btn-lg log-git"><span
                             class="fab fa-github"></span>
                         <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Github</a>
 

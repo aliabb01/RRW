@@ -12,8 +12,7 @@
       <input type="text" class="form-control to search" id="" aria-describedby="" placeholder="{{ __('msg.to')}}">
       <input placeholder="{{ __('msg.departure')}}" class="form-control departure search" type="text" onfocus="(this.type='date')"
         onblur="(this.type='text')" id="date" />
-      <input placeholder="{{ __('msg.arrival')}}" class="form-control arrival search" type="text" onfocus="(this.type='date')"
-        onblur="(this.type='text')" id="date" />
+        <button type="button" class="btn search-btn search" id="search-btn"> <span class="search-label">Search <i class="fas fa-search search-ico" id="search-ico"></i></span></button>
     </div>
 
  
@@ -67,10 +66,40 @@
 
   .search{
     /*height:auto;*/
+    -webkit-box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
+-moz-box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
+box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
     margin-top:13%;
     margin-bottom:14%;
-    margin-right:0.3%;
-    width:15%;
+    margin-right:0.1%;
+    height:3.5rem;
+    width:11%;
+  }
+
+  .search-btn{
+    background-color:#5893D3;
+    margin-top:13%;
+    margin-bottom:14%;
+    margin-left:1%;
+    height:3.5rem;
+    width:11%;
+  }
+  .search-btn:hover{
+    filter:contrast(150%);    
+  }
+
+  .search-label{
+    font-size:1.5rem;
+  }
+
+  .search-ico{
+    -webkit-box-shadow: 0px 10px 5px -7px rgba(0,0,0,0.55);
+-moz-box-shadow: 0px 10px 5px -7px rgba(0,0,0,0.55);
+box-shadow: 0px 10px 5px -7px rgba(0,0,0,0.55);
+    margin-left:15%;
+  }
+  #search-btn:hover #search-ico{
+    color:orange;
   }
 
  /* .from {
@@ -186,8 +215,12 @@
     margin-top: 2%;    
   }
 
+  .btn-new:hover{
+    filter: contrast(90%);
+  }
+
   .btn-timetable:hover{
-    filter: contrast(75%);
+    filter: contrast(90%);
   }
 
   body {}
