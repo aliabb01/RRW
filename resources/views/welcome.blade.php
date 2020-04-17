@@ -77,7 +77,7 @@ box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
   }
 
   .search-btn{
-    background-color:#5893D3;
+    background-color:#5893D3;    
     margin-top:13%;
     margin-bottom:14%;
     margin-left:1%;
@@ -93,9 +93,6 @@ box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
   }
 
   .search-ico{
-    -webkit-box-shadow: 0px 10px 5px -7px rgba(0,0,0,0.55);
--moz-box-shadow: 0px 10px 5px -7px rgba(0,0,0,0.55);
-box-shadow: 0px 10px 5px -7px rgba(0,0,0,0.55);
     margin-left:15%;
   }
   #search-btn:hover #search-ico{
