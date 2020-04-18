@@ -11,8 +11,15 @@
       <input type="text" class="form-control from search" id="" aria-describedby="" placeholder="{{ __('msg.from')}}">
       <input type="text" class="form-control to search" id="" aria-describedby="" placeholder="{{ __('msg.to')}}">
       <input placeholder="{{ __('msg.departure')}}" class="form-control departure search" type="text" onfocus="(this.type='date')"
-        onblur="(this.type='text')" id="date" />
-        <button type="button" class="btn search-btn search" id="search-btn"> <span class="search-label">Search <i class="fas fa-search search-ico" id="search-ico"></i></span></button>
+        onblur="(this.type='text')" id="date" />        
+        <div class="search">
+        <select class="class" placeholder="Class">
+          <option value="choose"><span>Choose Class</span></option>       
+          <option value="eco">Economy Class</option>
+          <option value="bus">Business Class</option>
+        </select>
+      </div>
+        <button type="button" class="btn search-btn search" id="search-btn"> <span class="search-label">{{ __('msg.search')}} <i class="fas fa-search search-ico" id="search-ico"></i></span></button>
     </div>
 
  
@@ -65,7 +72,7 @@
   }
 
   .search{
-    /*height:auto;*/
+    /*height:auto;*/    
     -webkit-box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
 -moz-box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
 box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
@@ -93,10 +100,23 @@ box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
   }
 
   .search-ico{
-    margin-left:15%;
+    margin-left:30%;
   }
-  #search-btn:hover #search-ico{
+  
+  #search-btn #search-ico{          /* HOVER OFF */
+    transition:ease 0.3s;
+  }
+
+  #search-btn:hover #search-ico{     /* HOVER ON */
     color:orange;
+    margin-left:15%;
+    transition:ease 0.3s;
+  }
+
+  .class{
+    border-radius:4%;
+    width:100%;
+    height: 100%;
   }
 
  /* .from {
@@ -145,8 +165,8 @@ box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
   }
 
   .news-svg {
-    width: 10%;
-    height: 10%;
+    width: 200px;
+    height: 200px;
     margin-top: auto;
     margin-left: auto;
   }
