@@ -14,6 +14,7 @@ return [
     'departure' => "Departure",
     'arrival' => "Arrival",
     'language' => "Language",
+    'search' => "Search",
 ]
 
 ?>

@@ -14,6 +14,7 @@ return [
     'departure' => "Выезд",
     'arrival' => "Прибытие",    
     'language' => "Язык",
+    'search' => "Поиск",
 ]
 
 ?>
