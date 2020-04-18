@@ -20,7 +20,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link href="//db.onlinewebfonts.com/c/dc6734899329fcbdd770b32dc47059d8?family=Sofia+Pro+Light" rel="stylesheet"
+        type="text/css" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
@@ -30,11 +31,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <!-- Flags -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css"
+        integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
 
     <!-- Admin -->
 
-    
+
     <!-- Page Loading -->
 
 </head>
@@ -49,13 +51,20 @@
             margin-left: 50px;
         }
 
-        .logo-name:hover{
+        .logo-name:hover {
             filter: drop-shadow(0px 3px 7px);
         }
 
-        .img-logo:hover{   /*  Changes the background color when hovered on color  */
-            filter:contrast(200%);
-            background-color:           
+        .img-logo {
+            /* Hover OFF */
+            transition: 0.2s;
+        }
+
+        .img-logo:hover {
+            /*  Changes the background color when hovered on color  */
+            filter: contrast(200%);
+            transition: 0.2s;
+            /* Hover ON */
         }
 
         .line {
@@ -89,10 +98,10 @@
             color: white;
         }
 
-        .dr-lang{
+        .dr-lang {
             text-decoration: none;
         }
-        
+
         .nav-item {
             /* 15px between each nav-item */
             margin-right: 15px;
@@ -106,7 +115,6 @@
             /*box-shadow: */
             margin-top: 2%;
             transition: font-size .3s linear;
-            
         }
 
         /*.nav-link {
@@ -159,7 +167,13 @@
             margin: 0;
         }
 
+        #log~#ico-log {
+            /* HOVER OFF */
+            transition: color .5s;
+        }
+
         #log:hover~#ico-log {
+            /* HOVER ON */
             color: green;
             transition: color .5s;
         }
@@ -169,15 +183,103 @@
             margin-left: 15px;
         }
 
+        #reg~#ico-reg {
+            /* HOVER OFF */
+            transition: color .5s;
+        }
+
         #reg:hover~#ico-reg {
+            /* HOVER ON */
             color: red;
             transition: color .5s;
+        }
+
+        /* Color Switcher */
+        .onoffswitch {
+            position: relative;
+            width: 90px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .onoffswitch-checkbox {
+            display: none;
+        }
+
+        .onoffswitch-label {
+            display: block;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid #999999;
+            border-radius: 20px;
+        }
+
+        .onoffswitch-inner {
+            display: block;
+            width: 200%;
+            margin-left: -100%;
+            transition: margin 0.3s ease-in 0s;
+        }
+
+        .onoffswitch-inner:before,
+        .onoffswitch-inner:after {
+            display: block;
+            float: left;
+            width: 50%;
+            height: 30px;
+            padding: 0;
+            line-height: 30px;
+            font-size: 11px;
+            color: white;
+            font-family: Trebuchet, Arial, sans-serif;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .onoffswitch-inner:before {
+            content: "DARK";
+            padding-left: 10px;
+            background-color: #34A7C1;
+            color: #FFFFFF;
+        }
+
+        .onoffswitch-inner:after {
+            content: "LIGHT";
+            padding-right: 10px;
+            background-color: #EEEEEE;
+            color: #999999;
+            text-align: right;
+        }
+
+        .onoffswitch-switch {
+            display: block;
+            width: 35px;
+            margin: 6px;
+            margin-top:1px;
+            float:right;
+            background: #FFFFFF;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 42px;
+            border: 2px solid #999999;
+            border-radius: 20px;
+            transition: all 0.3s ease-in 0s;
+        }
+
+        .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+            margin-left: 0;
+        }
+
+        .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+            right: 0px;
         }
     }
 
     body {
         /*background-image: url(../logo/background4.jpg);*/
-        
+
     }
 
     .bg-nav {
@@ -186,22 +288,23 @@
         /* grey */
     }
 
-    
+
 
     @media only screen and (min-width:768px) {
         /* Medium devices (landscape tablets, 768px and up) */
 
         .img-logo {
             width: 75%;
-        }        
+        }
     }
 
-    @media only screen and (max-width:768px){
-        .nav-link{
-            font-size:80%;
+    @media only screen and (max-width:768px) {
+        .nav-link {
+            font-size: 80%;
         }
-        .logo-name{
-            font-size:80%;
+
+        .logo-name {
+            font-size: 80%;
         }
     }
 
@@ -241,39 +344,39 @@
 
 
             <div class="dropdown dr-lang language-selector text-light">
-                {{ __('msg.language')}}  : 
+                {{ __('msg.language')}} :
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-                  
+
                 </a>
                 <ul class="dropdown-menu ml-1">
-                  <li>
-                    <a class="dropdown-item" href="{{ url('locale/en') }}">
-                        <i class="flag-icon flag-icon-gb"></i>
-                      <span>English</span>
-                    </a>
-                  </li>
-                  <li class="active">
-                    <a class="dropdown-item" href="{{ url('locale/ru') }}">
-                        <i class="flag-icon flag-icon-ru"></i>
-                      <span>Russian</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="{{ url('locale/lt') }}">
-                        <i class="flag-icon flag-icon-lt"></i>
-                      <span>Lithuanian</span>
-                    </a>
-                  </li>                  
+                    <li>
+                        <a class="dropdown-item" href="{{ url('locale/en') }}">
+                            <i class="flag-icon flag-icon-gb"></i>
+                            <span>English</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="dropdown-item" href="{{ url('locale/ru') }}">
+                            <i class="flag-icon flag-icon-ru"></i>
+                            <span>Russian</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{ url('locale/lt') }}">
+                            <i class="flag-icon flag-icon-lt"></i>
+                            <span>Lithuanian</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
 
-         <!--   <ul>
+            <!--   <ul>
                 <li><a href="{{ url('locale/en') }}"><i class="flag-icon flag-icon-us"></i> EN</a></li>
                 <li><a href="{{ url('locale/ru') }}"><i class="flag-icon flag-icon-ru"></i> RU</a></li>
                 <li><a href="{{ url('locale/lt') }}"><i class="flag-icon flag-icon-lt"></i> LT</a></li>
             </ul>  -->
-            
+
             <div class="container">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -311,7 +414,16 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"
+                            checked>
+                        <label class="onoffswitch-label" for="myonoffswitch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
                     <ul class="navbar-nav ml-auto">
+
 
 
                         <!-- Authentication Links -->
@@ -338,14 +450,14 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-                           
+
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="">
                                     My Profile
-                                                                      </a>
-                                 <a class="dropdown-item" href="admin">
-                                   Settings
-                                 </a>
+                                </a>
+                                <a class="dropdown-item" href="admin">
+                                    Settings
+                                </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
