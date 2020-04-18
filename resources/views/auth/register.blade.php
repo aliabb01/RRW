@@ -4,7 +4,7 @@
 <div class="container">
     <style>
         body {
-            background-color: rgb(239, 240, 241);            
+            background-color: #C2DFFF /*rgb(239, 240, 241)*/;            
         }
 
         .card-header{
