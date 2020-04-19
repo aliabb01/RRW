@@ -20,7 +20,7 @@
     <div class="footer-center">
 
         <div class="address-div">
-            <a title="Headquarters" href="https://www.google.com/maps/place/Kauno+technologijos+universitetas,+Informaciniu+technologiju+diegimo+centras/@54.9038668,23.9572548,19z/data=!3m1!4b1!4m5!3m4!1s0x0:0xfb8cbf149e4e0966!8m2!3d54.903866!4d23.957802"><i class="fa fa-map-marker map-ico"></i></a>
+            <a title="HeadQuarters" href="https://www.google.com/maps/place/Kauno+technologijos+universitetas,+Informaciniu+technologiju+diegimo+centras/@54.9038668,23.9572548,19z/data=!3m1!4b1!4m5!3m4!1s0x0:0xfb8cbf149e4e0966!8m2!3d54.903866!4d23.957802"><i class="fa fa-map-marker map-ico"></i></a>
             <p class="address"><span>444 S. Cedros Ave</span> Solana Beach, California</p>
         </div>
 
@@ -47,16 +47,15 @@
 
 
     </div>
-    <hr class="bg-light">
-
-    <div class="text-center footer-icons">
+    <hr class="bg-light">        
+    <div class="text-center get-in-touch footer-icons">
         <span class="text-light" style="font-size:18px">{{ __('msg.get-in-touch')}} :</span>
     </div>
-    <div class="footer-icons text-center">
-        <a class="footer-face" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a class="footer-twit" href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a class="footer-git" href="#" title="GitHub"><i class="fab fa-github"></i></a>
+    <div class="footer-icons text-center">                
         <a class="footer-lnkdn" href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a class="footer-git" href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a class="footer-twit" href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a class="footer-face" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
     </div>
     <div class="footer-left text-light">
         <span class="madeby">{{ __('msg.made-by-using-laravel')}} <a href="https://laravel.com/"><i class="fab fa-2x fa-laravel laravel-ico"
@@ -68,7 +67,7 @@
 </footer>
 <div class="bg-light copyright-div text-center">
     <small class="text-dark copyright"> &copy; 2020, <a style="font-weight:800; color:#003166;"
-            href="welcome">ApollonRailway</a> | {{ __('msg.all-rights-reserved')}} </small>
+            title="Apollon" href="welcome">ApollonRailway</a> | {{ __('msg.all-rights-reserved')}} </small>
 </div>
 
 <style>
@@ -220,6 +219,7 @@
 
     .footer-distributed .footer-icons {
         margin-top: 25px;
+        
     }
 
     .footer-distributed .footer-icons a {
@@ -227,6 +227,7 @@
         width: 35px;
         height: 35px;
         cursor: pointer;
+        float:right;
         font-size: 30px;
         text-align: center;
         line-height: 35px;
@@ -249,6 +250,14 @@
     .madeby {
         font-family: "Sofia Pro Light";
         font-size: 20px;
+    }
+
+    .footer-logo{
+        margin-left:22%;
+    }
+
+    .get-in-touch{
+        margin-left:87%;
     }
 
     .footer-face {
