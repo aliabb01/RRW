@@ -2,9 +2,9 @@
 
     <div class="footer-left">
 
-      
+
         <span class="text-light footer-brand-name">Apollon Railway</span><br><br>
-      <small class="text-light footer-brand-small">Travel made easier...</small>
+        <small class="text-light footer-brand-small">{{ __('msg.travel-made-easier')}}</small>
         <p class="footer-links">
             <a href="#" class="link-1">Home</a>
             <a href="#">Blog</a>
@@ -14,22 +14,22 @@
             <a href="#">Contact</a>
         </p>
 
-        
+
     </div>
 
     <div class="footer-center">
 
-        <div>
-            <i class="fa fa-map-marker map-ico"></i>
+        <div class="address-div">
+            <a title="Headquarters" href="https://www.google.com/maps/place/Kauno+technologijos+universitetas,+Informaciniu+technologiju+diegimo+centras/@54.9038668,23.9572548,19z/data=!3m1!4b1!4m5!3m4!1s0x0:0xfb8cbf149e4e0966!8m2!3d54.903866!4d23.957802"><i class="fa fa-map-marker map-ico"></i></a>
             <p class="address"><span>444 S. Cedros Ave</span> Solana Beach, California</p>
         </div>
 
-        <div>
+        <div class="phone-div">
             <i class="fa fa-phone phone-ico"></i>
             <p class="phone">+1.555.555.5555</p>
         </div>
 
-        <div>
+        <div class="mail-div">
             <i class="fa fa-envelope mail-ico"></i>
             <p class="mail"><a href="mailto:apollonrailway@gmail.com">apollonrailway@gmail.com</a></p>
         </div>
@@ -39,7 +39,7 @@
     <div class="footer-right">
 
         <p class="footer-company-about">
-            <span class="text-light">About the company</span>
+            <span class="text-light">{{ __('msg.about-the-company')}}</span>
             Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
             vehicula sit amet.
         </p>
@@ -48,30 +48,38 @@
 
     </div>
     <hr class="bg-light">
-    
+
     <div class="text-center footer-icons">
-        <span class="text-light" style="font-size:18px">Get In Touch With Us</span>    
-    </div>    
+        <span class="text-light" style="font-size:18px">{{ __('msg.get-in-touch')}} :</span>
+    </div>
     <div class="footer-icons text-center">
-        <a class="footer-face" href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a class="footer-face" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a class="footer-twit" href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
         <a class="footer-git" href="#" title="GitHub"><i class="fab fa-github"></i></a>
-        <a class="footer-lnkdn" href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a class="footer-lnkdn" href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
     </div>
     <div class="footer-left text-light">
-        <span class="madeby">Made By Using <a href="https://laravel.com/"><i class="fab fa-2x fa-laravel laravel-ico" title="Laravel"></i></a></span>
+        <span class="madeby">{{ __('msg.made-by-using-laravel')}} <a href="https://laravel.com/"><i class="fab fa-2x fa-laravel laravel-ico"
+                    title="Laravel"></i></a></span>
     </div>
-    
-    
+
+
 
 </footer>
 <div class="bg-light copyright-div text-center">
-    <small class="text-dark copyright">  &copy; 2020, <a style="font-weight:800; color:#003166;" href="welcome">ApollonRailway</a> | All Rights Reserved </small>
+    <small class="text-dark copyright"> &copy; 2020, <a style="font-weight:800; color:#003166;"
+            href="welcome">ApollonRailway</a> | {{ __('msg.all-rights-reserved')}} </small>
 </div>
 
-<style>    
-@import url(//db.onlinewebfonts.com/c/dc6734899329fcbdd770b32dc47059d8?family=Sofia+Pro+Light);
-@font-face {font-family: "Sofia Pro Light"; src: url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.eot"); src: url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff") format("woff"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.svg#Sofia Pro Light") format("svg"); }
+<style>
+    @import url(//db.onlinewebfonts.com/c/dc6734899329fcbdd770b32dc47059d8?family=Sofia+Pro+Light);
+
+    @font-face {
+        font-family: "Sofia Pro Light";
+        src: url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.eot");
+        src: url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff") format("woff"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.svg#Sofia Pro Light") format("svg");
+    }
+
     .footer-distributed {
         background: #26282C;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -133,11 +141,10 @@
     /* Footer Center */
 
     .footer-distributed .footer-center {
-        width: 35%;
+        width: 32%;
     }
 
     .footer-distributed .footer-center i {
-        background-color: #33383b;
         color: #ffffff;
         font-size: 25px;
         width: 38px;
@@ -226,87 +233,141 @@
         margin-right: 15px;
     }
 
-    .footer-brand-name{
+    .footer-brand-name {
         font-family: "Sofia Pro Light";
-        font-size: 32px;    
-        margin-bottom:50px;  
-        margin-right:5%;  
+        font-size: 32px;
+        margin-bottom: 50px;
+        margin-right: 5%;
     }
 
-    .footer-brand-small{
+    .footer-brand-small {
         font-family: "Sofia Pro Light";
-        font-size:15px;
-        margin-left:7%;        
+        font-size: 15px;
+        margin-left: 7%;
     }
 
-    .madeby{
+    .madeby {
         font-family: "Sofia Pro Light";
-        font-size:20px;
+        font-size: 20px;
     }
 
-    .footer-face{
-        color:white;
-        filter:contrast(80%);        
+    .footer-face {
+        color: white;
+        filter: contrast(80%);
     }
 
-    .footer-face:hover{
-        color:#4267B2;
-        filter:contrast(125%);                     
+    .footer-face:hover {
+        color: #4267B2;
+        filter: contrast(125%);
     }
 
-    .footer-twit{
-        color:white;
-        filter:contrast(80%);  
+    .footer-twit {
+        color: white;
+        filter: contrast(80%);
     }
 
-    .footer-twit:hover{
-        color:#1DA1F2;
-        filter:contrast(125%);
+    .footer-twit:hover {
+        color: #1DA1F2;
+        filter: contrast(125%);
     }
 
-    .footer-git{
-        color:white;
-        filter:contrast(80%);
+    .footer-git {
+        color: white;
+        filter: contrast(80%);
     }
 
-    .footer-git:hover{
-        color:#6cc644;
-        filter:contrast(125%);
+    .footer-git:hover {
+        color: #6cc644;
+        filter: contrast(125%);
     }
 
-    .footer-lnkdn{
-        color:white;
-        filter:contrast(80%);
+    .footer-lnkdn {
+        color: white;
+        filter: contrast(80%);
     }
 
-    .footer-lnkdn:hover{
-        color:#2867B2;
-        filter:contrast(125%);
+    .footer-lnkdn:hover {
+        color: #2867B2;
+        filter: contrast(125%);
     }
 
-    .address:hover{
-        filter:contrast(300%);
+    .address-div .map-ico {
+        transition: 0.5s;
     }
 
-    .mail:hover{
-        filter:contrast(300%);
+    .address-div:hover .map-ico {
+        background-color: aqua;
+        color: red;
+        transition: 0.5s;
+        -webkit-box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
     }
 
-    .laravel-ico{
-        color:#f55247;
+    .phone-div .phone-ico {
+        transition: 0.5s;
     }
-    .laravel-ico:hover{
-        filter:contrast(150%);
+
+    .phone-div:hover .phone-ico {
+        background-color: aqua;
+        color: green;
+        transition: 0.5s;
+        -webkit-box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
+    }
+
+    .mail-div .mail-ico {
+        transition: 0.5s;
+    }
+
+    .mail-div:hover .mail-ico {
+        background-color: aqua;
+        color: red;
+        transition: 0.5s;
+        -webkit-box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
+        box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
+    }
+
+    .map-ico {
+        background-color: #33383b;
+    }
+
+    .phone-ico {
+        background-color: #33383b;
+    }
+
+    .mail-ico {
+        background-color: #33383b;
+    }
+
+    .address:hover {
+        /*filter:drop-shadow(0px 9px 10px gray);*/
+    }
+
+    .mail:hover {
+        filter: contrast(300%);
+    }
+
+    .laravel-ico {
+        color: #f55247;
+        margin-left:5px;
+    }
+
+    .laravel-ico:hover {
+        filter: contrast(150%);
     }
 
 
-    .copyright{
-        font-family:"Sofia Pro Light";
-        font-size:18px;
+    .copyright {
+        font-family: "Sofia Pro Light";
+        font-size: 18px;
     }
-    .copyright-div{
-        width:100%;
-        height:30px;
+
+    .copyright-div {
+        width: 100%;
+        height: 30px;
     }
 
     /* If you don't want the footer to be responsive, remove these media queries */

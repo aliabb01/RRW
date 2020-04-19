@@ -23,13 +23,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-transparent animated zoomIn">
-                <div class="card-header text-center text-light bg-dark lead">{{ __('REGISTER') }}</div>
+                <div class="card-header text-center text-light bg-dark lead">{{ __('msg.register') }}</div>
                 <div class="card-body text-dark bg-reg">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}  :</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('msg.username') }}  :</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -45,7 +45,7 @@
 
                         <div class="form-group row">
                             <label for="email"
-                                class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}  :</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('msg.email') }}  :</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -61,7 +61,7 @@
 
                         <div class="form-group row">
                             <label for="password"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Password') }}  :</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('msg.password') }}  :</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password"
@@ -78,7 +78,7 @@
 
                         <div class="form-group row">
                             <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}  :</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('msg.confirm-password') }}  :</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}  :</label>
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('msg.phone') }}  :</label>
                     
                             <div class="col-md-6">
                                 <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required autofocus>
@@ -100,7 +100,7 @@
                         </div>
                     
                         <div class="form-group row">
-                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}  :</label>
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('msg.country') }}  :</label>
                     
                             <div class="col-md-6">
                                 <input id="country" type="text" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" name="country" value="{{ old('country') }}" required autofocus>
@@ -116,7 +116,7 @@
                         <div class="form-group row mb-0 reg">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-success btn-reg">
-                                    {{ __('Register') }}
+                                    {{ __('msg.register') }}
                                 </button>
                             </div>
                         </div>

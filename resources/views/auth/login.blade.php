@@ -17,16 +17,51 @@
             padding-bottom: 20%;
         }
 
+        .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #728FCE;
+        }
+
+        .separator::before {
+            margin-right: .50em;
+        }
+
+        .separator::after {
+            margin-left: .50em;
+        }
+
         .btn-social {
-            margin:auto;
-            margin-top:1%;
+            margin: auto;
+            margin-top: 1%;
             width: 45%;
         }
 
-        .log-git {}
+        .log-google{
+            float:center;
+            margin-left:3%;
+        }
 
+        .log-twit{
+            float:center;
+            margin-left:3%;
+        }
 
-
+        .log-face {
+            float:right;
+            margin-right:3%;
+        }
+        .log-git{
+            float:right;
+            margin-right:3%;
+        }
         .ico-git {}
 
         .btn-google {
@@ -48,13 +83,13 @@
     <div class="row justify-content-center log-cont">
         <div class="col-md-8">
             <div class="card-transparent border-primary mb-1 animated zoomIn">
-                <div class="card-header text-light text-center bg-dark lead ">{{ __('LOGIN') }}</div>
+                <div class="card-header text-light text-center bg-dark lead ">{{ __('msg.login') }}</div>
                 <div class="card-body bg-log text-dark">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('msg.email') }}
                                 :</label>
 
                             <div class="col-md-6">
@@ -71,7 +106,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('msg.password') }}
                                 :</label>
 
                             <div class="col-md-6">
@@ -94,7 +129,7 @@
                                         {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('msg.remember-me') }}
                                     </label>
                                 </div>
                             </div>
@@ -103,16 +138,16 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-success">
-                                    {{ __('Login') }}
+                                    {{ __('msg.login') }}
                                 </button>
-                                <span class="col-md-2"> or</span>
+                                <span class="col-md-2"> <!-- Or was here -->  </span>
                                 <a href="register"><button type="button" class="btn btn-danger">
-                                        Sign Up!
+                                        {{ __('msg.register') }}
                                     </button></a>
 
                                 @if (Route::has('password.request'))
                                 <a class="btn btn-link display-2 text-danger" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password') }}?
+                                    {{ __('msg.forgot-password') }}
                                 </a>
                                 @endif
                             </div>
@@ -120,16 +155,18 @@
 
                     </form>
                     <br>
-                    <hr class="bg-dark">
-                    <a href="{{ url('auth/google') }}" class="btn btn-social btn-google btn-lg text-primary"><span
-                            class="fab fa-google log-google"></span>
+
+                    <div class="separator"><div class="" style="font-size:150%;">{{ __('msg.or') }}</div></div>
+
+                    <a href="{{ url('auth/google') }}" class="btn btn-social btn-google btn-lg text-primary log-google"><span
+                            class="fab fa-google"></span>
                         <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Google</a>
 
                     <a href="{{ url('auth/facebook') }}" class="btn btn-social btn-facebook btn-lg log-face"><span
                             class="fab fa-facebook"></span>
                         <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Facebook</a>
 
-                        <a href="{{ url('auth/twitter') }}" class="btn btn-social btn-twitter btn-lg log-twit"><span
+                    <a href="{{ url('auth/twitter') }}" class="btn btn-social btn-twitter btn-lg log-twit"><span
                             class="fab fa-twitter"></span>
                         <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Twitter</a>
 

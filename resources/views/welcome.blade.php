@@ -14,9 +14,9 @@
         onblur="(this.type='text')" id="date" />        
         <div class="search">
         <select class="class" placeholder="Class">
-          <option value="choose"><span>Choose Class</span></option>       
-          <option value="eco">Economy Class</option>
-          <option value="bus">Business Class</option>
+          <option value="choose"><span>{{ __('msg.choose-cls')}}</span></option>       
+          <option value="eco">{{ __('msg.economy-cls')}}</option>
+          <option value="bus">{{ __('msg.business-cls')}}</option>
         </select>
       </div>
         <button type="button" class="btn search-btn search" id="search-btn"> <span class="search-label">{{ __('msg.search')}} <i class="fas fa-search search-ico" id="search-ico"></i></span></button>
@@ -26,27 +26,27 @@
 
   <div class="cont2">
     <img class="news-svg" src="logo/news.svg" alt="Kiwi standing on oval">
-    <h1 class="news-h1 text-center">Get news about upcoming changes and possible discounts</h1>
-    <h3 class="text-muted fd">Sign up to our mailing list!</h3>
+    <h1 class="news-h1 text-center">{{ __('msg.get-news')}}</h1>
+    <h3 class="text-muted fd">{{ __('msg.sign-up-to-mail')}}</h3>
 
     <div class="form-group">
       <input type="email" class="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-      <button type="submit" class="btn btn-primary">Submit</button>
+        placeholder="{{ __('msg.enter-email')}}">
+      <small id="emailHelp" class="form-text text-muted">{{ __('msg.we-never-share')}}</small>
+      <button type="submit" class="btn btn-primary">{{ __('msg.submit')}}</button>
     </div>
 
 
   </div>
 
   <div class="cont3">
-    <h1 class="text-light new text-center"> New to us? <a href="register"><button type="button"
+    <h1 class="text-light new text-center"> {{ __('msg.new-to-us')}} <a href="register"><button type="button"
           class="btn-lg btn-danger btn-cont3 btn-new">
-          Sign Up!
+          {{ __('msg.sign-up')}}
         </button></a></h1>
-    <h1 class="text-light timetable text-center"> Check our Timetables <a href=""><button type="button"
+    <h1 class="text-light timetable text-center"> {{ __('msg.check-our-timetable')}} <a href=""><button type="button"
           class="btn-lg btn-primary btn-cont3 btn-timetable">
-          Check out!
+          {{ __('msg.check-out')}}
         </button></a></h1>
 
   </div>
@@ -224,7 +224,7 @@ box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
   .timetable {
     display: inline-block;
     font-family: "Lucida Console", Monaco, monospace;
-    width: 25%;
+    width: 30%;
     margin-left:2%;
   }
 
