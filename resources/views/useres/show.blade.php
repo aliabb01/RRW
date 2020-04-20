@@ -7,7 +7,7 @@
     @method('delete')
     <div class="la">
     <button type="submit"  class="btn btn-primary">Delete</button>
-    <a href="http://127.0.0.1:8000/myprofile" class="btn btn-danger" >Back</a>
+    <a href="/myprofile" class="btn btn-danger" >Back</a>
     </div>
     <h1 class="la2"></h1>
     <style>

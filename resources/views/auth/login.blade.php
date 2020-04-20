@@ -119,6 +119,9 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+                                <small id="passwordHelpInline" class="text-muted">
+                                    Must be 8-20 characters long.
+                                  </small>
                             </div>
                         </div>
 
@@ -141,15 +144,16 @@
                                     {{ __('msg.login') }}
                                 </button>
                                 <span class="col-md-2"> <!-- Or was here -->  </span>
-                                <a href="register"><button type="button" class="btn btn-danger">
-                                        {{ __('msg.register') }}
-                                    </button></a>
+                                
 
                                 @if (Route::has('password.request'))
                                 <a class="btn btn-link display-2 text-danger" href="{{ route('password.request') }}">
                                     {{ __('msg.forgot-password') }}
                                 </a>
                                 @endif
+                                <span>Not a member? </span><a href="register" class="text-danger">
+                                     {{ __('msg.sign-up') }}
+                                </a>
                             </div>
                         </div>
 

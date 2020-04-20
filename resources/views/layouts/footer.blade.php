@@ -25,12 +25,12 @@
         </div>
 
         <div class="phone-div">
-            <i class="fa fa-phone phone-ico"></i>
+            <i class="fas fa-phone-alt phone-ico"></i>
             <p class="phone">+1.555.555.5555</p>
         </div>
 
         <div class="mail-div">
-            <i class="fa fa-envelope mail-ico"></i>
+            <i class="fas fa-envelope mail-ico"></i>
             <p class="mail"><a href="mailto:apollonrailway@gmail.com">apollonrailway@gmail.com</a></p>
         </div>
 
@@ -48,7 +48,7 @@
 
     </div>
     <hr class="bg-light">        
-    <div class="text-center get-in-touch footer-icons">
+    <div class="text-right get-in-touch footer-icons">
         <span class="text-light" style="font-size:18px">{{ __('msg.get-in-touch')}} :</span>
     </div>
     <div class="footer-icons text-center">                
@@ -80,7 +80,7 @@
     }
 
     .footer-distributed {
-        background: #26282C;
+        background: #05263F;
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
         box-sizing: border-box;
         width: 100%;
@@ -257,7 +257,7 @@
     }
 
     .get-in-touch{
-        margin-left:87%;
+        margin-right:3%;
     }
 
     .footer-face {
@@ -319,7 +319,7 @@
 
     .phone-div:hover .phone-ico {
         background-color: aqua;
-        color: green;
+        color: #41A317;
         transition: 0.5s;
         -webkit-box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: 1px 7px 34px 8px rgba(0, 0, 0, 0.75);
@@ -361,11 +361,12 @@
 
     .laravel-ico {
         color: #f55247;
+        filter:brightness(80%);
         margin-left:5px;
     }
 
     .laravel-ico:hover {
-        filter: contrast(150%);
+        filter:brightness(105%);
     }
 
 

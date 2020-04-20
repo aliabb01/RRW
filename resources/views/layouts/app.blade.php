@@ -102,6 +102,8 @@
             text-decoration: none;
         }
 
+        .lang-toggle:hover {}
+
         .nav-item {
             /* 15px between each nav-item */
             margin-right: 15px;
@@ -178,6 +180,14 @@
             transition: color .5s;
         }
 
+        #ico-log {
+            color: white;
+        }
+
+        #ico-reg {
+            color: white;
+        }
+
         #reg {
             margin: 0;
             margin-left: 15px;
@@ -238,17 +248,17 @@
         }
 
         .onoffswitch-inner:before {
-            content: "DARK";
+            content: "LIGHT";
             padding-left: 10px;
-            background-color: #34A7C1;
-            color: #FFFFFF;
+            background-color: #EEEEEE;
+            color: black;
         }
 
         .onoffswitch-inner:after {
-            content: "LIGHT";
+            content: "DARK";
             padding-right: 10px;
-            background-color: #EEEEEE;
-            color: #999999;
+            background-color: #34A7C1;
+            color: white;
             text-align: right;
         }
 
@@ -256,8 +266,8 @@
             display: block;
             width: 35px;
             margin: 6px;
-            margin-top:1px;
-            float:right;
+            margin-top: 1px;
+            float: right;
             background: #FFFFFF;
             position: absolute;
             top: 0;
@@ -283,7 +293,7 @@
     }
 
     .bg-nav {
-        background-color: rgb(0, 49, 102);
+        background-color: #05263F;
         /* dark-grey--rgb(52, 58, 64); */
         /* grey */
     }
@@ -342,12 +352,9 @@
             </button>
 
 
-
             <div class="dropdown dr-lang language-selector text-light">
                 {{ __('msg.language')}} :
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-
-                </a>
+                <a href="#" class="dropdown-toggle lang-toggle" data-toggle="dropdown" data-close-others="true"></a>
                 <ul class="dropdown-menu ml-1">
                     <li>
                         <a class="dropdown-item" href="{{ url('locale/en') }}">
@@ -424,8 +431,6 @@
                     </div>
                     <ul class="navbar-nav ml-auto">
 
-
-
                         <!-- Authentication Links -->
                         @guest
 
@@ -453,15 +458,31 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="myprofile">
-                                    My Profile
+                                    <i class="fas fa-user-circle"></i> My Profile
                                 </a>
-                                <a class="dropdown-item" href="admin">
-                                    Settings
+                                <a class="dropdown-item" href="{{route('logout')}}" data-toggle="modal"
+                                data-target="#exampleModalCenter">
+                                    <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                <!-- Button trigger modal -->
+                                <!--<button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModalCenter">
+                                    Launch demo modal
+                                </button> -->
+
+                                <!-- Modal -->
+
+                                <!--    -->
+                                <!-- Alert ask logout -->
+                                <script type="text/javascript">
+                                    function logout(event){
+                                            event.preventDefault();
+                                            var check = confirm("Do you really want to logout?");
+                                            if(check){ 
+                                               document.getElementById('logout-form').submit();
+                                            }
+                                     }
+                                </script>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
@@ -474,6 +495,31 @@
                 </div>
             </div>
         </nav>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to leave?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>  <!-- X sign for exiting modal -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        You will be redirected to main page after you logout
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No, return me back</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL END  -->
+
         <main class="">
             @yield('content')
         </main>

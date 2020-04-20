@@ -25,7 +25,7 @@
  
 
   <div class="cont2">
-    <img class="news-svg" src="logo/news.svg" alt="Kiwi standing on oval">
+    <i class="fas fa-10x fa-newspaper"></i>
     <h1 class="news-h1 text-center">{{ __('msg.get-news')}}</h1>
     <h3 class="text-muted fd">{{ __('msg.sign-up-to-mail')}}</h3>
 
@@ -47,8 +47,7 @@
     <h1 class="text-light timetable text-center"> {{ __('msg.check-our-timetable')}} <a href=""><button type="button"
           class="btn-lg btn-primary btn-cont3 btn-timetable">
           {{ __('msg.check-out')}}
-        </button></a></h1>
-
+        </button></a></h1>        
   </div>
 </div>
 
@@ -100,7 +99,7 @@ box-shadow: 0px 10px 13px -7px rgba(0,0,0,0.55);
   }
 
   .search-ico{
-    margin-left:30%;
+    margin-left:25%;
   }
   
   #search-btn #search-ico{          /* HOVER OFF */

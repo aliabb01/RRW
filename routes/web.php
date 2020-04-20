@@ -16,7 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('user', ['middleware' => 'auth', function () {
-    return view('user');
+    return view('/welcome');
 }]);
 
 Route::get('admin', ['middleware' => 'isadmin', function () {
@@ -47,6 +47,10 @@ Route::get('services-special', function () {
     return view('services.special');
 });
 
+Route::get('services-advertising', function () {
+    return view('services.advertising');
+});
+
 Route::get('locale/{locale}', function ($locale){
     Session::put('locale', $locale);
     return redirect()->back();
@@ -57,7 +61,7 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::resource('cities','citycontroller');
 

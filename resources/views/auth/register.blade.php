@@ -73,6 +73,9 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+                                <small id="passwordHelpInline" class="text-muted">
+                                    Must be 8-20 characters long.
+                                  </small>
                             </div>
                         </div>
 
@@ -118,6 +121,7 @@
                                 <button type="submit" class="btn btn-success btn-reg">
                                     {{ __('msg.register') }}
                                 </button>
+                                <p class="float-right mt-2"> Already have an account?  <a href="{{ url('login')}}" class="text-success"> Login </a> </p>
                             </div>
                         </div>
 
