@@ -383,7 +383,7 @@
 
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item different {{ Request::is('welcome') ? 'active' : '' }}">
-                            <a class="nav-link lead" href="welcome">{{ __('msg.home')}}</a>
+                            <a class="nav-link lead" href="/welcome">{{ __('msg.home')}}</a>
                         </li>
                         <li class="nav-item different {{ Request::is('about') ? 'active' : '' }}">
                             <a class="nav-link lead" href="about">{{ __('msg.about')}}</a>
@@ -452,7 +452,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="">
+                                <a class="dropdown-item" href="myprofile">
                                     My Profile
                                 </a>
                                 <a class="dropdown-item" href="admin">
