@@ -70,3 +70,8 @@ Route::post('/store','citycontroller@store');
 Route::put('/upd/{id}','citycontroller@update');
 Route::delete('/del/{id}','citycontroller@destroy');
 Route::resource('useres','usercontroller');
+
+Route::resource('myprofile','rigestercontroller');
+
+Route::put('/upd/{id}','rigestercontroller@update');
+Route::delete('/del/{id}','rigestercontroller@destroy');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
-class usercontroller extends Controller
+class rigestercontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,8 @@ class usercontroller extends Controller
     public function index()
     {
         $useres = User::all();
-        return view ('useres.index',['useres'=> $useres]);
+        return view ('useres.myprofile',['useres'=> $useres]);
+       
     }
 
     /**
@@ -59,6 +60,7 @@ class usercontroller extends Controller
      */
     public function edit(User $user)
     {
+       //// $cities=city::all();
         $useres=User::find($user);
         return view('useres.edit');
     }
@@ -70,9 +72,9 @@ class usercontroller extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $user)
     {
-        
+       
         $cit=User::find($user);
        
         $cit->id=$request['id'];
@@ -104,11 +106,9 @@ class usercontroller extends Controller
      */
     public function destroy( $user)
     {
-        
         $user=User::find($user);
         $user->delete();
         
-            return redirect('/myprofile');
-       
+            return redirect('/welcome');
     }
 }
