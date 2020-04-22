@@ -41,6 +41,7 @@ return [
     'confirm-password' => "Confirm Password",
     'phone' => "Phone",
     'country' => "Country",
+    'sign-up' => "Sign Up",    
 ]
 
 ?>
