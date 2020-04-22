@@ -41,6 +41,10 @@
 
 </head>
 <style>
+    :root {
+        --primary: darkred;
+    }
+
     * {
         padding: 0px;
         margin: 0px;
@@ -204,7 +208,32 @@
             transition: color .5s;
         }
 
+        /*#logout:hover #logout-ico-nav{
+            color:            
+        }*/
+        #logout:hover {
+            background-color: #FF564B;
+        }
+
+        #logout:hover #logout-ico-nav {
+            color: #05263F;
+            -webkit-text-stroke: 0.7px skyblue;
+        }
+
+        #my-profile:hover #user-ico-nav {
+            color: #05263F;
+            -webkit-text-stroke-width: 0.5px;
+            /* Makes the icon a bit bold */
+            -webkit-text-stroke: 1px whitesmoke;
+        }
+
+        #X-sign:hover {
+            color: orange;
+            filter: brightness(135%);
+        }
+
         /* Color Switcher */
+
         .onoffswitch {
             position: relative;
             width: 90px;
@@ -421,12 +450,14 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+
+                    <!-- ON/OFF switch -->
                     <div class="onoffswitch">
                         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"
                             checked>
                         <label class="onoffswitch-label" for="myonoffswitch">
                             <span class="onoffswitch-inner"></span>
-                            <span class="onoffswitch-switch"></span>
+                            <span class="onoffswitch-switch text-center"></span>
                         </label>
                     </div>
                     <ul class="navbar-nav ml-auto">
@@ -456,23 +487,22 @@
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
+                            <!-- DROPDOWN ITEMS STARTS HERE -->
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="myprofile">
-                                    <i class="fas fa-user-circle"></i> My Profile
+                                <a class="dropdown-item" id="my-profile" href="myprofile">
+                                    <i class="fas fa-user" id="user-ico-nav"></i> My Profile
                                 </a>
-                                <a class="dropdown-item" href="{{route('logout')}}" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                    <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                                <a class="dropdown-item" id="logout" href="{{route('logout')}}" data-toggle="modal"
+                                    data-target="#exampleModalCenter">
+                                    <i class="fas fa-sign-out-alt" id="logout-ico-nav"></i> {{ __('Logout') }}
                                 </a>
+
                                 <!-- Button trigger modal -->
                                 <!--<button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#exampleModalCenter">
                                     Launch demo modal
                                 </button> -->
 
-                                <!-- Modal -->
-
-                                <!--    -->
                                 <!-- Alert ask logout -->
                                 <script type="text/javascript">
                                     function logout(event){
@@ -483,6 +513,7 @@
                                             }
                                      }
                                 </script>
+                                <!--     -->
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
@@ -497,23 +528,26 @@
         </nav>
 
         <!-- MODAL -->
+        <!-- Modal is put on top of main after the whole navbar and styling -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to leave?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>  <!-- X sign for exiting modal -->
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
+                                class="text-light">Are you sure you want to leave?</span></h5>
+                        <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
                         </button>
                     </div>
                     <div class="modal-body">
-                        You will be redirected to main page after you logout
+                        <small><b>Note :</b></small><br>
+                        You will be redirected to main page after you <b>log out</b> .
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">Yes</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No, return me back</button>                        
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No, return me back</button>
                     </div>
                 </div>
             </div>

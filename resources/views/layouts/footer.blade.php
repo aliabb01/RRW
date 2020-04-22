@@ -20,7 +20,9 @@
     <div class="footer-center">
 
         <div class="address-div">
-            <a title="HeadQuarters" href="https://www.google.com/maps/place/Kauno+technologijos+universitetas,+Informaciniu+technologiju+diegimo+centras/@54.9038668,23.9572548,19z/data=!3m1!4b1!4m5!3m4!1s0x0:0xfb8cbf149e4e0966!8m2!3d54.903866!4d23.957802"><i class="fa fa-map-marker map-ico"></i></a>
+            <a title="HeadQuarters"
+                href="https://www.google.com/maps/place/Kauno+technologijos+universitetas,+Informaciniu+technologiju+diegimo+centras/@54.9038668,23.9572548,19z/data=!3m1!4b1!4m5!3m4!1s0x0:0xfb8cbf149e4e0966!8m2!3d54.903866!4d23.957802"><i
+                    class="fa fa-map-marker map-ico"></i></a>
             <p class="address"><span>444 S. Cedros Ave</span> Solana Beach, California</p>
         </div>
 
@@ -47,27 +49,30 @@
 
 
     </div>
-    <hr class="bg-light">        
+    <hr class="bg-light">
     <div class="text-right get-in-touch footer-icons">
         <span class="text-light" style="font-size:18px">{{ __('msg.get-in-touch')}} :</span>
     </div>
-    <div class="footer-icons text-center">                
+    <div class="footer-icons text-center">
         <a class="footer-lnkdn" href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a class="footer-git" href="#" title="GitHub"><i class="fab fa-github"></i></a>
         <a class="footer-twit" href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
         <a class="footer-face" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
     </div>
     <div class="footer-left text-light">
-        <span class="madeby">{{ __('msg.made-by-using-laravel')}} <a href="https://laravel.com/"><i class="fab fa-2x fa-laravel laravel-ico"
-                    title="Laravel"></i></a></span>
+        <span class="madeby">{{ __('msg.made-by-using-laravel')}} <a href="https://laravel.com/"><i
+                    class="fab fa-2x fa-laravel laravel-ico" title="Laravel"></i></a></span>
     </div>
 
-
-
+    <a href="/404">Test 404</a>
+    <a href="/500">Test 500</a>
+    <a href="/503">Test 503</a>
+    <a href="" onclick="{{Artisan::call('down')}}">Maintenance Mode</a>
+   <!-- <a href="" onclick="{{Artisan::call('up')}}">Production Mode</a> -->
 </footer>
 <div class="bg-light copyright-div text-center">
-    <small class="text-dark copyright"> &copy; 2020, <a style="font-weight:800; color:#003166;"
-            title="Apollon" href="welcome">ApollonRailway</a> | {{ __('msg.all-rights-reserved')}} </small>
+    <small class="text-dark copyright"> &copy; 2020, <a style="font-weight:800; color:#003166;" title="Apollon"
+            href="welcome">ApollonRailway</a> | {{ __('msg.all-rights-reserved')}} </small>
 </div>
 
 <style>
@@ -219,7 +224,7 @@
 
     .footer-distributed .footer-icons {
         margin-top: 25px;
-        
+
     }
 
     .footer-distributed .footer-icons a {
@@ -227,7 +232,7 @@
         width: 35px;
         height: 35px;
         cursor: pointer;
-        float:right;
+        float: right;
         font-size: 30px;
         text-align: center;
         line-height: 35px;
@@ -252,12 +257,12 @@
         font-size: 20px;
     }
 
-    .footer-logo{
-        margin-left:22%;
+    .footer-logo {
+        margin-left: 22%;
     }
 
-    .get-in-touch{
-        margin-right:3%;
+    .get-in-touch {
+        margin-right: 3%;
     }
 
     .footer-face {
@@ -361,12 +366,12 @@
 
     .laravel-ico {
         color: #f55247;
-        filter:brightness(80%);
-        margin-left:5px;
+        filter: brightness(80%);
+        margin-left: 5px;
     }
 
     .laravel-ico:hover {
-        filter:brightness(105%);
+        filter: brightness(105%);
     }
 
 
