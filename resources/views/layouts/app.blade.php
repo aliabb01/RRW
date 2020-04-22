@@ -43,6 +43,7 @@
 <style>
     :root {
         --primary: darkred;
+        --langActive:orange;
     }
 
     * {
@@ -381,26 +382,42 @@
             </button>
 
 
+            <!-- Language switcher function to check local language -->
+            @if (App::isLocale('en'))
+            {{$lang='EN'}}
+            echo "<style> #EN{background-color:var(--langActive);} </style>"
+            @endif
+
+            @if (App::isLocale('ru'))
+            {{$lang='RU'}}
+            echo "<style> #RU{ background-color:var(--langActive);} </style>"
+            @endif
+
+            @if (App::isLocale('lt'))
+            {{$lang='LT'}}
+            echo "<style> #LT{ background-color:var(--langActive);} </style>"
+            @endif
+
             <div class="dropdown dr-lang language-selector text-light">
-                {{ __('msg.language')}} :
+                {{ __('msg.language')}} : {{$lang}}
                 <a href="#" class="dropdown-toggle lang-toggle" data-toggle="dropdown" data-close-others="true"></a>
                 <ul class="dropdown-menu ml-1">
                     <li>
-                        <a class="dropdown-item" href="{{ url('locale/en') }}">
+                        <a class="dropdown-item" id="EN" href="{{ url('locale/en') }}">
                             <i class="flag-icon flag-icon-gb"></i>
-                            <span>English</span>
+                            <span >English</span>
                         </a>
                     </li>
                     <li class="active">
-                        <a class="dropdown-item" href="{{ url('locale/ru') }}">
+                        <a class="dropdown-item" id="RU" href="{{ url('locale/ru') }}">
                             <i class="flag-icon flag-icon-ru"></i>
-                            <span>Russian</span>
+                            <span id="RU">Russian</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ url('locale/lt') }}">
+                        <a class="dropdown-item" id="LT" href="{{ url('locale/lt') }}">
                             <i class="flag-icon flag-icon-lt"></i>
-                            <span>Lithuanian</span>
+                            <span id="LT">Lithuanian</span>
                         </a>
                     </li>
                 </ul>
