@@ -7,11 +7,11 @@
     <div class="container form-group text-center">
    
       <label for="name">Name:</label>
-      <input type="text " class="form-control one " name="name_user" required >
+      <input type="text" class="form-control one " name="name_user" required >
      
       
         <label for="comment">Comment</label>
-        <input type="text " class="form-control two " name="comment" required>        
+        <input type="text" class="form-control two " name="comment" required>        
      
    <br>
     <button type="submit" class="btn btn-primary back ">Save</button>
@@ -19,13 +19,16 @@
 </div >
   </form>
 
-<div class=" third">
+
   @foreach($comments as $i)
+  <div class="third">
   <tr>
       <hr>
-      <td> Name: {{$i->name_user}}</td>
- <br>
-      <td>Comment:{{$i->comment}}</td>
+      <i class="fas fa-2x fa-user-circle"></i>
+      <td class="user-name"> <b class="label-name">Name:</b> 
+        {{$i->name_user}}</td>
+        <br>
+      <td class="user-comment">{{$i->comment}}</td>
       <hr>
 </div> 
   </tr>
@@ -47,12 +50,21 @@
       }
       .third
       {
-        margin-left: 44%; 
+        margin-left: 15%; 
       }
       .back
       {
         width:60px;
         height:40px;
+      }
+
+      .user-name{
+        margin-bottom:5%;
+        
+      }
+
+      .label-name{
+        font-size:125%;
       }
   </style>
 @endsection
