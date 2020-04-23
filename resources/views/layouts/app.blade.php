@@ -16,7 +16,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/d02e083562.js" crossorigin="anonymous"></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -43,7 +42,7 @@
 <style>
     :root {
         --primary: darkred;
-        --langActive:orange;
+        --langActive:orange;        
     }
 
     * {
@@ -87,6 +86,7 @@
 
         .dropdown-menu {
             margin: 0;
+            
         }
 
         .dropdown-S>.dropdown-toggle:active {
@@ -451,7 +451,7 @@
 
 
 
-                            <div class="dropdown-menu animated lightSpeedIn fast drop-ser"
+                            <div class="dropdown-menu animated flipInX drop-ser" id="dropdown-services"
                                 aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item " href="services-special">Special offers</a>
                                 <a class="dropdown-item" href="services-advertising">Advertising</a>
@@ -579,7 +579,6 @@
     </div>
     @include('layouts.footer')
     @yield('scripts')
-
 </body>
 
 

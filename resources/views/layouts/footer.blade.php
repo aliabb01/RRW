@@ -42,8 +42,7 @@
 
         <p class="footer-company-about">
             <span class="text-light">{{ __('msg.about-the-company')}}</span>
-            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
-            vehicula sit amet.
+           <b> Apollon Railway</b> is a company originating from Kaunas, Lithuania
         </p>
 
 
