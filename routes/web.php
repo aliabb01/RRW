@@ -49,6 +49,14 @@ Route::get('services-advertising', function () {
     return view('services.advertising');
 });
 
+Route::get('services-baggage', function () {
+    return view('services.baggage');
+});
+
+Route::get('services-careers', function () {
+    return view('services.careers');
+});
+
 Route::get('locale/{locale}', function ($locale){
     Session::put('locale', $locale);
     return redirect()->back();

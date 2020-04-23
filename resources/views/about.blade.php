@@ -1,112 +1,227 @@
 @extends('layouts.app')
-
+<body onload="startTime()">
 @section('content')
+<div class="float-right"><h5 id="clock"></h5></div>
+<div class="container about-cont1">
+<h1 class="text-center">About Us</h1>
+<h4 class="text-center container"><b><span id="comp-name-about">Apollon Railway</span></b> is a company originating from Kaunas, Lithuania. Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sapiente fugit veritatis libero distinctio mollitia, consequuntur nulla quos molestias, quod dolore? Officiis ipsum mollitia cumque incidunt minima similique quasi possimus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus officia laboriosam aspernatur maxime at voluptatum saepe ducimus dignissimos eos, quos ipsa debitis facilis illo itaque laborum, voluptas quidem recusandae possimus.</h4>
+</div>
 <div class="text-center who">
-  <h1>Who are we <img class="question animated shake" src="https://img.icons8.com/nolan/96/question-mark.png" /></h1>  
+  <h2>Have any questions <img class="question animated shake" src="https://img.icons8.com/nolan/96/question-mark.png" /></h2>
 </div>
 
-<div class="container row">
-
+<div class="who-are-we row">
   <div class="card c1 animated zoomIn" id="c1" style="width: 18rem;">
     <div class="card-header text-center c1h" id="c1h">
-      <img id="c1img" src="https://06edkm734f-flywheel.netdna-ssl.com/wp-content/uploads/2018/01/Who-are-we-icon.svg" class="card-img-top who-img" alt="Who are we">
-      <h3 class="card-title">Who are we?</h3>
+      <img id="c1img" src="https://06edkm734f-flywheel.netdna-ssl.com/wp-content/uploads/2018/01/Who-are-we-icon.svg"
+        class="card-img-top who-img" alt="Who are we">
+      <h3 class="card-title intro">Introduction</h3>
     </div>
-    <div class="card-body">      
+    <div class="card-body">
       <h5 class="card-text">We are Apollon Railway. A railway company based in Kaunas, Lithuania.</h5>
     </div>
   </div>
-  
+
   <div class="card c2 animated zoomIn" id="c2" style="width: 18rem;">
     <div class="card-header text-center c2h" id="c2h">
-      <img src="https://img.icons8.com/color/100/000000/ask-question.png"/>
-      <h3 class="card-title">What do we do?</h3>
+      <img src="https://img.icons8.com/color/100/000000/ask-question.png" />
+      <h3 class="card-title our-job">Our Job</h3>
     </div>
-    <div class="card-body">      
+    <div class="card-body">
       <h5 class="card-text">We support reservation services for railways through our website.</h5>
     </div>
   </div>
-  
+
+  <div class="card c3 animated zoomIn" id="c3" style="width: 18rem;">
+    <div class="card-header text-center c3h" id="c3h">
+      <i class="fas fa-7x fa-hand-pointer finger-pointer"></i>
+      <h3 class="card-title why-join-us">Why Join Us?</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-text">We provide our users with one of the most user friendly website and reliable services</h5>
+    </div>
+  </div>
+
+  <div class="card c4 animated zoomIn" id="c4" style="width: 18rem;">
+    <div class="card-header text-center c4h" id="c4h">
+      <i class="fas fa-7x fa-user-shield shield"></i>
+      <h3 class="card-title sec-of-users">Security of Users</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-text">We care about our users' privacy and make sure their data is safe.</h5>
+    </div>
+  </div>
+
 
 </div>
 
 <style>
+  @import url(//db.onlinewebfonts.com/c/dc6734899329fcbdd770b32dc47059d8?family=Sofia+Pro+Light);
+  @import url('https://fonts.googleapis.com/css?family=Orbitron');
+  @font-face {
+    font-family: "Sofia Pro Light";
+    src: url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.eot");
+    src: url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff") format("woff"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.svg#Sofia Pro Light") format("svg");
+  }
+
   body{
+    background-color:#EFF0F1;
+  }
+  .about-cont1{
+    margin-top:35px;
+    margin-bottom:35px;
   }
 
-  .card{
-    margin-left:10%;
+  #comp-name-about {
+    font-family: "Sofia Pro Light";
   }
 
-  .card-body{
-    height:250px;
+  .who-are-we {
+    width: 100%;
   }
 
-  .card-text{
-    
+  .container .row {}
+
+  .card {
+    margin-left: 8%;
   }
 
-  .c1{
-    margin-top:2%;
-    margin-bottom:3%;
-    border-radius: 10%;    
+  .card-body {
+    height: 250px;
   }
 
-  .c1:hover{
+  .card-text {}
+
+  .c1 {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border-radius: 10%;
+  }
+
+  .c1:hover {
     transform: scale(1.080);
     transition: color .8s ease-in-out;
-    
   }
 
-  .c1h{
-    background-color:deepskyblue;  
-    filter:contrast(195%);     
+  .c1h {
+    background-color: deepskyblue;
+    filter: contrast(195%);
     transition: color 0.8s, ease;
   }
 
-  #c1:hover > #c1h{
+  #c1:hover>#c1h {
     filter: grayscale(0);
-   /* color:white;*/
-  
+    /* color:white;*/
   }
 
-  .c2{
-    margin-top:2%;
-    margin-bottom:3%;
-    border-radius: 10%; 
+  .intro{
+    font-family: "Sofia Pro Light";
   }
 
-  .c2:hover{
+  .c2 {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border-radius: 10%;
+  }
+
+  .c2:hover {
     transform: scale(1.080);
     transition: color .8s ease-in-out;
   }
 
-  .c2h{
-    background-color:coral;  
-        
+  .c2h {
+    background-color: coral;
     transition: color 0.8s, ease;
   }
 
-  #c2:hover > #c2h{
-    filter:contrast(195%); 
-   /* color:white;*/
-  
+  #c2:hover>#c2h {
+    filter: contrast(195%);
+    /* color:white;*/
   }
 
-  .question {
-    
+  .our-job{
+    font-family: "Sofia Pro Light";
   }
+
+  .c3 {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border-radius: 10%;
+  }
+
+  .c3:hover {
+    transform: scale(1.080);
+    transition: color .8s ease-in-out;
+  }
+
+  .c3h {
+    background-color: #41A317;
+    transition: color 0.8s, ease;
+  }
+
+  #c3:hover>#c3h {
+    filter: contrast(150%);
+    /* color:white;*/
+
+  }
+
+  .why-join-us{
+    font-family: "Sofia Pro Light";
+  }
+
+  .finger-pointer {
+    color: aqua;
+  }
+
+  .c4 {
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border-radius: 10%;
+  }
+
+  .c4:hover {
+    transform: scale(1.080);
+    transition: color .8s ease-in-out;
+  }
+
+  .c4h {
+    background-color: #B6B6B4;
+    transition: color 0.8s, ease;
+  }
+
+  #c4:hover>#c4h {
+    filter: contrast(150%);
+    /* color:white;*/
+
+  }
+
+  .shield {
+    color: royalblue;
+  }
+
+  .question {}
 
   .who {
     background-color: lightgreen;
-    width:100%;
+    width: 100%;
   }
 
-  .who-img{
-    background-color:transparent;
-    height:100px;
-    width:100px;
+  .who-img {
+    background-color: transparent;
+    height: 100px;
+    width: 100px;
   }
+/* Clock */
+  
+
+#clock {
+  font-family: 'Orbitron', sans-serif;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 </style>
 
 <!--<div class="container">
@@ -151,4 +266,33 @@
     </div>
   </div>
 </div> -->
+
+
+<!--Real Time -->
+  <script>
+    function currentTime() {
+  var date = new Date(); /* creating object of Date class */
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var sec = date.getSeconds();
+  hour = updateTime(hour);
+  min = updateTime(min);
+  sec = updateTime(sec);
+  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec; /* adding time to the div */
+    var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+}
+
+function updateTime(k) {
+  if (k < 10) {
+    return "0" + k;
+  }
+  else {
+    return k;
+  }
+}
+
+currentTime(); /* calling currentTime() function to initiate the process */
+  </script>
+
+
 @endsection
