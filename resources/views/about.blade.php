@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-<body onload="startTime()">
   @section('content')
+  <body onload="startTime()">
   <div class="float-right">
     <h5 id="clock"></h5>
   </div>
@@ -64,21 +64,21 @@
 
   </div>
 
-
+  <!-- DRIVERS -->
   <div class="text-center our-drivers">
-    <h2 class="">Our Drivers <img class="animated heartbeat"
-        src="https://img.icons8.com/plasticine/100/000000/approval.png" /></h2>
+    <h2 class="">Our Drivers <a href="?" data-toggle="tooltip" data-placement="right" data-html="true" title="Tested and <b>verified</b> train drivers"><img class="animated heartbeat"
+      src="https://img.icons8.com/plasticine/100/000000/approval.png" /></a></h2>
   </div>
-  <div class="our-drivers-header row">
 
-    
+  <div class="our-drivers-header row">
     <div class="card c1 animated zoomIn sha" id="c1" style="width: 18rem;">
       <div class="card-header drivers-header text-center c1h" id="c1h">
-        <img src="https://img.icons8.com/dusk/100/000000/user-male-skin-type-5.png"/>
+        <img src="https://img.icons8.com/dusk/100/000000/user-male-skin-type-5.png" />
         <h3 class="card-title driver driver-1">{{$prof = 'Bob'}}</h3>
       </div>
       <div class="card-body">
-        <h4 class="card-text">{{$prof}} has been with us since we began</h4><hr>
+        <h4 class="card-text">{{$prof}} has been with us since we began</h4>
+        <hr>
         <blockquote class="blockquote">Working in Apollon gave me a lot of experience in this field</blockquote>
         <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">Train Driver</cite></footer>
         <div>
@@ -90,7 +90,7 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <a class="btn btn-danger" href=""> Contact </a>
+        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom" title="Contact {{$prof}}">Contact</a>
       </div>
     </div>
 
@@ -100,7 +100,8 @@
         <h3 class="card-title driver driver-2">{{$prof = 'Joe'}}</h3>
       </div>
       <div class="card-body">
-        <h5 class="card-text">{{$prof}} , worked for multiple companies, before he fount out about us</h5><hr>
+        <h5 class="card-text">{{$prof}} , worked for multiple companies, before he found out about us</h5>
+        <hr>
         <h6 class="blockquote">One of the best companies in the world hired me. I am so lucky!</h6>
         <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">Train Driver</cite></footer>
         <div>
@@ -112,7 +113,7 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <a class="btn btn-danger" href=""> Contact </a>
+        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom" title="Contact {{$prof}}">Contact</a>
       </div>
     </div>
 
@@ -122,7 +123,8 @@
         <h3 class="card-title driver driver-3">{{$prof = 'Bob2'}}</h3>
       </div>
       <div class="card-body">
-        <h5 class="card-text">{{$prof}} was hired recently and he's eager to start working</h5><hr>
+        <h5 class="card-text">{{$prof}} was hired recently and he's eager to start working</h5>
+        <hr>
         <h6 class="blockquote">I found out about Apollon from internet. They had good reviews so i joined them</h6>
         <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">Train Driver</cite></footer>
         <div>
@@ -134,7 +136,7 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <a class="btn btn-danger" href=""> Contact </a>
+        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom" title="Contact {{$prof}}">Contact</a>
       </div>
     </div>
 
@@ -144,7 +146,9 @@
         <h3 class="card-title driver driver-4">{{$prof = 'Amy'}}</h3>
       </div>
       <div class="card-body">
-        <h5 class="card-text">{{$prof}} , has been in this field for a long time.She couldnt find a company that would offer her good salary</h5><hr>
+        <h5 class="card-text">{{$prof}} , has been in this field for a long time.She couldnt find a company that would
+          offer her good salary</h5>
+        <hr>
         <h6 class="blockquote">I am grateful for working here in Apollon</h6>
         <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">Train Driver</cite></footer>
         <div>
@@ -156,7 +160,7 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <a class="btn btn-danger" href=""> Contact </a>
+        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom" title="Contact {{$prof}}">Contact</a>
       </div>
     </div>
   </div>
@@ -257,7 +261,7 @@
     }
 
     #c2:hover>#c2h {
-      filter: contrast(195%);
+      filter: contrast(135%);
       /* color:white;*/
     }
 
@@ -282,7 +286,7 @@
     }
 
     #c3:hover>#c3h {
-      filter: contrast(150%);
+      filter: contrast(135%);
       /* color:white;*/
 
     }
@@ -344,7 +348,7 @@
       color: orange;
     }
 
-    .driver{
+    .driver {
       font-family: "Sofia Pro Light";
     }
 
