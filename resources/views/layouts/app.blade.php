@@ -11,11 +11,15 @@
     <title>ApollonRailway</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ URL::asset('/logo/favicon.png') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ URL::asset('/logo/favicon.ico') }}" type="image/x-icon" />
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/d02e083562.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Script that enables tooltips -->
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -42,7 +46,7 @@
 <style>
     :root {
         --primary: darkred;
-        --langActive:orange;        
+        --langActive: orange;
     }
 
     * {
@@ -86,7 +90,7 @@
 
         .dropdown-menu {
             margin: 0;
-            
+
         }
 
         .dropdown-S>.dropdown-toggle:active {
@@ -104,10 +108,37 @@
         }
 
         .dr-lang {
+            color: #FFA500;
             text-decoration: none;
         }
 
-        .lang-toggle:hover {}
+        a:hover {
+            color: #FFA500;
+        }
+
+        #lang-link {
+            color: white;
+        }
+
+        #EN:hover {
+            background-color: #007DC8;
+        }
+
+        #RU:hover {
+            background-color: #007DC8;
+        }
+
+        #LT:hover {
+            background-color: #007DC8;
+        }
+
+        #lang-link:hover {
+            color: #FFA500;
+        }
+
+        .lang-toggle:hover {
+            text-decoration: solid #FFA500;
+        }
 
         .nav-item {
             /* 15px between each nav-item */
@@ -381,43 +412,58 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-
-            <!-- Language switcher function to check local language -->
-            @if (App::isLocale('en'))
-            {{$lang='EN'}}
-            echo "<style> #EN{background-color:var(--langActive);} </style>"
-            @endif
-
-            @if (App::isLocale('ru'))
-            {{$lang='RU'}}
-            echo "<style> #RU{ background-color:var(--langActive);} </style>"
-            @endif
-
-            @if (App::isLocale('lt'))
-            {{$lang='LT'}}
-            echo "<style> #LT{ background-color:var(--langActive);} </style>"
-            @endif
-
             <div class="dropdown dr-lang language-selector text-light">
-                {{ __('msg.language')}} : {{$lang}}
-                <a href="#" class="dropdown-toggle lang-toggle" data-toggle="dropdown" data-close-others="true"></a>
+                {{ __('msg.language')}} :
+                <a href="#" id="lang-link" class="dropdown-toggle lang-toggle" data-toggle="dropdown"
+                    data-close-others="true">
+
+                    <!-- Language switcher function to check local language -->
+
+                    @if (App::isLocale('en'))
+                    {{$lang='EN'}}
+                    <style>
+                        #EN {
+                            background-color: var(--langActive);
+                        }
+                    </style>
+                    @endif
+
+                    @if (App::isLocale('ru'))
+                    {{$lang='RU'}}
+                    <style>
+                        #RU {
+                            background-color: var(--langActive);
+                        }
+                    </style>
+                    @endif
+
+                    @if (App::isLocale('lt'))
+                    {{$lang='LT'}}
+                    <style>
+                        #LT {
+                            background-color: var(--langActive);
+                        }
+                    </style>
+                    @endif
+
+                </a>
                 <ul class="dropdown-menu ml-1">
                     <li>
                         <a class="dropdown-item" id="EN" href="{{ url('locale/en') }}">
                             <i class="flag-icon flag-icon-gb"></i>
-                            <span >English</span>
+                            <span>English</span>
                         </a>
                     </li>
                     <li class="active">
                         <a class="dropdown-item" id="RU" href="{{ url('locale/ru') }}">
                             <i class="flag-icon flag-icon-ru"></i>
-                            <span id="RU">Russian</span>
+                            <span>Russian</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" id="LT" href="{{ url('locale/lt') }}">
                             <i class="flag-icon flag-icon-lt"></i>
-                            <span id="LT">Lithuanian</span>
+                            <span>Lithuanian</span>
                         </a>
                     </li>
                 </ul>
@@ -456,6 +502,7 @@
                                 <a class="dropdown-item " href="services-special">Special offers</a>
                                 <a class="dropdown-item" href="services-advertising">Advertising</a>
                                 <a class="dropdown-item" href="services-baggage">Baggage Transportation</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="services-careers">Careers</a>
                             </div>
                         </li>
@@ -506,7 +553,8 @@
                             </a>
 
                             <!-- DROPDOWN ITEMS STARTS HERE -->
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right animated flipInX fast"
+                                aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" id="my-profile" href="myprofile">
                                     <i class="fas fa-user" id="user-ico-nav"></i> My Profile
                                 </a>
@@ -560,12 +608,13 @@
                     </div>
                     <div class="modal-body">
                         <small><b>Note :</b></small><br>
-                        You will be redirected to main page after you <b>log out</b> .
+                        You will be redirected to <a href="?" data-toggle="tooltip" title="Homepage of the website">
+                            main page </a> after you <b>log out</b> .
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">Yes</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No, return me back</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me back</button>
                     </div>
                 </div>
             </div>
@@ -579,8 +628,11 @@
     </div>
     @include('layouts.footer')
     @yield('scripts')
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
 </body>
-
-
 
 </html>
