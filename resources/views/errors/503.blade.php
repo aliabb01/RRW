@@ -1,3 +1,4 @@
+<link rel="icon" href="{{ URL::asset('/logo/maintenance.png') }}" type="image/x-icon" />
 <title>Apollon Railway</title>
 <style>
   @import url('https://fonts.googleapis.com/css?family=Orbitron');
@@ -83,7 +84,7 @@
     // If the count down is over, write some text 
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("countdown-timer").innerHTML = "COMING VERY SOON";
+      document.getElementById("countdown-timer").innerHTML = "COMING VERY SOON!";
     }
   }, 1000);
 </script>
