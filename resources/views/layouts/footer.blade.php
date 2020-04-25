@@ -65,8 +65,7 @@
 
     <a href="/404">Test 404</a>
     <a href="/500">Test 500</a>
-    <a href="/503">Test 503</a>
-    <a href="" onclick="{{Artisan::call('down')}}">Maintenance Mode</a>
+    <a href="/down">Maintenance Mode</a>
    <!-- <a href="" onclick="{{Artisan::call('up')}}">Production Mode</a> -->
 </footer>
 <div class="bg-light copyright-div text-center">

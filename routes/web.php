@@ -31,8 +31,6 @@ Route::get('about', function () {
     return view('about');
 });
 
-
-
 Route::get('help', function () {
     return view('help');
 });
@@ -60,6 +58,10 @@ Route::get('services-careers', function () {
 Route::get('locale/{locale}', function ($locale){
     Session::put('locale', $locale);
     return redirect()->back();
+});
+
+Route::get('/down', function(){
+    Artisan::call('down');
 });
 
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
