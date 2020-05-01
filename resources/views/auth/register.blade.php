@@ -116,6 +116,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                              <label class="form-check-label" for="invalidCheck">
+                                Agree to terms and conditions
+                              </label>
+                              <div class="invalid-feedback">
+                                You must agree before submitting.
+                              </div>
+                            </div>
+                          </div>
+
                         <div class="form-group row mb-0 reg">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-success btn-reg">

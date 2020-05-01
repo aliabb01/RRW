@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-  @section('content')
-  <body onload="startTime()">
+@section('content')
+
+<body onload="startTime()">
   <div class="float-right">
     <h5 id="clock"></h5>
   </div>
@@ -15,15 +16,14 @@
       itaque laborum, voluptas quidem recusandae possimus.</h4>
   </div>
   <div class="text-center who">
-    <h2>Have any questions <img class="question animated shake"
-        src="https://img.icons8.com/nolan/96/question-mark.png" /></h2>
+    <h2>Have any questions <img class="question animated rotateIn"
+     src="https://img.icons8.com/color/100/000000/question-mark.png"/></h2>
   </div>
 
   <div class="who-are-we row">
     <div class="card c1 animated zoomIn sha" id="c1" style="width: 18rem;">
       <div class="card-header text-center c1h" id="c1h">
-        <img id="c1img" src="https://06edkm734f-flywheel.netdna-ssl.com/wp-content/uploads/2018/01/Who-are-we-icon.svg"
-          class="card-img-top who-img" alt="Who are we">
+        <img src="https://img.icons8.com/dusk/100/000000/conference-call.png"/>
         <h3 class="card-title intro">Introduction</h3>
       </div>
       <div class="card-body">
@@ -66,8 +66,9 @@
 
   <!-- DRIVERS -->
   <div class="text-center our-drivers">
-    <h2 class="">Our Drivers <a href="?" data-toggle="tooltip" data-placement="right" data-html="true" title="Tested and <b>verified</b> train drivers"><img class="animated heartbeat"
-      src="https://img.icons8.com/plasticine/100/000000/approval.png" /></a></h2>
+    <h2 class="">Our Drivers <a href="?" data-toggle="tooltip" data-placement="right" data-html="true"
+        title="Tested and <b>verified</b> train drivers"><img class="animated heartBeat"
+          src="https://img.icons8.com/plasticine/100/000000/approval.png" /></a></h2>
   </div>
 
   <div class="our-drivers-header row">
@@ -90,7 +91,8 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom" title="Contact {{$prof}}">Contact</a>
+        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom"
+          title="Contact {{$prof}}">Contact</a>
       </div>
     </div>
 
@@ -113,7 +115,8 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom" title="Contact {{$prof}}">Contact</a>
+        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom"
+          title="Contact {{$prof}}">Contact</a>
       </div>
     </div>
 
@@ -136,7 +139,8 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom" title="Contact {{$prof}}">Contact</a>
+        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom"
+          title="Contact {{$prof}}">Contact</a>
       </div>
     </div>
 
@@ -160,7 +164,8 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom" title="Contact {{$prof}}">Contact</a>
+        <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom"
+          title="Contact {{$prof}}">Contact</a>
       </div>
     </div>
   </div>
