@@ -9,59 +9,44 @@
   </div>  -->
   <div class="justify-content-center cont1">
 
-    <div class="control-group trip-type">
-      <h2 class="text-light">Trip type</h2>
+    <div class="control-group trip-type text-center">
+
       <label class="control control-radio text-light mr-3">
         One-way
-        <input type="radio" name="radio" />
+        <input type="radio" name="radio" id="oneway" value="one" />
         <div class="control_indicator"></div>
       </label>
       <label class="control control-radio text-light">
-        Full trip
-        <input type="radio" name="radio" />
+        Full-trip
+        <input type="radio" name="radio" id="full-trip" value="full" />
         <div class="control_indicator"></div>
       </label>
     </div>
 
-    <input type="text" class="form-control from search" id="" aria-describedby="" placeholder="{{ __('msg.from')}}">
-    <input type="text" class="form-control to search" id="" aria-describedby="" placeholder="{{ __('msg.to')}}">
-    <input placeholder="{{ __('msg.departure')}}" class="form-control datepicker departure search" type="text"
-      id="dates" name="datefilter" />
-    <div class="search">
-      <select class="class" placeholder="Class">
-        <option value="choose"><span>{{ __('msg.choose-cls')}}</span></option>
-        <option value="eco">{{ __('msg.economy-cls')}}</option>
-        <option value="bus">{{ __('msg.business-cls')}}</option>
-      </select>
+    <label style="margin-left:23%;" class="text-white from-label">FROM</label>
+    <label style="margin-left:9.2%;" class="text-white to-label">TO</label>
+    <div class="container-justify-center row">
+      <input type="text" class="form-control from search" id="" aria-describedby="" placeholder="{{ __('msg.from')}}">
+      <input type="text" class="form-control to search" id="" aria-describedby="" placeholder="{{ __('msg.to')}}">
+      <input placeholder="{{ __('msg.departure')}}" class="form-control datepicker departure search" type="text"
+        id="dates" name="datefilter" />
+      <div class="search">
+        <select class="class" placeholder="Class">
+          <option value="choose"><span>{{ __('msg.choose-cls')}}</span></option>
+          <option value="eco">{{ __('msg.economy-cls')}}</option>
+          <option value="bus">{{ __('msg.business-cls')}}</option>
+        </select>
+      </div>
+      <button type="button" class="btn search-btn" id="search-btn"> <span class="search-label">{{ __('msg.search')}} <i
+            class="fas fa-search search-ico" id="search-ico"></i></span>
+      </button>
     </div>
-    <button type="button" class="btn search-btn search" id="search-btn"> <span
-        class="search-label">{{ __('msg.search')}} <i class="fas fa-search search-ico"
-          id="search-ico"></i></span></button>
   </div>
 
-  <script>
-    $('input[name="datefilter"]').daterangepicker({
-          autoUpdateInput: false,
-          locale: {
-            applyLabel: "Apply",
-              cancelLabel: 'Clear',
-          },
-          applyButtonClasses: "btn-success",
-    cancelClass: "btn-danger",
-    opens: "center",
-      });
-    
-      $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
-          $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-      });
-    
-      $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
-          $(this).val('');
-      });
-  </script>
-
   <div class="cont2">
-    <i class="fas fa-10x fa-newspaper"></i>
+    <img style="margin-left:65px;" src="https://img.icons8.com/ultraviolet/160/000000/reading-confirmation.png" />
+    <img style="float:right; transform:rotate(20deg); margin-right:25px;"
+      src="https://img.icons8.com/plasticine/100/000000/discount.png" />
     <h1 class="news-h1 text-center">{{ __('msg.get-news')}}</h1>
     <h3 class="text-muted fd">{{ __('msg.sign-up-to-mail')}}</h3>
 
@@ -94,19 +79,34 @@
     text-align: center;
   }
 
+  .row {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15%;
+  }
+
   .cont1 {
     background-image: url('logo/background5.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    display: flex;
     /* ^---Fixed width issue---^ */
     padding-top: 7.5%;
     padding-bottom: 7.5%;
   }
 
   .trip-type {
-    height: 121px;
+    padding-top: 50px;
+    height: 70px;
+    display: block;
+    margin-left: 19%;
+    margin-top: 5%;
+    margin-bottom:1.5%;
+    width: 25%;
+  }
+
+  .content-justify-center {
+    height: 100px !important;
   }
 
   .search {
@@ -114,24 +114,39 @@
     -webkit-box-shadow: 0px 10px 13px -7px rgba(0, 0, 0, 0.55);
     -moz-box-shadow: 0px 10px 13px -7px rgba(0, 0, 0, 0.55);
     box-shadow: 0px 10px 13px -7px rgba(0, 0, 0, 0.55);
-    margin-top: 13%;
     margin-bottom: 14%;
-    margin-right: 0.1%;
+    margin-right: 0.5%;
     height: 3.5rem;
     width: 11%;
   }
 
-  .search-btn {
+  .from {
+    margin-left: 23%;
+  }
+
+  .from-label{
+    filter: opacity(0);
+  }
+
+  .from:focus .from-label {
+    filter: opacity(1);
+  }
+
+  #search-btn {
+    -webkit-text-size-adjust: auto;
     background-color: #5893D3;
-    margin-top: 13%;
     margin-bottom: 14%;
     margin-left: 1%;
-    height: 3.5rem;
+    height: 60%;
     width: 11%;
   }
 
   .search-btn:hover {
     filter: contrast(150%);
+    border-color: orange;
+    -webkit-box-shadow: 0px 10px 13px -7px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 10px 13px -7px rgba(0, 0, 0, 0.55);
+    box-shadow: 0px 10px 13px -7px rgba(0, 0, 0, 0.55);
   }
 
   .search-label {
@@ -206,8 +221,6 @@
   }
 
   .news-svg {
-    width: 200px;
-    height: 200px;
     margin-top: auto;
     margin-left: auto;
   }
@@ -240,7 +253,7 @@
   .news-h1 {
     width: 100%;
     margin: auto;
-    padding-top: 50px;
+    padding-top: 25px;
   }
 
   .fd {
@@ -371,7 +384,7 @@
     background: #2aa1c0;
     border-radius: 3rem;
     opacity: 1;
-    z-index: 99999;
+    z-index: 999;
     transform: scale(0);
   }
 
@@ -418,14 +431,40 @@
     animation-name: s-ripple-dup;
   }
 
-  .in-range{
-    background-color:#7FFFD4 !important   ; 
+  .in-range {
+    background-color: #FFD274 !important;
   }
 
-  .end-date{
+  .end-date {
     background-color: #357EBD !important;
   }
+
+  .daterangepicker {
+    z-index: 10;
+  }
 </style>
+
+<script>
+  $('input[name="datefilter"]').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+          applyLabel: "Apply",
+            cancelLabel: 'Clear',
+        },
+        applyButtonClasses: "btn-success",
+  cancelClass: "btn-danger",
+  opens: "center",
+  singleDatePicker:false
+    })
+  
+    $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+    });
+  
+    $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+        $(this).val('');
+    });
+</script>
 
 @endsection
 
