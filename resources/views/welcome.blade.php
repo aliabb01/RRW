@@ -54,8 +54,7 @@
       <input type="email" class="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp"
         placeholder="{{ __('msg.enter-email')}}">
       <small id="emailHelp" class="form-text text-muted">{{ __('msg.we-never-share')}}</small>
-  
-      <a href="/disscount" class="btn btn-primary">{{ __('msg.submit')}}</a>
+      <button type="submit" class="btn btn-primary">{{ __('msg.submit')}}</button>
     </div>
 
 

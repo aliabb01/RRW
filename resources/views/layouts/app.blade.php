@@ -26,7 +26,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
-    
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -63,8 +63,8 @@
     }
 
     .collapse.in {
-    display: block !important;
-}
+        display: block !important;
+    }
 
     * {
         padding: 0px;
@@ -174,8 +174,8 @@
 
         .lang-dropdown-toggle {}
 
-        .btn-arrow-down:hover .arrow-down{
-            color:var(--primary-orange);
+        .btn-arrow-down:hover .arrow-down {
+            color: var(--primary-orange);
         }
 
         .navbar-nav {
@@ -565,17 +565,16 @@
                             <span id="lt-lang-label">Lithuanian</span>
                         </a>
                     </li>
-                    <div class="dropdown-divider"></div>
-                    <li class="text-center">
-                        <button class="btn btn-arrow-down" style="border-radius:100%;" type="button" data-toggle="collapse"
+                    <li class="text-center">                        
+                        <a class="btn btn-arrow-down" style="border-radius:100%;" type="button" data-toggle="collapse"
                             data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
                             <i class="fas fa-arrow-circle-down arrow-down"></i>
-                        </button>                        
+                        </a>
                     </li>
-                    <div class="collapse text-center" id="collapseExample1" style="margin-top:5%;">
-                        <img src="https://img.icons8.com/office/50/000000/translation.png"/>
+                    <div class="collapse text-center" id="collapseExample1" style="margin-top:5%;">                        
+                        <img src="https://img.icons8.com/office/50/000000/translation.png" />
                         <p>Help Translate this site: <a href="">Translate here</a></p>
-                        
+
                     </div>
 
                 </ul>
@@ -643,6 +642,8 @@
                             <span class="onoffswitch-switch text-center"></span>
                         </label>
                     </div>
+
+
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Authentication Links -->
@@ -732,7 +733,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">Yes</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me back</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">No, return me back</button>
                     </div>
                 </div>
             </div>

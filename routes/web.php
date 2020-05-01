@@ -91,7 +91,7 @@ Route::resource('feedback','commentcontroller');
 Route::post('/store','commentcontroller@store');
 Route::get('/disscount', function(){
     Mail::send('inform',[],function($m){
-        $m->to('user@gmail.com','ali')->subject('Apollon');
+        $m->to('user@gmail.com')->subject('Apollon');
     });
     return view ('welcome');
 });

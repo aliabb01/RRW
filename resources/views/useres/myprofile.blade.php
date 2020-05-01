@@ -84,7 +84,7 @@
             @method('delete')
             Yes, continue
           </button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me back</button>
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">No, return me back</button>
         </form>
       </div>
     </div>
@@ -147,7 +147,7 @@
         <div class="container-right">
           <button type="submit" class="btn btn-primary">
             Update</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Back</button>
         </div>
         </form>
       </div>
