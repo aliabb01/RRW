@@ -50,8 +50,12 @@
 </head>
 <style>
     :root {
-        --primary: darkred;
+        --primary-skyblue: #007DC8;
+        --primary-orange: #FF9D1B;
+        --laravel-logo: #FF564B;
         --langActive: orange;
+
+        --navbar-dark:#05263F;
     }
 
     * {
@@ -88,7 +92,7 @@
             transform: rotate(45deg);
         }
 
-        /* Delete this .dropdown methods if you want the clickable dropdown menu */
+        /* Delete these 3 .dropdown methods if you want the clickable dropdown menu */
         .dropdown-S:hover>.dropdown-menu {
             display: block;
         }
@@ -102,6 +106,16 @@
             pointer-events: none;
         }
 
+        .dropdown-S .drop-tog {
+            transition: 0.3s ease-in-out;
+        }
+
+        .dropdown-S:hover .drop-tog {
+            color: var(--primary-orange);
+            transform: rotate(180deg);
+            transition: 0.3s ease-in;
+        }
+
         .drop-ser {
             width: 200%;
             font-size: 1rem;
@@ -113,36 +127,47 @@
         }
 
         .dr-lang {
-            color: #FFA500;
+            color: var(--primary-orange);
             text-decoration: none;
         }
 
         a:hover {
-            color: #FFA500;
+            color: var(--primary-orange);
         }
 
         #lang-link {
             color: white;
         }
 
+        #lang-link:focus #lang-dropdown-toggle {
+            transform: rotate(180deg);
+            color: var(--laravel-logo);
+        }
+
         #EN:hover {
-            background-color: #007DC8;
+            background-color: var(--primary-skyblue);
         }
 
         #RU:hover {
-            background-color: #007DC8;
+            background-color: var(--primary-skyblue);
         }
 
         #LT:hover {
-            background-color: #007DC8;
+            background-color: var(--primary-skyblue);
         }
 
         #lang-link:hover {
-            color: #FFA500;
+            color: var(--primary-orange);
         }
 
         .lang-toggle:hover {
-            text-decoration: solid #FFA500;
+            text-decoration: solid var(--primary-orange);
+        }
+
+        .lang-dropdown-toggle {}
+
+        .navbar-nav {
+            z-index: 1000;
         }
 
         .nav-item {
@@ -156,8 +181,52 @@
             /* blue part of logo: rgb(76, 174, 255);*/
             text-shadow: 0px 0px 7px skyblue;
             /*box-shadow: */
-            margin-top: 2%;
-            transition: font-size .3s linear;
+            transition: 0.2s;
+        }
+
+        #home {
+            transition: 0.5s;
+        }
+
+        #home:hover {
+            margin-top: 1%;
+            transition: 0.5s;
+        }
+
+        #about {
+            transition: 0.5s;
+        }
+
+        #about:hover {
+            margin-top: 1%;
+            transition: 0.5s;
+        }
+
+        #services {
+            transition: 0.5s;
+        }
+
+        #services:hover {
+            margin-top: 1%;
+            transition: 0.5s;
+        }
+
+        #feedback {
+            transition: 0.5s;
+        }
+
+        #feedback:hover {
+            margin-top: 1%;
+            transition: 0.5s;
+        }
+
+        #help {
+            transition: 0.5s;
+        }
+
+        #help:hover {
+            margin-top: 1%;
+            transition: 0.5s;
         }
 
         /*.nav-link {
@@ -196,7 +265,7 @@
             /*    ^       */
             /* |  Delete this line to start the red border animation from left and not from center */
             bottom: 0;
-            background-color: rgb(65, 154, 28);
+            background-color: #41A317;
             transition: all ease-in-out .3s;
             margin-bottom: 3px;
         }
@@ -249,12 +318,12 @@
             color:            
         }*/
         #logout:hover {
-            background-color: #FF564B;
+            background-color: var(--laravel-logo);
         }
 
         #logout:hover #logout-ico-nav {
             color: #05263F;
-            -webkit-text-stroke: 0.7px skyblue;
+            -webkit-text-stroke: 0.7px white;
         }
 
         #my-profile:hover #user-ico-nav {
@@ -265,11 +334,11 @@
         }
 
         #X-sign:hover {
-            color: orange;
+            color: var(--primary-orange);
             filter: brightness(135%);
         }
 
-        /* Color Switcher */
+        /* Color Switcher */        
 
         .onoffswitch {
             position: relative;
@@ -359,7 +428,7 @@
     }
 
     .bg-nav {
-        background-color: #05263F;
+        background-color: var(--navbar-dark);
         /* dark-grey--rgb(52, 58, 64); */
         /* grey */
     }
@@ -401,6 +470,8 @@
 
 
     }
+    
+    
 </style>
 
 <body>
@@ -419,7 +490,7 @@
 
             <div class="dropdown dr-lang language-selector text-light">
                 {{ __('msg.language')}} :
-                <a href="#" id="lang-link" class="dropdown-toggle lang-toggle" data-toggle="dropdown"
+                <a href="#" id="lang-link" class="lang-toggle text-center" data-toggle="dropdown"
                     data-close-others="true">
 
                     <!-- Language switcher function to check local language -->
@@ -430,6 +501,9 @@
                         #EN {
                             background-color: var(--langActive);
                         }
+                        #eng-lang-label{
+                            
+                        }
                     </style>
                     @endif
 
@@ -438,6 +512,9 @@
                     <style>
                         #RU {
                             background-color: var(--langActive);
+                        }
+                        #ru-lang-label{
+                            font-size: 110%;
                         }
                     </style>
                     @endif
@@ -448,28 +525,37 @@
                         #LT {
                             background-color: var(--langActive);
                         }
+                        #lt-lang-label{
+                            font-size: 110%;
+                        }
                     </style>
                     @endif
 
+                    <div class="dropdown-toggle text-center" id="lang-dropdown-toggle" style="display:inline-block;">
+                    </div>
                 </a>
                 <ul class="dropdown-menu ml-1">
                     <li>
                         <a class="dropdown-item" id="EN" href="{{ url('locale/en') }}">
                             <i class="flag-icon flag-icon-gb"></i>
-                            <span>English</span>
+                            <span id="eng-lang-label">English</span>
                         </a>
                     </li>
                     <li class="active">
                         <a class="dropdown-item" id="RU" href="{{ url('locale/ru') }}">
                             <i class="flag-icon flag-icon-ru"></i>
-                            <span>Russian</span>
+                            <span id="ru-lang-label">Russian</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" id="LT" href="{{ url('locale/lt') }}">
                             <i class="flag-icon flag-icon-lt"></i>
-                            <span>Lithuanian</span>
+                            <span id="lt-lang-label">Lithuanian</span>
                         </a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li>
+                        <h6 class="text-center"><img style="margin-left:3%;" src="https://img.icons8.com/office/30/000000/translation.png"/>  Help translation:  <a class="text-center" href="">Translate here</a></h6>
                     </li>
                 </ul>
             </div>
@@ -486,17 +572,18 @@
                     <!-- Left Side Of Navbar -->
 
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item different {{ Request::is('welcome') ? 'active' : '' }}">
+                        <li class="nav-item different {{ Request::is('welcome') ? 'active' : '' }}" id="home">
                             <a class="nav-link lead" href="/welcome">{{ __('msg.home')}}</a>
                         </li>
-                        <li class="nav-item different {{ Request::is('about') ? 'active' : '' }}">
-                            <a class="nav-link lead" href="about">{{ __('msg.about')}}</a>
+                        <li class="nav-item different {{ Request::is('about') ? 'active' : '' }}" id="about">
+                            <a class="nav-link lead" href="/about">{{ __('msg.about')}}</a>
                         </li>
-                        <li
-                            class="nav-item dropdown dropdown-S different {{ Request::is('services') ? 'active' : '' }}">
-                            <a class="nav-link dropdown-toggle lead" href="#" id="navbarDropdownMenuLink"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ __('msg.services')}}
+                        <li class="nav-item dropdown dropdown-S different {{ Request::is('services') ? 'active' : '' }}"
+                            id="services">
+                            <a class="nav-link lead" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                {{ __('msg.services')}} <div style="margin-left:8px; width:8px; display:inline-block;"
+                                    class="dropdown-toggle drop-tog"></div>
                             </a>
 
 
@@ -504,17 +591,17 @@
 
                             <div class="dropdown-menu animated flipInX drop-ser" id="dropdown-services"
                                 aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item " href="services-special">Special offers</a>
-                                <a class="dropdown-item" href="services-advertising">Advertising</a>
-                                <a class="dropdown-item" href="services-baggage">Baggage Transportation</a>
+                                <a class="dropdown-item " href="services-special">Special offers   <img style="margin-left:32%;" src="https://img.icons8.com/color/30/000000/brief.png"/></a>
+                                <a class="dropdown-item" href="services-advertising">Advertising  <img style="margin-left:40%;" src="https://img.icons8.com/dusk/30/000000/commercial.png"/></a>
+                                <a class="dropdown-item" href="services-baggage">Baggage  <img style="margin-left:50%;" src="https://img.icons8.com/officel/30/000000/luggage-trolley.png"/></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="services-careers">Careers</a>
+                                <a class="dropdown-item" href="services-careers">Careers  <img style="margin-left:55%;" src="https://img.icons8.com/office/30/000000/work.png"/></a>
                             </div>
                         </li>
-                        <li class="nav-item different {{ Request::is('feedback') ? 'active' : '' }}">
+                        <li class="nav-item different {{ Request::is('feedback') ? 'active' : '' }}" id="feedback">
                             <a class="nav-link lead" href="feedback">{{ __('msg.feedback')}}</a>
                         </li>
-                        <li class="nav-item different {{ Request::is('contact') ? 'active' : '' }}">
+                        <li class="nav-item different {{ Request::is('help') ? 'active' : '' }}" id="help">
                             <a class="nav-link lead help" href="help">{{ __('msg.help')}}</a>
                         </li>
                     </ul>
