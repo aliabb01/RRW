@@ -23,13 +23,17 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="//db.onlinewebfonts.com/c/dc6734899329fcbdd770b32dc47059d8?family=Sofia+Pro+Light" rel="stylesheet"
         type="text/css" />
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
@@ -55,8 +59,12 @@
         --laravel-logo: #FF564B;
         --langActive: orange;
 
-        --navbar-dark:#05263F;
+        --navbar-dark: #05263F;
     }
+
+    .collapse.in {
+    display: block !important;
+}
 
     * {
         padding: 0px;
@@ -165,6 +173,10 @@
         }
 
         .lang-dropdown-toggle {}
+
+        .btn-arrow-down:hover .arrow-down{
+            color:var(--primary-orange);
+        }
 
         .navbar-nav {
             z-index: 1000;
@@ -338,7 +350,7 @@
             filter: brightness(135%);
         }
 
-        /* Color Switcher */        
+        /* Color Switcher */
 
         .onoffswitch {
             position: relative;
@@ -470,8 +482,6 @@
 
 
     }
-    
-    
 </style>
 
 <body>
@@ -483,8 +493,9 @@
                 <img class="animated slideInDown slow img-logo" src="logo/logo2.png" alt="">
             </a>
             <!--  <hr class="line">  -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <button class="collapsed navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -501,9 +512,8 @@
                         #EN {
                             background-color: var(--langActive);
                         }
-                        #eng-lang-label{
-                            
-                        }
+
+                        #eng-lang-label {}
                     </style>
                     @endif
 
@@ -513,7 +523,8 @@
                         #RU {
                             background-color: var(--langActive);
                         }
-                        #ru-lang-label{
+
+                        #ru-lang-label {
                             font-size: 110%;
                         }
                     </style>
@@ -525,7 +536,8 @@
                         #LT {
                             background-color: var(--langActive);
                         }
-                        #lt-lang-label{
+
+                        #lt-lang-label {
                             font-size: 110%;
                         }
                     </style>
@@ -541,7 +553,7 @@
                             <span id="eng-lang-label">English</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a class="dropdown-item" id="RU" href="{{ url('locale/ru') }}">
                             <i class="flag-icon flag-icon-ru"></i>
                             <span id="ru-lang-label">Russian</span>
@@ -554,9 +566,18 @@
                         </a>
                     </li>
                     <div class="dropdown-divider"></div>
-                    <li>
-                        <h6 class="text-center"><img style="margin-left:3%;" src="https://img.icons8.com/office/30/000000/translation.png"/>  Help translation:  <a class="text-center" href="">Translate here</a></h6>
+                    <li class="text-center">
+                        <button class="btn btn-arrow-down" style="border-radius:100%;" type="button" data-toggle="collapse"
+                            data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fas fa-arrow-circle-down arrow-down"></i>
+                        </button>                        
                     </li>
+                    <div class="collapse text-center" id="collapseExample1" style="margin-top:5%;">
+                        <img src="https://img.icons8.com/office/50/000000/translation.png"/>
+                        <p>Help Translate this site: <a href="">Translate here</a></p>
+                        
+                    </div>
+
                 </ul>
             </div>
 
@@ -588,14 +609,19 @@
 
 
 
-
                             <div class="dropdown-menu animated flipInX drop-ser" id="dropdown-services"
                                 aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item " href="services-special">Special offers   <img style="margin-left:32%;" src="https://img.icons8.com/color/30/000000/brief.png"/></a>
-                                <a class="dropdown-item" href="services-advertising">Advertising  <img style="margin-left:40%;" src="https://img.icons8.com/dusk/30/000000/commercial.png"/></a>
-                                <a class="dropdown-item" href="services-baggage">Baggage  <img style="margin-left:50%;" src="https://img.icons8.com/officel/30/000000/luggage-trolley.png"/></a>
+                                <a class="dropdown-item " href="services-special">Special offers <img
+                                        style="margin-left:32%;"
+                                        src="https://img.icons8.com/color/30/000000/brief.png" /></a>
+                                <a class="dropdown-item" href="services-advertising">Advertising <img
+                                        style="margin-left:40%;"
+                                        src="https://img.icons8.com/dusk/30/000000/commercial.png" /></a>
+                                <a class="dropdown-item" href="services-baggage">Baggage <img style="margin-left:50%;"
+                                        src="https://img.icons8.com/officel/30/000000/luggage-trolley.png" /></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="services-careers">Careers  <img style="margin-left:55%;" src="https://img.icons8.com/office/30/000000/work.png"/></a>
+                                <a class="dropdown-item" href="services-careers">Careers <img style="margin-left:55%;"
+                                        src="https://img.icons8.com/office/30/000000/work.png" /></a>
                             </div>
                         </li>
                         <li class="nav-item different {{ Request::is('feedback') ? 'active' : '' }}" id="feedback">
