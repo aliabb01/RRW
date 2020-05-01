@@ -89,3 +89,9 @@ Route::put('/upd/{id}','rigestercontroller@update');
 Route::delete('/del/{id}','rigestercontroller@destroy');
 Route::resource('feedback','commentcontroller');
 Route::post('/store','commentcontroller@store');
+Route::get('/disscount', function(){
+    Mail::send('inform',[],function($m){
+        $m->to('user@gmail.com','ali')->subject('Apollon');
+    });
+    return view ('welcome');
+});
