@@ -1,3 +1,4 @@
+<script src="https://kit.fontawesome.com/d02e083562.js" crossorigin="anonymous"></script>
 <div class="background">
 	<div class="ground"></div>
 </div>
@@ -7,7 +8,7 @@
             <small class="subheading">HTTPNotFound Exception:</small>
 			<h1 class="heading">404</h1>
             <p class="subheading">Looks like the page you were looking for is no longer here.</p>
-            <a class="go-back" href="/welcome" style="text-decoration: none;"><p>Go back</p></a>
+            <a class="go-back" href="/welcome" style="text-decoration: none;"><p><i class="fas fa-long-arrow-alt-left arrow"></i>  Go back</p></a>            
 		</div>
 	</div>
 	<div class="right-section">
@@ -240,6 +241,15 @@ body {
 
 .go-back:hover{
   color:skyblue;
+}
+
+.arrow{
+  font-size:300%;
+}
+
+.go-back:hover .arrow{
+  color:orange;
+  transform: 0.3s ease-in;
 }
 
 @keyframes glow {
