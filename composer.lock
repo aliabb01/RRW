@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a5ba241f66ac80cb98da5a56bc96ab3",
+    "content-hash": "1e402755d75643a11c7278cd7c4437d0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -103,6 +103,45 @@
                 "math"
             ],
             "time": "2020-04-15T15:59:35+00:00"
+        },
+        {
+            "name": "coreui/coreui",
+            "version": "v2.1.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coreui/coreui.git",
+                "reference": "6510bf679bb2161aa48861d1827d4a4eff45771a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coreui/coreui/zipball/6510bf679bb2161aa48861d1827d4a4eff45771a",
+                "reference": "6510bf679bb2161aa48861d1827d4a4eff45771a",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Łukasz Holeczek",
+                    "email": "lukasz@coreui.io"
+                }
+            ],
+            "description": "Open Source UI Kit built on top of Bootstrap 4",
+            "homepage": "https://coreui.io",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "mobile-first",
+                "responsive",
+                "sass",
+                "web"
+            ],
+            "time": "2019-10-25T13:48:28+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
