@@ -1,3 +1,9 @@
+<!--  
+    Developers:
+    Ali ABBASOV --- Layout designer and Frontend
+
+-->
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -19,6 +25,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Script that enables tooltips -->
 
+    <!--CoreUI Bootstrap -->
+    <!-- Used for callout style for counters in footer -->
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui@3.0.0-rc.0/dist/css/coreui.min.css">
+
+    <!--jQuery and daterangepicker -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -26,6 +37,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
+
+<script src="{{ mix("js/bootstrap-input-spinner.js") }}"></script>
 
 
     <!-- Fonts -->
@@ -54,15 +67,23 @@
 </head>
 <style>
     :root {
-        --primary-skyblue: #007DC8;
+        --primary-skyblue: #449DFD;
+        /* bootstrap primary */
+
         --primary-orange: #FF9D1B;
         --laravel-logo: #FF564B;
         --langActive: orange;
+        --menu-nav: #05263F;
+        /* light theme */
 
-        --navbar-dark: #05263F;
+        --menu-gray: #313A45;
+        /* Mehdi liked this color */
+
+        --body-background: #f2f2f2;
     }
 
     .collapse.in {
+        /*  navbar toggler fix */
         display: block !important;
     }
 
@@ -120,7 +141,7 @@
 
         .dropdown-S:hover .drop-tog {
             color: var(--primary-orange);
-            transform: rotate(180deg);
+            transform: rotateX(180deg);
             transition: 0.3s ease-in;
         }
 
@@ -148,7 +169,7 @@
         }
 
         #lang-link:focus #lang-dropdown-toggle {
-            transform: rotate(180deg);
+            transform: rotateX(180deg);
             color: var(--laravel-logo);
         }
 
@@ -176,6 +197,17 @@
 
         .btn-arrow-down:hover .arrow-down {
             color: var(--primary-orange);
+        }
+
+        .arrow-down:focus {
+            transform: rotate(180deg);
+        }
+
+        #navbar {
+            border-style: solid;
+            -webkit-box-shadow: 0px 6px 9px 0px rgba(41,25,41,0.7) !important;
+-moz-box-shadow: 0px 6px 9px 0px rgba(41,25,41,0.7) !important;
+box-shadow: 0px 6px 9px 0px rgba(41,25,41,0.7) !important;
         }
 
         .navbar-nav {
@@ -350,6 +382,33 @@
             filter: brightness(135%);
         }
 
+        #topBTN {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: var(--primary-skyblue);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 100%;
+            width: 58px;
+        }
+
+        #topBTN:hover{
+            filter:brightness(95%);
+        }
+
+        #topBTN:hover .back-to-top-ico {
+            color: var(--primary-orange);
+            filter: brightness(140%);
+        }
+
+        /* -----------------------  */
         /* Color Switcher */
 
         .onoffswitch {
@@ -402,6 +461,7 @@
         }
 
         .onoffswitch-inner:after {
+            --menu-dark: var(--menu-gray);
             content: "DARK";
             padding-right: 10px;
             background-color: #34A7C1;
@@ -432,20 +492,97 @@
         .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
             right: 0px;
         }
+
+        /* -----------------------  */
+        /* Center the loader */
+        #loader {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid var(--primary-skyblue);
+            border-bottom: 16px solid var(--primary-orange);
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Add animation to "page content" */
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+        }
+
+        @-webkit-keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0px;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        .info {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+        }
     }
 
     body {
         /*background-image: url(../logo/background4.jpg);*/
+        background-color: var(--body-background);
 
     }
 
     .bg-nav {
-        background-color: var(--navbar-dark);
+        background-color: var(--menu-nav);
         /* dark-grey--rgb(52, 58, 64); */
         /* grey */
     }
-
-
 
     @media only screen and (min-width:768px) {
         /* Medium devices (landscape tablets, 768px and up) */
@@ -471,6 +608,10 @@
         .img-logo {
             width: 45%;
         }
+
+        .navbar{
+            position: relative;
+        }
     }
 
     @media only screen and (max-width: 425px) {
@@ -484,13 +625,14 @@
     }
 </style>
 
-<body>
+<body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
     <div id="app">
-        <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-nav shadow-sm" id="navbar">
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-nav shadow-sm" id="navbar">
             <a class="navbar-brand " href="welcome">
                 <!-- <img class="logo" src="logo/logo.png" alt="ApollonRailway" height="70" width="160"> -->
                 <span class="logo-name" style="">Apollon</span>
-                <img class="animated slideInDown slow img-logo" src="logo/logo2.png" alt="">
+                <img loading="lazy" class="animated slideInDown slow img-logo" src="logo/logo2.png" alt="">
             </a>
             <!--  <hr class="line">  -->
             <button class="collapsed navbar-toggler" type="button" data-toggle="collapse"
@@ -556,24 +698,24 @@
                     <li>
                         <a class="dropdown-item" id="RU" href="{{ url('locale/ru') }}">
                             <i class="flag-icon flag-icon-ru"></i>
-                            <span id="ru-lang-label">Russian</span>
+                            <span id="ru-lang-label">Русский</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" id="LT" href="{{ url('locale/lt') }}">
                             <i class="flag-icon flag-icon-lt"></i>
-                            <span id="lt-lang-label">Lithuanian</span>
+                            <span id="lt-lang-label">Lietuvių</span>
                         </a>
                     </li>
-                    <li class="text-center">                        
+                    <li class="text-center">
                         <a class="btn btn-arrow-down" style="border-radius:100%;" type="button" data-toggle="collapse"
                             data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
-                            <i class="fas fa-arrow-circle-down arrow-down"></i>
+                            <i class="fas fa-arrow-circle-down arrow-down" id="arrow-down"></i>
                         </a>
                     </li>
-                    <div class="collapse text-center" id="collapseExample1" style="margin-top:5%;">                        
-                        <img src="https://img.icons8.com/office/50/000000/translation.png" />
-                        <p>Help Translate this site: <a href="">Translate here</a></p>
+                    <div class="collapse text-center" id="collapseExample1" style="margin-top:5%;">
+                        <img class="animated flipInY" src="https://img.icons8.com/office/50/000000/translation.png" />
+                        <p>Help Translate this site: <a href="/help-translate">Translate here</a></p>
 
                     </div>
 
@@ -604,12 +746,14 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 {{ __('msg.services')}} <div style="margin-left:8px; width:8px; display:inline-block;"
                                     class="dropdown-toggle drop-tog"></div>
+
                             </a>
 
 
 
                             <div class="dropdown-menu animated flipInX drop-ser" id="dropdown-services"
                                 aria-labelledby="navbarDropdownMenuLink">
+                                <small class="dropdown-header"><b>Main</b></small>
                                 <a class="dropdown-item " href="services-special">Special offers <img
                                         style="margin-left:32%;"
                                         src="https://img.icons8.com/color/30/000000/brief.png" /></a>
@@ -627,21 +771,21 @@
                             <a class="nav-link lead" href="feedback">{{ __('msg.feedback')}}</a>
                         </li>
                         <li class="nav-item different {{ Request::is('help') ? 'active' : '' }}" id="help">
-                            <a class="nav-link lead help" href="help">{{ __('msg.help')}}</a>
+                            <a class="nav-link lead" href="help">{{ __('msg.help')}}</a>
                         </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
 
                     <!-- ON/OFF switch -->
-                    <div class="onoffswitch">
+                    <!--<div class="onoffswitch">
                         <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"
                             checked>
                         <label class="onoffswitch-label" for="myonoffswitch">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch text-center"></span>
                         </label>
-                    </div>
+                    </div> -->
 
 
                     <ul class="navbar-nav ml-auto">
@@ -712,6 +856,13 @@
             </div>
         </nav>
 
+
+
+
+
+        <button class="btn btn-outline-primary" onclick="topFunction()" id="topBTN" title="Go to top"><i
+                class="fas fa-arrow-up back-to-top-ico"></i></button>
+
         <!-- MODAL -->
         <!-- Modal is put on top of main after the whole navbar and styling -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -731,16 +882,19 @@
                             main page </a> after you <b>log out</b> .
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="event.preventDefault();
+                        <button type="button" class="btn btn-outline-primary" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">Yes</button>
-                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">No, return me back</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me back</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- MODAL END  -->
 
-        <main class="">
+
+
+
+        <main class="" id="main">
             @yield('content')
         </main>
 
@@ -752,6 +906,48 @@
         $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
+    </script>
+
+    <script>
+        document.getElementById('myonoffswitch').checked   
+    </script>
+
+    <script>
+        var myVar;
+        var blur = document.getElementById("main").style.filter = "brightness(0.30)";
+    
+    function myFunction() {
+      myVar = setTimeout(showPage, 1000);
+      blur = setTimeOut(showPage, 1000);
+    }
+    
+    function showPage() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("main").style.display = "block";
+      document.getElementById("main").style.filter = "brightness(1)";      
+    }
+    </script>
+
+    <!-- Back to top script -->
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("topBTN");
+        
+        // When the user scrolls down 500px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            $('html,body').animate({scrollTop: 0}, 500);
+        }
     </script>
 </body>
 

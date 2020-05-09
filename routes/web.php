@@ -55,6 +55,10 @@ Route::get('services-careers', function () {
     return view('services.careers');
 });
 
+Route::get('help-translate', function () {
+    return view('help-translate');
+});
+
 Route::get('locale/{locale}', function ($locale){
     Session::put('locale', $locale);
     return redirect()->back();

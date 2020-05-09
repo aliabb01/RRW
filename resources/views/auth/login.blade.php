@@ -4,13 +4,16 @@
 <div class="container">
     <style>
         body {
-            background-color: #C2DFFF;
+            background-color:var(--body-background);
         }
 
         .bg-log {
             background: rgb(255, 255, 255, 0.92);
         }
 
+        .card-body{
+            background-color:powderblue;
+        }
 
         .card-transparent {
             margin-top: 15%;
@@ -44,24 +47,26 @@
             width: 45%;
         }
 
-        .log-google{
-            float:center;
-            margin-left:3%;
+        .log-google {
+            float: center;
+            margin-left: 3%;
         }
 
-        .log-twit{
-            float:center;
-            margin-left:3%;
+        .log-twit {
+            float: center;
+            margin-left: 3%;
         }
 
         .log-face {
-            float:right;
-            margin-right:3%;
+            float: right;
+            margin-right: 3%;
         }
-        .log-git{
-            float:right;
-            margin-right:3%;
+
+        .log-git {
+            float: right;
+            margin-right: 3%;
         }
+
         .ico-git {}
 
         .btn-google {
@@ -82,7 +87,7 @@
     </style>
     <div class="row justify-content-center log-cont">
         <div class="col-md-8">
-            <div class="card-transparent border-primary mb-1 animated zoomIn">
+            <div class="card-transparent mb-1 animated zoomIn">
                 <div class="card-header text-light text-center bg-dark lead ">{{ __('msg.login') }}</div>
                 <div class="card-body bg-log text-dark">
                     <form method="POST" action="{{ route('login') }}">
@@ -121,7 +126,7 @@
                                 @enderror
                                 <small id="passwordHelpInline" class="text-muted">
                                     Must be 8-20 characters long.
-                                  </small>
+                                </small>
                             </div>
                         </div>
 
@@ -143,8 +148,9 @@
                                 <button type="submit" class="btn btn-success">
                                     {{ __('msg.login') }}
                                 </button>
-                                <span class="col-md-2"> <!-- Or was here -->  </span>
-                                
+                                <span class="col-md-2">
+                                    <!-- Or was here --> </span>
+
 
                                 @if (Route::has('password.request'))
                                 <a class="btn btn-link display-2 text-danger" href="{{ route('password.request') }}">
@@ -152,7 +158,7 @@
                                 </a>
                                 @endif
                                 <span>Not a member? </span><a href="register" class="text-danger">
-                                     {{ __('msg.sign-up') }}
+                                    {{ __('msg.sign-up') }}
                                 </a>
                             </div>
                         </div>
@@ -160,24 +166,28 @@
                     </form>
                     <br>
 
-                    <div class="separator"><div class="" style="font-size:150%;">{{ __('msg.or') }}</div></div>
+                    <div class="separator">
+                        <div class="" style="font-size:150%;">{{ __('msg.or') }}</div>
+                    </div>
 
-                    <a href="{{ url('auth/google') }}" class="btn btn-social btn-google btn-lg text-primary log-google"><span
-                            class="fab fa-google"></span>
-                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Google</a>
+                    <div class="card-footer">
+                        <a href="{{ url('auth/google') }}"
+                            class="btn btn-social btn-google btn-lg text-primary log-google"><span
+                                class="fab fa-google"></span>
+                            <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Google</a>
 
-                    <a href="{{ url('auth/facebook') }}" class="btn btn-social btn-facebook btn-lg log-face"><span
-                            class="fab fa-facebook"></span>
-                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Facebook</a>
+                        <a href="{{ url('auth/facebook') }}" class="btn btn-social btn-facebook btn-lg log-face"><span
+                                class="fab fa-facebook"></span>
+                            <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Facebook</a>
 
-                    <a href="{{ url('auth/twitter') }}" class="btn btn-social btn-twitter btn-lg log-twit"><span
-                            class="fab fa-twitter"></span>
-                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Twitter</a>
+                        <a href="{{ url('auth/twitter') }}" class="btn btn-social btn-twitter btn-lg log-twit"><span
+                                class="fab fa-twitter"></span>
+                            <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Twitter</a>
 
-                    <a href="{{ url('auth/github') }}" class="btn btn-social btn-github btn-lg log-git"><span
-                            class="fab fa-github"></span>
-                        <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Github</a>
-
+                        <a href="{{ url('auth/github') }}" class="btn btn-social btn-github btn-lg log-git"><span
+                                class="fab fa-github"></span>
+                            <!--<i class="fab fa-github ico-git" style="font-size:36px"></i> --> Github</a>
+                    </div>
 
                 </div>
             </div>

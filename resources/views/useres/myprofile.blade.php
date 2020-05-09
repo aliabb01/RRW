@@ -1,7 +1,30 @@
 @extends('layouts.app')
+
 @section('content')
 
+<style>
+  .myprofile-main{
+    background-color:var(--body-background);
+  }
 
+  .myprofile {
+    padding-top: 50px;
+    padding-bottom: 50px;    
+  }
+
+  .input {
+    width: 24%;
+  }
+
+  .myset {
+    font-size: 25px;
+  }
+
+  .edit {
+    margin-right: 2%;
+  }
+</style>
+<div class="myprofile-main">
 <div class="container myprofile text-center">
   <h2 class="my-set">My Profile <i class="fas fa-user-circle user-profile-img"></i></h2>
   <tr>
@@ -48,133 +71,113 @@
 
   @endforeach
   <!--<td> {{link_to_route('useres.edit','Edit',$i,['class'=>'btn btn-success edit'])}}</td>-->
-  <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter2">
-    Edit
+  <button class="btn btn-success" style="width:10%; font-size:16px;" data-toggle="modal" data-target="#exampleModalCenter2">
+    Edit <span class="text-dark" style="margin-left:15%;"><i class="fas fa-edit text-light"></i></span>
   </button>
-  <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter1">
-    Delete
+  <button class="btn btn-danger" style="width:10%; font-size:16px;" data-toggle="modal" data-target="#exampleModalCenter1">
+    Delete <span class="text-dark" style="margin-left:15%;"><i class="fas fa-trash-alt text-secondary"></i></span>
   </button>
   <td></td>
   </tr>
 
 </div>
+</div>
 
-<!-- MODAL -->
+@endsection   <!-- Content END -->
+
+        <!-- MODAL -->
 <!-- Modal is put on top of main after the whole navbar and styling -->
 <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
-            class="text-light">Are you sure you want to delete your account?</span></h5>
-        <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header bg-primary">
+      <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
+          class="text-light">Are you sure you want to delete your account?</span></h5>
+      <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
+      </button>
+    </div>
+    <div class="modal-body">
+      <small><b>Note :</b></small><br>
+      Your information will be <b> deleted</b> and your data within the website will be <b>lost</b>. Are you sure you
+      want to continue?
+    </div>
+    <div class="modal-footer">
+      <form action="{{'/del/'.Auth::user()->id}}" method="POST">
+        <button type="submit" class="btn btn-outline-primary">
+          @csrf
+          @method('delete')
+          Yes, continue
         </button>
-      </div>
-      <div class="modal-body">
-        <small><b>Note :</b></small><br>
-        Your information will be <b> deleted</b> and your data within the website will be <b>lost</b>. Are you sure you
-        want to continue?
-      </div>
-      <div class="modal-footer">
-        <form action="{{'/del/'.Auth::user()->id}}" method="POST">
-          <button type="submit" class="btn btn-primary">
-            @csrf
-            @method('delete')
-            Yes, continue
-          </button>
-          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">No, return me back</button>
-        </form>
-      </div>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me back</button>
+      </form>
     </div>
   </div>
+</div>
 </div>
 <!-- MODAL END  -->
 
 <!-- MODAL for update/edit info-->
 <!-- Modal is put on top of main after the whole navbar and styling -->
 <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
-            class="text-light col-md-auto">Your profile information</span></h5>
-        <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
-        </button>
-      </div>
-      <div class="modal-body">
-        <span>You can edit your account information below:</span> <br>
-        <form action="{{'/upd/'.Auth::user()->id }}" method="POST">
-          @csrf
-          @method('PUT')
-          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-          <div class="container">
-            <div class="form-group">
-              <label for="id"><b>ID * :</b> <small>(Specific code of your account which is used to identify
-                  you)</small></label>
-              <input type="text" class="form-control" value="{{Auth::user()->id}}" readonly>
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="name"><b>Name :</b></label>
-              <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="email"><b>Email :</b></label>
-              <input type="value" class="form-control" name="email" value="{{Auth::user()->email}}">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="phone"><b>Phone :</b></label>
-              <input type="text" class="form-control" name="phone" value="{{Auth::user()->phone}}">
-            </div>
-            <br>
-            <div class="form-group">
-              <label for="country"><b>Country :</b></label>
-              <input type="value" class="form-control" name="country" value="{{Auth::user()->country}}">
-            </div>
-            <br>
+aria-hidden="true">
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header bg-primary">
+      <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
+          class="text-light col-md-auto">Your profile information</span></h5>
+      <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
+      </button>
+    </div>
+    <div class="modal-body">
+      <span>You can edit your account information below:</span> <br>
+      <form action=" {{'/upd/'.Auth::user()->id }}" method="POST">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        <div class="container">
+          <div class="form-group">
+            <label for="id"><b>ID * :</b> <small>(Specific code of your account which is used to identify
+                you)</small></label>
+            <input type="text" class="form-control" value="{{Auth::user()->id}}" readonly>
           </div>
-      </div>
-      <div class="modal-footer">
-        <div class="col-sm">
-          <b>* Cannot</b> be changed by the user
+          <br>
+          <div class="form-group">
+            <label for="name"><b>Name :</b></label>
+            <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="email"><b>Email :</b></label>
+            <input type="value" class="form-control" name="email" value="{{Auth::user()->email}}">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="phone"><b>Phone :</b></label>
+            <input type="text" class="form-control" name="phone" value="{{Auth::user()->phone}}">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="country"><b>Country :</b></label>
+            <input type="value" class="form-control" name="country" value="{{Auth::user()->country}}">
+          </div>
+          <br>
         </div>
-        <div class="container-right">
-          <button type="submit" class="btn btn-primary">
-            Update</button>
-          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Back</button>
-        </div>
-        </form>
+    </div>
+    <div class="modal-footer">
+      <div class="col-sm">
+        <b>* Cannot</b> be changed by the user
       </div>
+      <div class="container-right">
+        <button type="submit" class="btn btn-success">
+          Update</button>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Back</button>
+      </div>
+      </form>
     </div>
   </div>
 </div>
+</div>
 <!-- MODAL END  -->
-
-<style>
-  .myprofile {
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-
-  .input {
-    width: 24%;
-  }
-
-  .myset {
-    font-size: 25px;
-  }
-
-  .edit {
-    margin-right: 2%;
-  }
-</style>
-
-
-
-@endsection

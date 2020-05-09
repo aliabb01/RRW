@@ -246,6 +246,9 @@ body {
 .arrow{
   font-size:300%;
 }
+.go-back:hover .arrow{
+  transform: translate()
+}
 
 .go-back:hover .arrow{
   color:orange;

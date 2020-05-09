@@ -4,21 +4,21 @@
 <div class="container">
     <style>
         body {
-            background-color: #C2DFFF /*rgb(239, 240, 241)*/;            
+            background-color:var(--body-background);
         }
 
         .card-header{
             font-style: bold;
         }
 
+        .card-body{
+            background-color:powderblue;
+        }
+
         .card-transparent {
             margin-top: 15%;
             padding-bottom:20%; 
-        }
-
-        .bg-reg{
-            background: rgb(255, 255, 255, 0.92);
-        }        
+        }       
     </style>
     <div class="row justify-content-center">
         <div class="col-md-8">

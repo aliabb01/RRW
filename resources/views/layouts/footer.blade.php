@@ -23,7 +23,7 @@
             <a title="HeadQuarters"
                 href="https://www.google.com/maps/place/Kauno+technologijos+universitetas,+Informaciniu+technologiju+diegimo+centras/@54.9038668,23.9572548,19z/data=!3m1!4b1!4m5!3m4!1s0x0:0xfb8cbf149e4e0966!8m2!3d54.903866!4d23.957802"><i
                     class="fa fa-map-marker map-ico"></i></a>
-            <p class="address"><span>444 S. Cedros Ave</span> Solana Beach, California</p>
+            <p class="address"><span>Griciupio g.9</span> Kaunas, Lithuania</p>
         </div>
 
         <div class="phone-div">
@@ -42,13 +42,48 @@
 
         <p class="footer-company-about">
             <span class="text-light">{{ __('msg.about-the-company')}}</span>
-           <b> Apollon Railway</b> is a company originating from Kaunas, Lithuania
+            <b> Apollon Railway</b> is a company originating from Kaunas, Lithuania
         </p>
 
 
 
     </div>
     <hr class="bg-light">
+
+    <div class="row" style="margin-bottom:0px;">
+        <div class="col-md-3">
+            <div class="c-callout c-callout-info" style="background-color:#FAFBFC;">
+                <small class="text-muted"><b>New Clients</b></small><br>
+                <strong class="h4">9,123</strong>
+            </div>
+        </div>
+        <!--/.col-->
+        
+        <div class="col-md-3">
+            <div class="c-callout c-callout-warning b-t-1 b-r-1 b-b-1" style="background-color:#FAFBFC;">
+                <small class="text-muted"><b>Pageviews</b></small><br>
+                <strong class="h4">78,623</strong>
+            </div>
+        </div>
+                
+        <div class="col-md-3">
+            <div class="c-callout c-callout-danger b-t-1 b-r-1 b-b-1" style="background-color:#FAFBFC;">
+                <small class="text-muted"><b>Total User Count</b></small><br>
+                <strong class="h4">15,000</strong>
+            </div>
+        </div>
+    
+        <div class="col-md-3">
+            <div class="c-callout c-callout-success b-t-1 b-r-1 b-b-1" style="background-color:#FAFBFC;">
+                <small class="text-muted"><b>Average Daily Visits</b></small><br>
+                <strong class="h4">1,000</strong>
+            </div>
+        </div>
+    </div>
+
+    <hr class="bg-light line-before-last">
+    
+
     <div class="text-right get-in-touch footer-icons">
         <span class="text-light" style="font-size:18px">{{ __('msg.get-in-touch')}} :</span>
     </div>
@@ -58,15 +93,21 @@
         <a class="footer-twit" href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
         <a class="footer-face" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
     </div>
+
+
+
     <div class="footer-left text-light">
         <span class="madeby">{{ __('msg.made-by-using-laravel')}} <a href="https://laravel.com/"><i
                     class="fab fa-2x fa-laravel laravel-ico" title="Laravel"></i></a></span>
     </div>
 
-    <a href="/404">Test 404</a>
-    <a href="/500">Test 500</a>
-    <a href="/down">Maintenance Mode</a>
-   <!-- <a href="" onclick="{{Artisan::call('up')}}">Production Mode</a> -->
+
+    <a class="test-links" href="/404">Test 404</a>
+    <a class="test-links" href="/500">Test 500</a>
+    <a class="test-links" href="/down">Maintenance Mode</a>
+
+
+    <!-- <a href="" onclick="{{Artisan::call('up')}}">Production Mode</a> -->
 </footer>
 <div class="bg-light copyright-div text-center">
     <small class="text-dark copyright"> &copy; 2020, <a style="font-weight:800; color:#003166;" title="Apollon"
@@ -74,6 +115,7 @@
 </div>
 
 <style>
+    
     @import url(//db.onlinewebfonts.com/c/dc6734899329fcbdd770b32dc47059d8?family=Sofia+Pro+Light);
 
     @font-face {
@@ -82,13 +124,25 @@
         src: url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff") format("woff"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.svg#Sofia Pro Light") format("svg");
     }
 
+    .c-callout{
+        padding-bottom: 5px;
+        filter:contrast(90%);
+    }
+
+    .c-callout:hover{
+        filter:contrast(120%);
+    }
+
+    .test-links{        
+        font: bold 16px sans-serif;
+    }
+
     .footer-distributed {
-        background: #05263F;
+        background: var(--menu-nav);
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
         box-sizing: border-box;
         width: 100%;
         text-align: left;
-        font: bold 16px sans-serif;
         padding: 55px 50px;
     }
 
@@ -97,6 +151,7 @@
     .footer-distributed .footer-right {
         display: inline-block;
         vertical-align: top;
+        font: bold 16px sans-serif;
     }
 
     /* Footer left */
@@ -404,5 +459,16 @@
             margin-left: 0;
         }
 
+    }
+
+    @media only screen and (max-width:762px) {
+        /* Medium devices (landscape tablets, 768px and up) */        
+        .line-before-last{
+            margin-top:50%;
+        }
+
+        .img-logo {
+            width: 75%;
+        }
     }
 </style>
