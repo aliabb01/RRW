@@ -99,3 +99,4 @@ Route::get('/disscount', function(){
     });
     return view ('welcome');
 });
+route::get('/search','Searchcontroller@search');

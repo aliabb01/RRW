@@ -26,8 +26,9 @@
     <!-- Script that enables tooltips -->
 
     <!--CoreUI Bootstrap -->
-    <!-- Used for callout style for counters in footer -->
+    <!-- Used for callout style for counters in footer + CoreUI icons -->
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui@3.0.0-rc.0/dist/css/coreui.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@1.0.0/css/all.min.css">
 
     <!--jQuery and daterangepicker -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -38,7 +39,8 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
 
-<script src="{{ mix("js/bootstrap-input-spinner.js") }}"></script>
+    <script src="{{ mix("js/bootstrap-input-spinner.js") }}"></script>
+
 
 
     <!-- Fonts -->
@@ -128,7 +130,7 @@
 
         .dropdown-menu {
             margin: 0;
-
+            background-color:rgb(230, 230, 230);
         }
 
         .dropdown-S>.dropdown-toggle:active {
@@ -205,9 +207,9 @@
 
         #navbar {
             border-style: solid;
-            -webkit-box-shadow: 0px 6px 9px 0px rgba(41,25,41,0.7) !important;
--moz-box-shadow: 0px 6px 9px 0px rgba(41,25,41,0.7) !important;
-box-shadow: 0px 6px 9px 0px rgba(41,25,41,0.7) !important;
+            -webkit-box-shadow: 0px 6px 9px 0px rgba(41, 25, 41, 0.7) !important;
+            -moz-box-shadow: 0px 6px 9px 0px rgba(41, 25, 41, 0.7) !important;
+            box-shadow: 0px 6px 9px 0px rgba(41, 25, 41, 0.7) !important;
         }
 
         .navbar-nav {
@@ -399,8 +401,8 @@ box-shadow: 0px 6px 9px 0px rgba(41,25,41,0.7) !important;
             width: 58px;
         }
 
-        #topBTN:hover{
-            filter:brightness(95%);
+        #topBTN:hover {
+            filter: brightness(95%);
         }
 
         #topBTN:hover .back-to-top-ico {
@@ -609,7 +611,7 @@ box-shadow: 0px 6px 9px 0px rgba(41,25,41,0.7) !important;
             width: 45%;
         }
 
-        .navbar{
+        .navbar {
             position: relative;
         }
     }
@@ -762,7 +764,7 @@ box-shadow: 0px 6px 9px 0px rgba(41,25,41,0.7) !important;
                                         src="https://img.icons8.com/dusk/30/000000/commercial.png" /></a>
                                 <a class="dropdown-item" href="services-baggage">Baggage <img style="margin-left:50%;"
                                         src="https://img.icons8.com/officel/30/000000/luggage-trolley.png" /></a>
-                                <div class="dropdown-divider"></div>
+                                <div class="dropdown-divider" style="border-color:black;"></div>
                                 <a class="dropdown-item" href="services-careers">Careers <img style="margin-left:55%;"
                                         src="https://img.icons8.com/office/30/000000/work.png" /></a>
                             </div>
