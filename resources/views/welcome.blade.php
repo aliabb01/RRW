@@ -20,13 +20,15 @@
 
   <!-- Radio Buttons --------------------->
   <div class="control-group trip-type text-center">
-    <label id="oneway-label" class="control control-radio text-success mr-3">
+    <label id="oneway-label" class="control control-radio text-success mr-3" data-toggle="tooltip" data-placement="left"
+      data-delay='{"show":"3000", "hide":"200"}' title="For passengers who are traveling with no return ticket">
       One-way
       <input checked type="radio" onclick="javascript:switchToOneway();" name="radio" class="oneway" id="oneway"
         value="one" />
       <div class="control_indicator" id="onew"></div>
     </label>
-    <label id="fulltrip-label" class="control control-radio text-success">
+    <label id="fulltrip-label" class="control control-radio text-success" data-toggle="tooltip" data-placement="right"
+      data-delay='{"show":"3000", "hide":"200"}' title="For passengers who are wishing to travel back and forth">
       Full-trip
       <input type="radio" onclick="javascript:switchToFulltrip();" name="radio" id="full-trip" value="full" />
       <div class="control_indicator"></div>
@@ -55,10 +57,9 @@
       <option> {{$item->city_name}} </option>
       @endforeach
     </datalist>
-    <button data-toggle="tooltip" title="Swap" id="swapBTN" onclick="switchFromTo()"
-      class="btn ml-1 mt-2 text-center swapBTN"
-      style="border-width:2px; border-color:var(--primary-skyblue); height:39px; width:41px; border-radius:100%;"><i
-        id="swap-ico" class="fas fa-sync text-light"></i></button>
+    <button data-toggle="tooltip" title="Swap" data-delay='{"show":"1000", "hide":"0"}' id="swapBTN"
+      onclick="switchFromTo()" class="btn mt-2 mr-1 ml-2 swapBTN"
+      style="height:39px; width:41px; border-radius:100%;"><i id="swap-ico" class="fas fa-sync text-light"></i></button>
     <input list="citiesTo" type="text" class="form-control col-xl-1 col-lg-1 col-md-2 col-sm-4 col-8 search ml-1"
       id="to" aria-describedby="" placeholder="{{ __('msg.to')}}">
     <datalist id="citiesTo">
@@ -90,27 +91,34 @@
 
       <form class="dropdown-menu dropdown-menu-right pl-3 pr-3" id="drop-passenger-counter" style="width:auto;">
 
-        <h6 class="ml-2"> <b>Adult:</b>
-          <p><small>Passengers over 12</small></p><input onchange="checkNumber()" id="adult-passenger" type="number"
-            value="1" min="1" max="9" step="1" />
+        <h6 class="ml-2"> <b>Adult: <small style="font-size:86%;"> (Passengers over 12)</small></b>
+           <p></p><input class="form-control-sm " onchange="checkNumber()" id="adult-passenger" type="number" value="1"
+            min="1" max="9" step="1" />
         </h6>
-        <hr>
-        <h6 class="ml-2"> <b>Children:</b>
-          <p><small>2-12</small></p> <input onchange="checkNumber()" id="child-passenger" type="number" value="0"
-            min="0" max="9" step="1" />
+        
+
+        <h6 class="ml-2"> <b>Children: <small style="font-size:86%;"> (2-12)</small></b>
+           <p></p><input class="form-control-sm" onchange="checkNumber()" id="child-passenger" type="number" value="0"
+            min="0" max="6" step="1" />
         </h6>
 
-        <hr class="bg-dark">
+
+        <h6 class="ml-2"> <b>Infants: <small style="font-size:86%;"> (Younger than 2)</small></b>
+           <p></p><input class="form-control-sm" onchange="checkNumber()" id="infant-passenger" type="number" value="0"
+            min="0" max="3" step="1" />
+        </h6>
+
+        <div class="dropdown-divider" style="border-color:black;"></div>
 
         <div class="custom-control custom-radio" style="font-size:16px;">
           <input onclick="checkEco()" type="radio" class="custom-control-input" id="eco-cls" name="class"
-            value="{{$value='eco'}}">
+            value="" checked>
           <label class="custom-control-label radio-label" for="eco-cls">{{ __('msg.economy-cls')}}</label>
         </div>
 
         <div class="custom-control custom-radio" style="font-size:16px;">
           <input onclick="checkBus()" type="radio" class="custom-control-input" id="bus-cls" name="class"
-            value="{{$value='bus'}}">
+            value="">
           <label class="custom-control-label radio-label" for="bus-cls">{{ __('msg.business-cls')}}</label>
         </div>
 
@@ -175,11 +183,14 @@
     transform: scale(1.2);
     transition: 0.5s;
     z-index: 1000;
+    border-width: 2px;
   }
 
   #swapBTN:hover {
     background-color: rgb(30, 60, 83);
+    border-color: var(--primary-skyblue);
     transition: 0.5s;
+    border-width: 2px;
   }
 
   #swapBTN #swap-ico {
@@ -212,7 +223,7 @@
   .row {
     width: 100%;
     height: 100px;
-    margin-bottom: 20%;
+    margin-bottom: 21%;
   }
 
   .search-div {}
@@ -221,7 +232,6 @@
 
     background-color: rgba(5, 38, 63, 0.80);
     height: 100%;
-    width: 100%;
 
     /* ^---Fixed width issue---^ */
     padding-top: 6%;
@@ -235,7 +245,7 @@
     height: 70px;
     display: block;
     margin-left: 19%;
-    margin-top: 5%;
+    margin-top: 4%;
     width: 25%;
   }
 
@@ -263,10 +273,6 @@
 
   #choose {
     height: 54px;
-  }
-
-  .from {
-    margin-left: 23%;
   }
 
   /* Ticket For Styles  START ----------------*/
@@ -299,16 +305,22 @@
     font-style: bold;
   }
 
-  .btn-decrement {
+  .btn-decrement:hover {
     color: white;
     background-color: var(--laravel-logo);
-    border-radius: 10%;
   }
 
-  .btn-increment {
+  .btn-increment:hover {
     color: white;
-    border-radius: 10%;
     background-color: var(--primary-skyblue);
+  }
+
+  .btn-increment{
+    border-color:var(--primary-skyblue);
+  }
+
+  .btn-decrement{
+    border-color:var(--primary-orange);
   }
 
   /* Ticket For Styles  END --------------------*/
@@ -611,8 +623,8 @@
   }
 
   @media only screen and (max-width:1368px) {
-    .labels-row{
-      display:none;
+    .labels-row {
+      display: none;
     }
   }
 
@@ -746,9 +758,10 @@
     var text = document.getElementById('passenger-count');
     var adult = document.getElementById('adult-passenger').value;
     var child = document.getElementById('child-passenger').value;
-    text.innerHTML = parseInt(adult) + parseInt(child) + " passengers";
-    if(parseInt(adult) + parseInt(child) == 1){
-      text.innerHTML = parseInt(adult) + parseInt(child) + " passenger";
+    var infant = document.getElementById('infant-passenger').value;
+    text.innerHTML = parseInt(adult) + parseInt(child) + parseInt(infant) + " passengers";
+    if(parseInt(adult) + parseInt(child) + parseInt(infant) == 1){
+      text.innerHTML = parseInt(adult) + parseInt(child) + parseInt(infant) + " passenger";
     }
   }
 </script>

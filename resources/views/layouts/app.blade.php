@@ -69,7 +69,7 @@
 </head>
 <style>
     :root {
-        --primary-skyblue: #449DFD;
+        --primary-skyblue: #5893D3;
         /* bootstrap primary */
 
         --primary-orange: #FF9D1B;
@@ -93,6 +93,11 @@
         padding: 0px;
         margin: 0px;
     }
+
+    .tooltip-inner{
+            background-color:rgba(50, 50, 50, 0.95);
+            border: 1px solid var(--primary-orange);
+        }
 
     @media only screen and (min-width:1024px) {
         .logo {
@@ -152,7 +157,7 @@
             font-size: 1rem;
         }
 
-        .dropdown-item:hover {
+        .dr-item-ser:hover {
             background-color: rgb(0, 125, 200);
             color: white;
         }
@@ -394,6 +399,7 @@
             border: none;
             outline: none;
             background-color: var(--primary-skyblue);
+            filter: brightness(102%);
             color: white;
             cursor: pointer;
             padding: 15px;
@@ -571,7 +577,7 @@
         .info {
             background-color: #e7f3fe;
             border-left: 6px solid #2196F3;
-        }
+        }        
     }
 
     body {
@@ -657,7 +663,9 @@
                             background-color: var(--langActive);
                         }
 
-                        #eng-lang-label {}
+                        #eng-lang-label {
+                            font-weight:bold;
+                        }
                     </style>
                     @endif
 
@@ -669,7 +677,7 @@
                         }
 
                         #ru-lang-label {
-                            font-size: 110%;
+                            font-weight:bold;
                         }
                     </style>
                     @endif
@@ -682,7 +690,7 @@
                         }
 
                         #lt-lang-label {
-                            font-size: 110%;
+                            font-weight:bold;
                         }
                     </style>
                     @endif
@@ -756,16 +764,16 @@
                             <div class="dropdown-menu animated flipInX drop-ser" id="dropdown-services"
                                 aria-labelledby="navbarDropdownMenuLink">
                                 <small class="dropdown-header"><b>Main</b></small>
-                                <a class="dropdown-item " href="services-special">Special offers <img
+                                <a class="dropdown-item dr-item-ser" href="services-special">Special offers <img
                                         style="margin-left:32%;"
                                         src="https://img.icons8.com/color/30/000000/brief.png" /></a>
-                                <a class="dropdown-item" href="services-advertising">Advertising <img
+                                <a class="dropdown-item dr-item-ser" href="services-advertising">Advertising <img
                                         style="margin-left:40%;"
                                         src="https://img.icons8.com/dusk/30/000000/commercial.png" /></a>
-                                <a class="dropdown-item" href="services-baggage">Baggage <img style="margin-left:50%;"
+                                <a class="dropdown-item dr-item-ser" href="services-baggage">Baggage <img style="margin-left:50%;"
                                         src="https://img.icons8.com/officel/30/000000/luggage-trolley.png" /></a>
                                 <div class="dropdown-divider" style="border-color:black;"></div>
-                                <a class="dropdown-item" href="services-careers">Careers <img style="margin-left:55%;"
+                                <a class="dropdown-item dr-item-ser" href="services-careers">Careers <img style="margin-left:55%;"
                                         src="https://img.icons8.com/office/30/000000/work.png" /></a>
                             </div>
                         </li>
@@ -862,8 +870,7 @@
 
 
 
-        <button class="btn btn-outline-primary" onclick="topFunction()" id="topBTN" title="Go to top"><i
-                class="fas fa-arrow-up back-to-top-ico"></i></button>
+       
 
         <!-- MODAL -->
         <!-- Modal is put on top of main after the whole navbar and styling -->
@@ -899,6 +906,8 @@
         <main class="" id="main">
             @yield('content')
         </main>
+        <button class="btn btn-outline-primary" onclick="topFunction()" id="topBTN" data-delay='{"show":"500", "hide":"100"}' data-toggle="tooltip" title="Go to top"><i
+            class="fas fa-arrow-up back-to-top-ico"></i></button>
 
     </div>
     @include('layouts.footer')

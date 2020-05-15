@@ -184,10 +184,6 @@
     src: url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.woff") format("woff"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/dc6734899329fcbdd770b32dc47059d8.svg#Sofia Pro Light") format("svg");
   }
 
-  .tooltip-inner {
-    width: 210px !important;
-  }
-
   .about {
     background-color: var(--body-background);
   }
