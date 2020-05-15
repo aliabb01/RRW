@@ -17,18 +17,18 @@ class CreateTripsTable extends Migration
             $table->id();
           //  $table->integer('trip_number');
             $table->date('trip_date');
-            $table->foreignId('from');
+            $table->string('from');
             $table->string('to');
             $table->time('time_depart');
             $table->string('driver_arrive');
             $table->unsignedBigInteger('Train_number');
-           
+            $table->integer('price');
             $table->timestamps();
         });
         Schema::table('trips', function($table)
 {
     $table->foreign('train_number')->references('id')->on('trains')->onDelete('cascade');
-    $table->foreign('from')->references('id')->on('cities')->onDelete('cascade');
+   /// $table->foreign('from')->references('id')->on('cities')->onDelete('cascade');
 });
     }
 

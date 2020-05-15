@@ -49,9 +49,12 @@
   </div>
   <!-- Search Forms Start--------------------------------->
 
+  <form action="/search" method="POST">
+    @csrf
+    <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
   <div class="row justify-content-center">
     <input list="citiesFrom" type="text" class="form-control col-xl-1 col-lg-1 col-md-2 col-sm-4 col-8 search ml-1"
-      id="from" aria-describedby="" placeholder="{{ __('msg.from')}}">
+    name="from"  id="from" aria-describedby="" placeholder="{{ __('msg.from')}}">
     <datalist id="citiesFrom">
       @foreach (App\city::all() as $item)
       <option> {{$item->city_name}} </option>
@@ -61,7 +64,7 @@
       onclick="switchFromTo()" class="btn mt-2 mr-1 ml-2 swapBTN"
       style="height:39px; width:41px; border-radius:100%;"><i id="swap-ico" class="fas fa-sync text-light"></i></button>
     <input list="citiesTo" type="text" class="form-control col-xl-1 col-lg-1 col-md-2 col-sm-4 col-8 search ml-1"
-      id="to" aria-describedby="" placeholder="{{ __('msg.to')}}">
+     name="to" id="to" aria-describedby="" placeholder="{{ __('msg.to')}}">
     <datalist id="citiesTo">
       @foreach (App\city::all() as $item)
       <option> {{$item->city_name}} </option>
@@ -89,7 +92,7 @@
         </span>
       </button>
 
-      <form class="dropdown-menu dropdown-menu-right pl-3 pr-3" id="drop-passenger-counter" style="width:auto;">
+      <div class="dropdown-menu dropdown-menu-right pl-3 pr-3" id="drop-passenger-counter" style="width:auto;">
 
         <h6 class="ml-2"> <b>Adult: <small style="font-size:86%;"> (Passengers over 12)</small></b>
            <p></p><input class="form-control-sm " onchange="checkNumber()" id="adult-passenger" type="number" value="1"
@@ -122,7 +125,7 @@
           <label class="custom-control-label radio-label" for="bus-cls">{{ __('msg.business-cls')}}</label>
         </div>
 
-      </form>
+      </div>
     </div>
     <!--Ticket For END --------------------------->
 
@@ -139,7 +142,7 @@
           class="fas fa-search search-ico" id="search-ico"></i></span>
     </button>
   </div>
-
+</form>
 </div>
 
 <div class="cont2">

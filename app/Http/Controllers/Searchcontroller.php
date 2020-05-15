@@ -6,13 +6,25 @@ use Illuminate\Http\Request;
 use App\city;
 use App\trip;
 use DB;
-
-class Searchcontroller extends Controller
+class searchcontroller extends Controller
 {
-    public function  search(Request $request)
+    public function search(Request $request)
     {
-        $trips = trip::where('from')->pluck('from', 'trip_date');
-        dd($trips);
-        return json_encode($trips);
+      
+       $to=$request->to;
+       $fr=$request->fr;
+       $datefilter=$request->datefilter;
+       $filtersearch = trip::orwhere('to','like','%'.$to.'%') 
+                            ->where('from','like','%'.$fr.'%')
+                            ->orwhere('trip_date','like','%'.$datefilter.'%')->get();
+    if ( $filtersearch )
+    {
+        return view ('/search')->with(['trips' => $filtersearch ]);
+    }  
+    else
+    {
+return redirect ('/search')->with(['plz try again']);
     }
+    }
+   
 }
