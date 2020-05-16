@@ -54,5 +54,8 @@ return [
         'client_secret' => 'Isiul1IW7soPuSWUunXozrZfkeMqQhE5mVlRZbQOSf6yRatOnl',
         'redirect' => 'http://localhost:8000/auth/twitter/callback',
     ],
-
+    'stripe' => [
+    
+        'secret'  => 'sk_test_KgWGfjYK5D44EOt5kY98tpb400yZi3LTh2',
+    ],
 ];

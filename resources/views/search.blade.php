@@ -23,4 +23,5 @@
         @endforeach
     </tbody>
   </table>
+  <a href="payment" class="btn badge-primary">check out </a>
 @endsection

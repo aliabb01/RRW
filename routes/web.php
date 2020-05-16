@@ -100,3 +100,5 @@ Route::get('/disscount', function(){
     return view ('welcome');
 });
 Route::post('/search','searchcontroller@search');
+Route::get('/payment','paymentController@index');
+Route::post('/charge','paymentController@charge');
