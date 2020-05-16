@@ -14,7 +14,7 @@ class searchcontroller extends Controller
        $to=$request->to;
        $fr=$request->fr;
        $datefilter=$request->datefilter;
-       $filtersearch = trip::orwhere('to','like','%'.$to.'%') 
+       $filtersearch = trip::where('to','like','%'.$to.'%') 
                             ->where('from','like','%'.$fr.'%')
                             ->orwhere('trip_date','like','%'.$datefilter.'%')->get();
     if ( $filtersearch )
