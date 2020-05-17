@@ -95,7 +95,7 @@ class rigestercontroller extends Controller
    // $cities->save();
 
   
-       return redirect('/myprofile');
+       return redirect('/myprofile')->with('updateprof', 'Update Successful');
     }
 
     /**
@@ -109,6 +109,6 @@ class rigestercontroller extends Controller
         $user=User::find($user);
         $user->delete();
         
-            return redirect('/welcome');
+            return redirect('/welcome')->with('delete', 'Delete Successful');
     }
 }

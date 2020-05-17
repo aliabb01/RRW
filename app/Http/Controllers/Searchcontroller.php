@@ -12,11 +12,19 @@ class searchcontroller extends Controller
     {
       
        $to=$request->to;
-       $fr=$request->fr;
+       $from=$request->fr;
        $datefilter=$request->datefilter;
-       $filtersearch = trip::where('to','like','%'.$to.'%') 
-                            ->where('from','like','%'.$fr.'%')
+       $datefilterSingle=$request->datefilterSingle;
+       if ( $datefilter){
+       $filtersearch = trip::orwhere('to','like','%'.$to.'%') 
+                            ->where('from','like','%'.$from.'%')
                             ->orwhere('trip_date','like','%'.$datefilter.'%')->get();
+       }
+       else{
+        $filtersearch = trip::orwhere('to','like','%'.$to.'%') 
+        ->where('from','like','%'.$from.'%')
+        ->orwhere('trip_date','like','%'.$datefilterSingle.'%')->get();
+       }
     if ( $filtersearch )
     {
         return view ('/search')->with(['trips' => $filtersearch ]);
