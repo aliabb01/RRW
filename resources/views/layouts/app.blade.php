@@ -40,6 +40,9 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
     <script src="{{ mix("js/bootstrap-input-spinner.js") }}"></script>
 
 
@@ -95,7 +98,7 @@
         margin: 0px;
     }
 
-    
+
 
     @media only screen and (min-width:1024px) {
         .logo {
@@ -133,7 +136,7 @@
 
         .dropdown-menu {
             margin: 0;
-            background-color:rgb(230, 230, 230);
+            background-color: rgb(230, 230, 230);
         }
 
         .dropdown-S>.dropdown-toggle:active {
@@ -180,14 +183,17 @@
 
         #EN:hover {
             background-color: var(--primary-skyblue);
+            filter: brightness(110%);
         }
 
         #RU:hover {
             background-color: var(--primary-skyblue);
+            filter: brightness(110%);
         }
 
         #LT:hover {
             background-color: var(--primary-skyblue);
+            filter: brightness(110%);
         }
 
         #lang-link:hover {
@@ -368,7 +374,7 @@
         }*/
         #logout:hover {
             background-color: var(--laravel-logo);
-            color:white;
+            color: white;
         }
 
         #logout:hover #logout-ico-nav {
@@ -376,9 +382,9 @@
             -webkit-text-stroke: 0.7px white;
         }
 
-        #my-profile:hover{
-            background-color:var(--primary-skyblue);
-            color:white;
+        #my-profile:hover {
+            background-color: var(--primary-skyblue);
+            color: white;
         }
 
         #my-profile:hover #user-ico-nav {
@@ -581,7 +587,7 @@
         .info {
             background-color: #e7f3fe;
             border-left: 6px solid #2196F3;
-        }        
+        }
     }
 
     body {
@@ -667,8 +673,7 @@
                             background-color: var(--langActive);
                         }
 
-                        #eng-lang-label {
-                        }
+                        #eng-lang-label {}
                     </style>
                     @endif
 
@@ -679,8 +684,7 @@
                             background-color: var(--langActive);
                         }
 
-                        #ru-lang-label {
-                        }
+                        #ru-lang-label {}
                     </style>
                     @endif
 
@@ -691,8 +695,7 @@
                             background-color: var(--langActive);
                         }
 
-                        #lt-lang-label {
-                        }
+                        #lt-lang-label {}
                     </style>
                     @endif
 
@@ -832,6 +835,9 @@
                                 <a class="dropdown-item" id="my-profile" href="myprofile">
                                     <i class="fas fa-user" id="user-ico-nav"></i> My Profile
                                 </a>
+                                <a class="dropdown-item" id="my-profile" href="myprofile">
+                                    <i class="fas fa-history" id=""></i> Orders
+                                </a>
                                 <a class="dropdown-item" id="logout" href="{{route('logout')}}" data-toggle="modal"
                                     data-target="#exampleModalCenter">
                                     <i class="fas fa-sign-out-alt" id="logout-ico-nav"></i> {{ __('Logout') }}
@@ -870,9 +876,10 @@
 
 
 
+        <!-- Checking if user is logged in or not for MODALS -->
 
-       
-
+        @if (Auth::guest())
+        @else
         <!-- MODAL -->
         <!-- Modal is put on top of main after the whole navbar and styling -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -901,14 +908,118 @@
         </div>
         <!-- MODAL END  -->
 
+        <!-- MODAL -->
+        <!-- Modal is put on top of main after the whole navbar and styling -->
+        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
+                                class="text-light">Are you sure you want to delete your account?</span></h5>
+                        <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <small><b>Note :</b></small><br>
+                        Your information will be <b> deleted</b> and your data within the website will be <b>lost</b>.
+                        Are you sure you
+                        want to continue?
+                    </div>
+                    <div class="modal-footer">
+                        <form action="{{'/del/'.Auth::user()->id}}" method="POST">
+                            <button type="submit" class="btn btn-outline-primary">
+                                @csrf
+                                @method('delete')
+                                Yes, continue
+                            </button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me
+                                back</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL END  -->
+
+        <!-- MODAL for update/edit info-->
+        <!-- Modal is put on top of main after the whole navbar and styling -->
+        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
+                                class="text-light col-md-auto">Your profile information</span></h5>
+                        <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <span>You can edit your account information below:</span> <br>
+                        <form action=" {{'/upd/'.Auth::user()->id }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                            <div class="container">
+                                <div class="form-group">
+                                    <label for="id"><b>ID * :</b> <small>(Specific code of your account which is used to
+                                            identify
+                                            you)</small></label>
+                                    <input type="text" class="form-control" value="{{Auth::user()->id}}" readonly>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="name"><b>Name :</b></label>
+                                    <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="email"><b>Email :</b></label>
+                                    <input type="value" class="form-control" name="email"
+                                        value="{{Auth::user()->email}}">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="phone"><b>Phone :</b></label>
+                                    <input type="text" class="form-control" name="phone"
+                                        value="{{Auth::user()->phone}}">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="country"><b>Country :</b></label>
+                                    <input type="value" class="form-control" name="country"
+                                        value="{{Auth::user()->country}}">
+                                </div>
+                                <br>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-sm">
+                            <b>* Cannot</b> be changed by the user
+                        </div>
+                        <div class="container-right">
+                            <button type="submit" class="btn btn-primary">
+                                Update</button>
+                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Back</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL END  -->
+        @endif
 
 
 
         <main class="" id="main">
             @yield('content')
         </main>
-        <button class="btn btn-outline-primary" onclick="topFunction()" id="topBTN" data-delay='{"show":"500", "hide":"100"}' data-toggle="tooltip" title="Go to top"><i
-            class="fas fa-arrow-up back-to-top-ico"></i></button>
+        <button class="btn btn-outline-primary" onclick="topFunction()" id="topBTN"
+            data-delay='{"show":"500", "hide":"100"}' data-toggle="tooltip" title="Go to top"><i
+                class="fas fa-arrow-up back-to-top-ico"></i></button>
 
     </div>
     @include('layouts.footer')

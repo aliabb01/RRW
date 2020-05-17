@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     
-<table class="table table-bordered table-dark">
+<table class="table table-bordered table-dark mt-5 mb-5">
     <thead>
       <tr>
         <th scope="col">From</th>
@@ -19,9 +19,10 @@
             <td>{{$i->to}}</td>
             <td>{{$i->trip_date}}</td>
             <td>{{$i->time_depart}}</td>
-            <td>{{$i->price}}</td>            
+            <td>{{$i->price}}</td> 
+         <td>  <a href="payment" class="btn badge-primary">check out </a> </td>          
         @endforeach
     </tbody>
   </table>
-  <a href="payment" class="btn badge-primary">check out </a>
+  
 @endsection

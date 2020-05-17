@@ -14,6 +14,9 @@
         <button type="submit" class="btn btn-primary leave">Leave Feedback <i class="fas fa-comment comment-ico"></i></button>    
       <br>
     </div>
+    <div class="container text-center mt-5">
+      <h4>If approved, your comment will be displayed up on the site just below of this text</h4>
+    </div>    
   </form>
   
   @foreach($comments as $i)

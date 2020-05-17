@@ -55,7 +55,7 @@
     @csrf
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
     <div class="row justify-content-center">
-      <input list="citiesFrom" autocomplete="off" type="text"
+      <input required list="citiesFrom" autocomplete="off" type="text"
         class="form-control shadow-none col-xl-1 col-lg-1 col-md-2 col-sm-4 col-8 search ml-1" name="from" id="from"
         aria-describedby="" placeholder="{{ __('msg.from')}}">
       <datalist id="citiesFrom">
@@ -68,7 +68,7 @@
         style="height:39px; width:41px; border-radius:100%;"><i id="swap-ico" class="fas fa-sync text-light"></i>
         <!-- Swap button was changed from button to anchor tag. It was returning the result of search -->
       </a>
-      <input list="citiesTo" autocomplete="off" type="text"
+      <input required list="citiesTo" autocomplete="off" type="text"
         class="form-control shadow-none col-xl-1 col-lg-1 col-md-2 col-sm-4 col-8 search ml-1" name="to" id="to"
         aria-describedby="" placeholder="{{ __('msg.to')}}">
       <datalist id="citiesTo">
@@ -80,10 +80,10 @@
       <!--Double Dates -->
       <input placeholder="{{ __('msg.departure') }}"
         class="form-control shadow-none col-xl-2 col-lg-2 col-md-2 col-sm-4 col-8 search ml-1 datepicker" type="text"
-        id="dates" style="display:none;" autocomplete="off" name="datefilter" />
+        id="dates" style="display:none;" autocomplete="off" name="datefilter"  />
 
       <!--Single Date -->
-      <input placeholder="{{ __('msg.departure') }}"
+      <input  placeholder="{{ __('msg.departure') }}"
         class="form-control shadow-none col-xl-1 col-lg-2 col-md-2 col-sm-4 col-8 search ml-1 datepicker" type="text"
         id="datesSingle" autocomplete="off" name="datefilterSingle" />
 
@@ -147,7 +147,7 @@
     </select>-->
 
       <!-- Search BUTTON ---------------------------->
-      <button value="search" type="submit"
+      <button value="search"
         class="shadow-none col-xl-0.1 col-lg-2 col-md-2 col-sm-4 col-8 btn search-btn ml-1" id="search-btn"
         name="submitBTN" style="margin-left:1% !important; height:55px !important;"> <span
           class="search-label">{{ __('msg.search')}} <i class="fas fa-search search-ico" id="search-ico"></i></span>
@@ -160,8 +160,8 @@
 
 <div class="search-div bg-light">
   <div class="search-results">
-  </div>
 
+  </div>
 </div>
 
 <div class="cont2">
@@ -828,6 +828,13 @@
   }
 </script>
 
+@if (session('status'))
+    @include('sweets2.successful-payment')
+@endif
+
+@if (session('delete'))
+    @include('sweets2.successful-delete')
+@endif
 
 @endsection
 
