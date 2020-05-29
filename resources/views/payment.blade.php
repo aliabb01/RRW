@@ -4,7 +4,8 @@
 <form action="/charge" method="post" id="payment-form">
     @csrf
       <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-  <div class="form-row">
+  <div class="form-row mt-5">
+
     <label for="card-element">
       Credit or debit card
     </label>

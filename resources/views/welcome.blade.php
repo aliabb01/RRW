@@ -80,10 +80,10 @@
       <!--Double Dates -->
       <input placeholder="{{ __('msg.departure') }}"
         class="form-control shadow-none col-xl-2 col-lg-2 col-md-2 col-sm-4 col-8 search ml-1 datepicker" type="text"
-        id="dates" style="display:none;" autocomplete="off" name="datefilter"  />
+        id="dates" style="display:none;" autocomplete="off" name="datefilter" />
 
       <!--Single Date -->
-      <input  placeholder="{{ __('msg.departure') }}"
+      <input placeholder="{{ __('msg.departure') }}"
         class="form-control shadow-none col-xl-1 col-lg-2 col-md-2 col-sm-4 col-8 search ml-1 datepicker" type="text"
         id="datesSingle" autocomplete="off" name="datefilterSingle" />
 
@@ -147,9 +147,8 @@
     </select>-->
 
       <!-- Search BUTTON ---------------------------->
-      <button value="search"
-        class="shadow-none col-xl-0.1 col-lg-2 col-md-2 col-sm-4 col-8 btn search-btn ml-1" id="search-btn"
-        name="submitBTN" style="margin-left:1% !important; height:55px !important;"> <span
+      <button value="search" class="shadow-none col-xl-0.1 col-lg-2 col-md-2 col-sm-4 col-8 btn search-btn ml-1"
+        id="search-btn" name="submitBTN" style="margin-left:1% !important; height:55px !important;"> <span
           class="search-label">{{ __('msg.search')}} <i class="fas fa-search search-ico" id="search-ico"></i></span>
       </button>
     </div>
@@ -160,9 +159,13 @@
 
 <div class="search-div bg-light">
   <div class="search-results">
-
+    <!-- <h1> Search Results</h1>-->
+    <!--@include('sweets2.successful-delete')-->
   </div>
+
+
 </div>
+
 
 <div class="cont2">
   <img style="margin-left:65px;" src="https://img.icons8.com/ultraviolet/160/000000/reading-confirmation.png" />
@@ -172,7 +175,7 @@
   <h3 class="text-muted fd">{{ __('msg.sign-up-to-mail')}}</h3>
 
   <div class="form-group">
-    <input type="email" class="form-control email" id="exampleInputEmail1" aria-describedby="emailHelp"
+    <input type="email" class="form-control email shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp"
       placeholder="{{ __('msg.enter-email')}}">
     <small id="emailHelp" class="form-text text-muted">{{ __('msg.we-never-share')}}</small>
     <a href="/disscount" type="submit" class="btn btn-primary">{{ __('msg.submit')}}</a>
@@ -260,7 +263,6 @@
   .search-div {}
 
   .cont1 {
-
     background-color: rgba(5, 38, 63, 0.80);
     height: 100%;
 
@@ -396,7 +398,7 @@
 
   #search-btn:hover #search-ico {
     /* HOVER ON */
-    color: var(--primary-orange);
+    color: orange;
     padding-left: 5%;
     transition: ease 0.3s;
   }
@@ -425,6 +427,10 @@
     /*Enter email textbox*/
     margin: auto;
     width: 85%;
+  }
+
+  .email:focus {
+    border: 1.5px solid var(--primary-skyblue);
   }
 
   #emailHelp {
@@ -678,7 +684,7 @@
         applyButtonClasses: "btn-success",
   cancelClass: "btn-danger",
   opens: "center",
-  minDate:"05/09/2020"
+  minDate:"05/19/2020"
     })
   
     $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
@@ -700,7 +706,7 @@
         applyButtonClasses: "btn-success",
   cancelClass: "btn-danger",
   opens: "center",
-  minDate:"05/09/2020",
+  minDate:"05/19/2020",
   singleDatePicker:true
     })
   
@@ -829,43 +835,51 @@
 </script>
 
 @if (session('status'))
-    @include('sweets2.successful-payment')
+@include('sweets2.successful-payment')
 @endif
 
 @if (session('delete'))
-    @include('sweets2.successful-delete')
+@include('sweets2.successful-delete')
 @endif
+
+<script>
+  function deleteFeedback(){  /*When account is deleted*/
+    Swal.mixin({
+  input: 'text',
+  confirmButtonText: 'Next &rarr;',
+  showCancelButton: true,
+  progressSteps: ['1', '2', '3']
+}).queue([
+  {
+    title: 'Question 1',
+    text: 'What kind of problems did you encounter while surfing on this website? (If none just skip)'
+  },
+  {
+    title: 'Question 2',
+    text: 'How much would you rate us?'
+  },
+  {
+    title: 'Question 3',
+    text: 'What recommendations would you suggest us?'
+  },
+]).then((result) => {
+  if (result.value) {
+    const answers = JSON.stringify(result.value)
+    Swal.fire({
+      title: 'All done!',
+      html: `
+        Your answers:
+        <pre><code>${answers}</code></pre>
+      `,
+      confirmButtonText: 'Lovely!'
+    })
+  }
+})
+  }
+</script>
 
 @endsection
 
 @section('scripts')
 
-
-<!-- For checking if selected city is correct
-<script>
-  // Find all inputs on the DOM which are bound to a datalist via their list attribute.
-var inputs = document.querySelectorAll('input[list]');
-for (var i = 0; i < inputs.length; i++) {
-  // When the value of the input changes...
-  inputs[i].addEventListener('change', function() {
-    var optionFound = false,
-      datalist = this.list;
-    // Determine whether an option exists with the current value of the input.
-    for (var j = 0; j < datalist.options.length; j++) {
-        if (this.value == datalist.options[j].value) {
-            optionFound = true;
-            break;
-        }
-    }
-    // use the setCustomValidity function of the Validation API
-    // to provide an user feedback if the value does not exist in the datalist
-    if (optionFound) {
-      this.setCustomValidity('');
-    } else {
-      this.setCustomValidity('Please select a valid value.');
-    }
-  });
-}
-
-</script>  -->
 @stop

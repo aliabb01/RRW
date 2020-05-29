@@ -25,7 +25,7 @@ return [
     'submit' => "Отправить",
     'new-to-us' => "Впервые на нашем сайте?",
     'sign-up' => "Подписаться!",
-    'check-our-timetable' => "Проверьте наши расписания",
+    'check-our-timetable' => "Наши расписания",
     'check-out' => "Проверьте!",
     'travel-made-easier' => "Путешествие стало проще ...",
     'made-by-using-laravel' => "Сделано с помощью",

@@ -13,7 +13,7 @@
   
   Toast.fire({
     icon: 'info',
-    title: 'Account has been successfully deleted!',
-    footer: 'We are sorry to see you go.'    
+    title: '<span>Account has been successfully deleted!<br><small>We are sorry to see you go</small></span>',
+    footer: '<a onclick="deleteFeedback()" class="delete-feedback text-primary" style="cursor:pointer;">Tell us why you deleted your account <i class="fas fa-question"></i></a>'    
   })
   </script>

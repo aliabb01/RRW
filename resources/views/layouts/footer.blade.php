@@ -33,7 +33,7 @@
 
         <div class="mail-div">
             <i class="fas fa-envelope mail-ico"></i>
-            <p class="mail"><a href="mailto:apollonrailway@gmail.com">apollonrailway@gmail.com</a></p>
+            <p class="mail"><a id="company-link-footer" data-toggle="tooltip" data-placement="top" title="Click to write!" data-delay='{"show":"500", "hide":"200"}' href="mailto:apollonrailway@gmail.com">apollonrailway@gmail.com</a></p>
         </div>
 
     </div>
@@ -472,3 +472,6 @@
         }
     }
 </style>
+
+<script>
+</script>

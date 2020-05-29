@@ -25,7 +25,7 @@ return [
     'submit' => "Submit",
     'new-to-us' => "New to us?",
     'sign-up' => "Sign Up!",
-    'check-our-timetable' => "Check Our Timetable",
+    'check-our-timetable' => "Our Timetable",
     'check-out' => "Check Out!",
     'travel-made-easier' => "Travel made easier...",
     'made-by-using-laravel' => "Made By Using",

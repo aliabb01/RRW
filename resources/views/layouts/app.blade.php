@@ -93,6 +93,7 @@
         display: block !important;
     }
 
+
     * {
         padding: 0px;
         margin: 0px;
@@ -394,6 +395,13 @@
             -webkit-text-stroke: 1px whitesmoke;
         }
 
+        #my-profile:hover #history-ico-nav {
+            color: #05263F;
+            -webkit-text-stroke-width: 2px;
+            /* Makes the icon a bit bold */
+            -webkit-text-stroke: 0.05px whitesmoke;
+        }
+
         #X-sign:hover {
             color: var(--primary-orange);
             filter: brightness(135%);
@@ -509,6 +517,10 @@
 
         .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
             right: 0px;
+        }
+
+        .keep-ticket-link:hover .keep-ticket-span {
+            color: white;
         }
 
         /* -----------------------  */
@@ -836,7 +848,7 @@
                                     <i class="fas fa-user" id="user-ico-nav"></i> My Profile
                                 </a>
                                 <a class="dropdown-item" id="my-profile" href="myprofile">
-                                    <i class="fas fa-history" id=""></i> Orders
+                                    <i class="fas fa-history" id="history-ico-nav"></i> Orders
                                 </a>
                                 <a class="dropdown-item" id="logout" href="{{route('logout')}}" data-toggle="modal"
                                     data-target="#exampleModalCenter">
@@ -876,154 +888,186 @@
 
 
 
-        <!-- Checking if user is logged in or not for MODALS -->
 
-        @if (Auth::guest())
-        @else
-        <!-- MODAL -->
-        <!-- Modal is put on top of main after the whole navbar and styling -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-primary">
-                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
-                                class="text-light">Are you sure you want to leave?</span></h5>
-                        <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <small><b>Note :</b></small><br>
-                        You will be redirected to <a href="?" data-toggle="tooltip" title="Homepage of the website">
-                            main page </a> after you <b>log out</b> .
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-primary" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">Yes</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me back</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- MODAL END  -->
-
-        <!-- MODAL -->
-        <!-- Modal is put on top of main after the whole navbar and styling -->
-        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-primary">
-                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
-                                class="text-light">Are you sure you want to delete your account?</span></h5>
-                        <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <small><b>Note :</b></small><br>
-                        Your information will be <b> deleted</b> and your data within the website will be <b>lost</b>.
-                        Are you sure you
-                        want to continue?
-                    </div>
-                    <div class="modal-footer">
-                        <form action="{{'/del/'.Auth::user()->id}}" method="POST">
-                            <button type="submit" class="btn btn-outline-primary">
-                                @csrf
-                                @method('delete')
-                                Yes, continue
-                            </button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me
-                                back</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- MODAL END  -->
-
-        <!-- MODAL for update/edit info-->
-        <!-- Modal is put on top of main after the whole navbar and styling -->
-        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-primary">
-                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
-                                class="text-light col-md-auto">Your profile information</span></h5>
-                        <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <span>You can edit your account information below:</span> <br>
-                        <form action=" {{'/upd/'.Auth::user()->id }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                            <div class="container">
-                                <div class="form-group">
-                                    <label for="id"><b>ID * :</b> <small>(Specific code of your account which is used to
-                                            identify
-                                            you)</small></label>
-                                    <input type="text" class="form-control" value="{{Auth::user()->id}}" readonly>
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="name"><b>Name :</b></label>
-                                    <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}">
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="email"><b>Email :</b></label>
-                                    <input type="value" class="form-control" name="email"
-                                        value="{{Auth::user()->email}}">
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="phone"><b>Phone :</b></label>
-                                    <input type="text" class="form-control" name="phone"
-                                        value="{{Auth::user()->phone}}">
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="country"><b>Country :</b></label>
-                                    <input type="value" class="form-control" name="country"
-                                        value="{{Auth::user()->country}}">
-                                </div>
-                                <br>
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="col-sm">
-                            <b>* Cannot</b> be changed by the user
-                        </div>
-                        <div class="container-right">
-                            <button type="submit" class="btn btn-primary">
-                                Update</button>
-                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Back</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- MODAL END  -->
-        @endif
 
 
 
         <main class="" id="main">
             @yield('content')
-        </main>
-        <button class="btn btn-outline-primary" onclick="topFunction()" id="topBTN"
-            data-delay='{"show":"500", "hide":"100"}' data-toggle="tooltip" title="Go to top"><i
-                class="fas fa-arrow-up back-to-top-ico"></i></button>
 
+        </main>
+
+
+        @include('layouts.footer')
     </div>
-    @include('layouts.footer')
+
     @yield('scripts')
+
+
+
+    <!-- Cancel Modal -->
+    <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
+                            class="text-light">Are you sure you want to cancel your reservation?</span></h5>
+                    <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <small><b>Note :</b></small><br>
+                    <span style="font-size:110%;">You won't be able to revert this!</span>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-outline-danger" href="">Yes, cancel</a>
+                    <a class="btn btn-primary keep-ticket-link" data-dismiss="modal"><span class="text-light">No, keep
+                            my ticket!</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cancel Modal END-->
+
+    <!-- Checking if user is logged in or not for MODALS -->
+
+    @if (Auth::guest())
+    @else
+    <!-- MODAL -->
+    <!-- Modal is put on top of main after the whole navbar and styling -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
+                            class="text-light">Are you sure you want to leave?</span></h5>
+                    <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <small><b>Note :</b></small><br>
+                    You will be redirected to <a href="?" data-toggle="tooltip" title="Homepage of the website">
+                        main page </a> after you <b>log out</b> .
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL END  -->
+
+    <!-- MODAL -->
+    <!-- Modal is put on top of main after the whole navbar and styling -->
+    <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
+                            class="text-light">Are you sure you want to delete your account?</span></h5>
+                    <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <small><b>Note :</b></small><br>
+                    Your information will be <b> deleted</b> and your data within the website will be <b>lost</b>.
+                    Are you sure you
+                    want to continue?
+                </div>
+                <div class="modal-footer">
+                    <form action="{{'/del/'.Auth::user()->id}}" method="POST">
+                        <button type="submit" class="btn btn-outline-primary">
+                            @csrf
+                            @method('delete')
+                            Yes, continue
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No, return me
+                            back</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL END  -->
+
+    <!-- MODAL for update/edit info-->
+    <!-- Modal is put on top of main after the whole navbar and styling -->
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><i class="fas fa-info-circle"></i> <span
+                            class="text-light col-md-auto">Your profile information</span></h5>
+                    <button id="X-sign" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span> <!-- X sign for exiting modal -->
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span>You can edit your account information below:</span> <br>
+                    <form action=" {{'/upd/'.Auth::user()->id }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <div class="container">
+                            <div class="form-group">
+                                <label for="id"><b>ID * :</b> <small>(Specific code of your account which is used to
+                                        identify
+                                        you)</small></label>
+                                <input type="text" class="form-control" value="{{Auth::user()->id}}" readonly>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="name"><b>Name :</b></label>
+                                <input type="text" class="form-control" name="name" value="{{Auth::user()->name}}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="email"><b>Email :</b></label>
+                                <input type="value" class="form-control" name="email" value="{{Auth::user()->email}}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="phone"><b>Phone :</b></label>
+                                <input type="text" class="form-control" name="phone" value="{{Auth::user()->phone}}">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="country"><b>Country :</b></label>
+                                <input type="value" class="form-control" name="country"
+                                    value="{{Auth::user()->country}}">
+                            </div>
+                            <br>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-sm">
+                        <b>* Cannot</b> be changed by the user
+                    </div>
+                    <div class="container-right">
+                        <button type="submit" class="btn btn-primary">
+                            Update</button>
+                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Back</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL END  -->
+    @endif
+
+    <button class="btn btn-outline-primary" onclick="topFunction()" id="topBTN"
+        data-delay='{"show":"500", "hide":"100"}' data-toggle="tooltip" title="Go to top"><i
+            class="fas fa-arrow-up back-to-top-ico"></i></button>
 
     <script>
         $(document).ready(function(){
@@ -1039,7 +1083,7 @@
 
     <script>
         var myVar;
-        var blur = document.getElementById("main").style.filter = "brightness(0.30)";
+        var blur = document.getElementById("app").style.filter = "brightness(0.50)";
     
     function myFunction() {
       myVar = setTimeout(showPage, 1000);
@@ -1048,8 +1092,9 @@
     
     function showPage() {
       document.getElementById("loader").style.display = "none";
-      document.getElementById("main").style.display = "block";
-      document.getElementById("main").style.filter = "brightness(1)";      
+      document.getElementById("app").style.display = "block";
+      document.getElementById("app").style.filter = "brightness(1)"; 
+      document.getElementById('main-search-result-container').style.display = "block";     
     }
     </script>
 

@@ -25,7 +25,7 @@ return [
     'submit' => "Pateikti",
     'new-to-us' => "Naujai mums?",
     'sign-up' => "Registruotis!",
-    'check-our-timetable' => "Patikrink mūsų tvarkaraštį",
+    'check-our-timetable' => "Mūsų tvarkaraštį",
     'check-out' => "Išsiregistravimas!",
     'travel-made-easier' => "Keliauti palengvėjo...",
     'made-by-using-laravel' => "Pagamintas Pagal Naudojimąsi",

@@ -102,3 +102,4 @@ Route::get('/disscount', function(){
 Route::post('/search','searchcontroller@search');
 Route::get('/payment','paymentController@index');
 Route::post('/charge','paymentController@charge');
+

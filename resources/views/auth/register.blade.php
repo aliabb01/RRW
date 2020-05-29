@@ -12,7 +12,7 @@
         }
 
         .card-body{
-            background-color:powderblue;
+            background-color:white;
         }
 
         .card-transparent {
