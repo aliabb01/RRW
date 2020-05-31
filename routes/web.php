@@ -103,3 +103,13 @@ Route::post('/search','searchcontroller@search');
 Route::get('/payment','paymentController@index');
 Route::post('/charge','paymentController@charge');
 
+Route::get('/pdf', function(){
+    Mail::send('payment-email',[],function($m){
+        $m->to('user@gmail.com')->subject('Apollon');
+    });
+    return view ('welcome');
+});
+Route::get('/invoice', function(){
+    $pdf = PDF::loadView('invoice');
+    return $pdf->download('invoice.pdf');
+});
