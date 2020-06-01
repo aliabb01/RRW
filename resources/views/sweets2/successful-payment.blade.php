@@ -14,7 +14,7 @@
   Toast.fire({
     icon: 'success',
     title: '<span>Payment is successfully finished!<br><small>Check your email for the receipt</small><span>',
-    footer: '<span><i class="far fa-envelope mr-2"></i></span><a class="mr-5" href="/pdf" target="_blank"> Check your email</a><a href="javascript:void(0)" data-toggle="modal" data-target="#cancelModal" onclick="cancelForm()" class="cancel-payment-label danger">Cancel here</a>'    
+    footer: '<span><i class="far fa-envelope mr-2"></i></span><a class="mr-5" href="https://mailtrap.io/inboxes/866635/messages/1717704155" target="_blank"> Check your email</a><a href="javascript:void(0)" data-toggle="modal" data-target="#cancelModal" onclick="cancelForm()" class="cancel-payment-label danger">Cancel here</a>'    
   })
 </script>
 

@@ -59,6 +59,10 @@ Route::get('help-translate', function () {
     return view('help-translate');
 });
 
+Route::get('p', function () {
+    return view('payment-email');
+});
+
 Route::get('locale/{locale}', function ($locale){
     Session::put('locale', $locale);
     return redirect()->back();
@@ -103,12 +107,8 @@ Route::post('/search','searchcontroller@search');
 Route::get('/payment','paymentController@index');
 Route::post('/charge','paymentController@charge');
 
-Route::get('/pdf', function(){
-    Mail::send('payment-email',[],function($m){
-        $m->to('user@gmail.com')->subject('Apollon');
-    });
-    return view ('welcome');
-});
+
+
 Route::get('/invoice', function(){
     $pdf = PDF::loadView('invoice');
     return $pdf->download('invoice.pdf');

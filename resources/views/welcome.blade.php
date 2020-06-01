@@ -776,7 +776,7 @@
      text.innerHTML = "  econom";
    }
    else{
-     text.innerHTML ="  business";
+     text.innerHTML = "  business";
    }
  }
 
@@ -836,6 +836,12 @@
 
 @if (session('status'))
 @include('sweets2.successful-payment')
+{{
+Mail::send('payment-email',[],function($m){
+  $m->to('user@gmail.com')->subject('Apollon');
+  return view ('welcome');
+})
+}}
 @endif
 
 @if (session('delete'))

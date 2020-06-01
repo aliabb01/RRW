@@ -102,6 +102,26 @@
 
 
     @media only screen and (min-width:1024px) {
+        
+        body::-webkit-scrollbar {
+            width: 15px;
+            /* width of the entire scrollbar */
+        }
+
+        body::-webkit-scrollbar-track {
+            background: rgb(230, 230, 230);
+            /* color of the tracking area */
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #1f4068;
+            /* color of the scroll thumb */
+            /*border-radius: 10px;*/
+            /* roundness of the scroll thumb */
+            border: 0.1px solid white;
+            /* creates padding around scroll thumb */
+        }
+
         .logo {
             margin-left: 50px;
         }
@@ -662,7 +682,7 @@
             <a class="navbar-brand " href="welcome">
                 <!-- <img class="logo" src="logo/logo.png" alt="ApollonRailway" height="70" width="160"> -->
                 <span class="logo-name" style="">Apollon</span>
-                <img loading="lazy" class="animated slideInDown slow img-logo" src="logo/logo2.png" alt="">
+                <img class="animated slideInDown slow img-logo" src="logo/logo2.png" alt="">
             </a>
             <!--  <hr class="line">  -->
             <button class="collapsed navbar-toggler" type="button" data-toggle="collapse"
@@ -1095,6 +1115,9 @@
       document.getElementById("app").style.display = "block";
       document.getElementById("app").style.filter = "brightness(1)"; 
       document.getElementById('main-search-result-container').style.display = "block";     
+      document.getElementById('search-tickets').classList.add("animated");
+      document.getElementById('search-tickets').classList.add("zoomIn"); 
+      document.getElementById('search-tickets').classList.add("faster"); 
     }
     </script>
 
