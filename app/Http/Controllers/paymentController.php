@@ -27,7 +27,7 @@ class paymentController extends Controller
         if ($chargId) {
             session()->forget('Buy');   
                      
-            return redirect('/welcome')->with('status', 'Payment done');
+            return redirect('/welcome')->with('payment', 'Payment done');
         } else {
             return redirect()->back();
         }
