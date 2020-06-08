@@ -102,7 +102,7 @@
 
 
     @media only screen and (min-width:1024px) {
-        
+
         body::-webkit-scrollbar {
             width: 15px;
             /* width of the entire scrollbar */
@@ -762,7 +762,6 @@
                     <div class="collapse text-center" id="collapseExample1" style="margin-top:5%;">
                         <img class="animated flipInY" src="https://img.icons8.com/office/50/000000/translation.png" />
                         <p>Help Translate this site: <a href="/help-translate">Translate here</a></p>
-
                     </div>
 
                 </ul>
@@ -904,12 +903,6 @@
                 </div>
             </div>
         </nav>
-
-
-
-
-
-
 
 
         <main class="" id="main">

@@ -329,7 +329,7 @@
 
   .our-drivers {
     width: 100%;
-    background-color:plum;
+    background-color:skyblue;
   }
 
   .circle-tick-drivers {

@@ -158,9 +158,7 @@
 
 
 <div class="search-div bg-light">
-  <div class="search-results">
-    <!-- <h1> Search Results</h1>-->
-    <!--@include('sweets2.successful-delete')-->
+  <div class="search-results">  
   </div>
 
 

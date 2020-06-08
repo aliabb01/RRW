@@ -3,6 +3,9 @@
 <form action="/charge" method="post" id="payment-form">
   @csrf
   <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+  <div class="text-center">
+    <img class="" src="logo/logo2.png" alt="">
+  </div>
 
   <h1 style="font-weight: normal; margin-top:10%;" class="text-center">Online Payment System for tickets</h1>
 
@@ -35,7 +38,7 @@
   </div>
 
   <div class="text-center" style="margin-top:50px;">
-    <button class="btn" style="background-color:#1A2652; color:white;">Submit Payment</button>
+    <button class="btn myButton" style="color:white;">Submit Payment</button>
   </div>
 </form>
 
@@ -87,6 +90,36 @@
     line-height: 1.6;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .btn:hover {
+    transition: 0.15s;
+  }
+
+  .myButton {
+    box-shadow: inset 0px -3px 7px 0px #29bbff;
+    background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+    background-color: #2dabf9;
+    border-radius: 3px;
+    border: 1px solid #0b0e07;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 9px 23px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #263666;    
+  }
+
+  .myButton:hover {
+    background: linear-gradient(to bottom, #0688fa 5%, #0688fa 100%);
+    background-color: #0688fa;
+  }
+
+  .myButton:active {
+    position: relative;
+    top: 1px;
   }
 
   .text-center {
