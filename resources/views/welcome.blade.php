@@ -832,7 +832,7 @@
   }
 </script>
 
-@if (session('status'))
+@if (session('payment'))
 @include('sweets2.successful-payment')
 {{
 Mail::send('payment-email',[],function($m){
