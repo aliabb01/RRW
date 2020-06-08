@@ -27,15 +27,16 @@
       <p>
         <b class="text-left">Profile Picture :</b>
         <br>
-        <div class=""
-          style="margin-left:100px; width:100px; height:100px; border-width:1px; border-color:black; border-style:solid;">
-          <i style="font-size:700%;" class="fas fa-user-circle user-profile-img"></i>
-        </div>
-        <label class="btn btn-primary mt-2" style="margin-left:80px;" for="upload-prof">
-          Upload an Avatar
-          <input class="d-none" accept="image/*" type="file" name="" title="Upload profile picture" id="upload-prof">        
-        </label>
+        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:150px; height:100px; float:left; border-radius:50%; margin-right:25px;">
+        <form action="/uplade" method="POST" enctype="multipart/form-data">
+          <label>Update Profile Image</label>
+                <input type="file" name="avatar">
+                  @csrf
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="submit" class="pull-right btn btn-sm btn-primary">
+      </form>
         <br>
+       
       </p>
 
       <p>

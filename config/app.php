@@ -176,8 +176,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
       
-
-          
+        Laravel\Cashier\CashierServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         
             
         
@@ -237,6 +237,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

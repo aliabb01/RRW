@@ -19,9 +19,9 @@ Route::get('user', ['middleware' => 'auth', function () {
     return view('/welcome');
 }]);
 
-Route::get('admin', ['middleware' => 'isadmin', function () {
-    return view('admin');
-}]);
+//Route::get('admin', ['middleware' => 'isadmin', function () {
+  //  return view('admin');
+//}]);
 
 Route::get('welcome', function () {
     return view('welcome');
@@ -113,3 +113,14 @@ Route::get('/invoice', function(){
     $pdf = PDF::loadView('invoice');
     return $pdf->download('invoice.pdf');
 });
+Route::get('/invoices', 'paymentController@showAccount');
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+  });
+  Route::get('ad', function () {
+    return view('admins');
+});
+Route::get('ad','admincontroller@index');
+
+
+Route::post('/uplade','usercontroller@updateavatar');

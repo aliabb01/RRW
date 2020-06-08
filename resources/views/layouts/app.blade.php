@@ -854,19 +854,27 @@
 
                         @endif
                         @else
+                        
                         <li class="nav-item dropdown">
+                               
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                               
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <!-- DROPDOWN ITEMS STARTS HERE -->
                             <div class="dropdown-menu dropdown-menu-right animated flipInX fast"
                                 aria-labelledby="navbarDropdown">
+                                <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:50px; height:50px; position:absolute; top:10px; left:10px; border-radius:50%">
+                                <br>
+                                <br style="">
+                                
                                 <a class="dropdown-item" id="my-profile" href="myprofile">
+                                   
                                     <i class="fas fa-user" id="user-ico-nav"></i> My Profile
                                 </a>
-                                <a class="dropdown-item" id="my-profile" href="myprofile">
+                                <a class="dropdown-item" id="my-profile" href="/invoices">
                                     <i class="fas fa-history" id="history-ico-nav"></i> Orders
                                 </a>
                                 <a class="dropdown-item" id="logout" href="{{route('logout')}}" data-toggle="modal"

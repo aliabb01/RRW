@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use Laravel\Cashier\Billable;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
-
+    use Billable;
     /**
      * The attributes that are mass assignable.
      *
@@ -39,5 +39,8 @@ class User extends Authenticatable implements MustVerifyEmail
     function socialProviders()
     {
         return $this->hasMany(SocialProvider::class);
+    }
+    public function orders() {
+        return $this->hasMany('App\order');
     }
 }
