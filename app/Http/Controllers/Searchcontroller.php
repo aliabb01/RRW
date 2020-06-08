@@ -16,8 +16,8 @@ class searchcontroller extends Controller
        $datefilter=$request->datefilter;
        $datefilterSingle=$request->datefilterSingle;
        
-       $filtersearch = trip::where('to','like','%'.$to.'%') 
-                            ->where('from','like','%'.$from.'%')
+       $filtersearch = trip::where('from','like','%'.$from.'%') 
+                            ->where('to','like','%'.$to.'%')
                             ->where('trip_date','like','%'.$datefilter.'%')->get();
        
       

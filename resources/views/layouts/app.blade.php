@@ -780,10 +780,10 @@
 
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item different {{ Request::is('welcome') ? 'active' : '' }}" id="home">
-                            <a class="nav-link lead" href="/welcome">{{ __('msg.home')}}</a>
+                            <a class="nav-link lead" href="welcome">{{ __('msg.home')}}</a>
                         </li>
                         <li class="nav-item different {{ Request::is('about') ? 'active' : '' }}" id="about">
-                            <a class="nav-link lead" href="/about">{{ __('msg.about')}}</a>
+                            <a class="nav-link lead" href="about">{{ __('msg.about')}}</a>
                         </li>
                         <li class="nav-item dropdown dropdown-S different {{ Request::is('services') ? 'active' : '' }}"
                             id="services">
@@ -799,16 +799,16 @@
                             <div class="dropdown-menu animated flipInX drop-ser" id="dropdown-services"
                                 aria-labelledby="navbarDropdownMenuLink">
                                 <small class="dropdown-header"><b>Main</b></small>
-                                <a class="dropdown-item" href="services-special">Special offers <img
+                                <a class="dropdown-item" href="services-special">{{ __('msg.spec-offers')}} <img
                                         style="margin-left:32%;"
                                         src="https://img.icons8.com/color/30/000000/brief.png" /></a>
-                                <a class="dropdown-item" href="services-advertising">Advertising <img
+                                <a class="dropdown-item" href="services-advertising">{{ __('msg.ads')}} <img
                                         style="margin-left:40%;"
                                         src="https://img.icons8.com/dusk/30/000000/commercial.png" /></a>
-                                <a class="dropdown-item" href="services-baggage">Baggage <img style="margin-left:50%;"
+                                <a class="dropdown-item" href="services-baggage">{{ __('msg.baggage')}} <img style="margin-left:50%;"
                                         src="https://img.icons8.com/officel/30/000000/luggage-trolley.png" /></a>
                                 <div class="dropdown-divider" style="border-color:black;"></div>
-                                <a class="dropdown-item" href="services-careers">Careers <img style="margin-left:55%;"
+                                <a class="dropdown-item" href="services-careers">{{ __('msg.careers')}} <img style="margin-left:55%;"
                                         src="https://img.icons8.com/office/30/000000/work.png" /></a>
                             </div>
                         </li>
@@ -854,27 +854,28 @@
 
                         @endif
                         @else
-                        
+
                         <li class="nav-item dropdown">
-                               
+
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                               
+
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <!-- DROPDOWN ITEMS STARTS HERE -->
                             <div class="dropdown-menu dropdown-menu-right animated flipInX fast"
                                 aria-labelledby="navbarDropdown">
-                                <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:50px; height:50px; position:absolute; top:10px; left:10px; border-radius:50%">
-                                <br>
-                                <br style="">
-                                
-                                <a class="dropdown-item" id="my-profile" href="myprofile">
-                                   
+                                <div class="text-center ml-4" style="width:60px; height:60px;">
+                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}"
+                                        style="border-radius:50%;width:60px; height:60px;">
+                                </div>
+
+                                <a class="dropdown-item mt-2" id="my-profile" href="myprofile">
+
                                     <i class="fas fa-user" id="user-ico-nav"></i> My Profile
                                 </a>
-                                <a class="dropdown-item" id="my-profile" href="/invoices">
+                                <a class="dropdown-item" id="orders" href="/invoices">
                                     <i class="fas fa-history" id="history-ico-nav"></i> Orders
                                 </a>
                                 <a class="dropdown-item" id="logout" href="{{route('logout')}}" data-toggle="modal"

@@ -8,7 +8,7 @@
   <form action="/search" method="POST">
     @csrf
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-    <div id="search-row" class="sticky-top row justify-content-center pt-5 pb-1" style="height:150px;">
+    <div id="search-row" class="row justify-content-center pt-5 pb-1" style="height:150px;">
       <input required list="citiesFrom" autocomplete="off" type="text"
         class="form-control shadow-none col-xl-1 col-lg-1 col-md-2 col-sm-4 col-8 search ml-1" name="from" id="from"
         aria-describedby="" placeholder="{{ __('msg.from')}}">
@@ -386,8 +386,6 @@
   }
 
   #search-row {
-    z-index: 2000;
-    background-color: white;
   }
 </style>
 

@@ -8,17 +8,11 @@
       <h5 id="clock"></h5>
     </div>
     <div class="container about-cont1">
-      <h1 class="text-center">About Us</h1>
-      <h4 class="text-center container"><b><span id="comp-name-about">Apollon Railway</span></b> is a company
-        originating
-        from Kaunas, Lithuania. Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sapiente fugit veritatis
-        libero distinctio mollitia, consequuntur nulla quos molestias, quod dolore? Officiis ipsum mollitia cumque
-        incidunt minima similique quasi possimus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus
-        officia laboriosam aspernatur maxime at voluptatum saepe ducimus dignissimos eos, quos ipsa debitis facilis illo
-        itaque laborum, voluptas quidem recusandae possimus.</h4>
+      <h1 class="text-center">{{ __('msg.about-us')}}</h1>
+      <h4 class="text-center container"><b><span id="comp-name-about"></span></b> {{ __('msg.about-info')}}</h4>
     </div>
     <div class="text-center who">
-      <h2>Have any questions <img class="question animated rotateIn"
+      <h2>{{ __('msg.have-any-questions')}} <img class="question animated rotateIn"
           src="https://img.icons8.com/color/100/000000/question-mark.png" /></h2>
     </div>
 
@@ -26,7 +20,7 @@
       <div class="card c1 animated zoomIn sha" id="c1" style="width: 18rem;">
         <div class="card-header text-center c1h" id="c1h">
           <img src="https://img.icons8.com/dusk/100/000000/conference-call.png" />
-          <h3 class="card-title intro">Introduction</h3>
+          <h3 class="card-title intro">{{ __('msg.introduction')}}</h3>
         </div>
         <div class="card-body">
           <h5 class="card-text">We are Apollon Railway. A railway company based in Kaunas, Lithuania.</h5>
@@ -36,7 +30,7 @@
       <div class="card c2 animated zoomIn sha" id="c2" style="width: 18rem;">
         <div class="card-header text-center c2h" id="c2h">
           <img src="https://img.icons8.com/color/100/000000/ask-question.png" />
-          <h3 class="card-title our-job">Our Job</h3>
+          <h3 class="card-title our-job">{{ __('msg.our-job')}}</h3>
         </div>
         <div class="card-body">
           <h5 class="card-text">We support reservation services for railways through our website.</h5>
@@ -46,7 +40,7 @@
       <div class="card c3 animated zoomIn sha" id="c3" style="width: 18rem;">
         <div class="card-header text-center c3h" id="c3h">
           <img src="https://img.icons8.com/dusk/100/000000/service.png" />
-          <h3 class="card-title why-join-us">Why Join Us?</h3>
+          <h3 class="card-title why-join-us">{{ __('msg.why-join-us')}}</h3>
         </div>
         <div class="card-body">
           <h5 class="card-text">We provide our users with one of the most user friendly website and reliable services
@@ -57,7 +51,7 @@
       <div class="card c4 animated zoomIn sha" id="c4" style="width: 18rem;">
         <div class="card-header text-center c4h" id="c4h">
           <img src="https://img.icons8.com/dusk/100/000000/user-shield.png" />
-          <h3 class="card-title sec-of-users">Security of Users</h3>
+          <h3 class="card-title sec-of-users">{{ __('msg.security-of-users')}}</h3>
         </div>
         <div class="card-body">
           <h5 class="card-text">We care about our users' privacy and make sure their data is safe.</h5>
@@ -69,7 +63,7 @@
 
     <!-- DRIVERS -->
     <div class="text-center our-drivers">
-      <h2 class="">Our Drivers <a href="?" data-toggle="tooltip" data-placement="right" data-html="true"
+      <h2 class="">{{ __('msg.our-drivers')}} <a href="?" data-toggle="tooltip" data-placement="right" data-html="true"
           title="Tested and <b>verified</b> train drivers"><img class="animated heartBeat"
             src="https://img.icons8.com/plasticine/100/000000/approval.png" /></a></h2>
     </div>
@@ -81,10 +75,10 @@
           <h3 class="card-title driver driver-1">{{$prof = 'Bob'}}</h3>
         </div>
         <div class="card-body">
-          <h4 class="card-text">{{$prof}} has been with us since we began</h4>
+          <h4 class="card-text">{{$prof}} {{ __('msg.driver1-header')}}</h4>
           <hr>
-          <blockquote class="blockquote">Working in Apollon gave me a lot of experience in this field</blockquote>
-          <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">Train Driver</cite></footer>
+          <blockquote class="blockquote">{{ __('msg.driver1-body')}}</blockquote>
+          <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">{{ __('msg.driver1-block')}}</cite></footer>
           <div>
             <span class="fas fa-star checked"></span>
             <span class="fas fa-star checked"></span>
@@ -95,7 +89,7 @@
         </div>
         <div class="card-footer text-center">
           <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom"
-            title="Contact {{$prof}}">Contact</a>
+            title="{{ __('msg.contact')}} {{$prof}}">{{ __('msg.contact')}}</a>
         </div>
       </div>
 
@@ -105,10 +99,10 @@
           <h3 class="card-title driver driver-2">{{$prof = 'Joe'}}</h3>
         </div>
         <div class="card-body">
-          <h5 class="card-text">{{$prof}} , worked for multiple companies, before he found out about us</h5>
+          <h5 class="card-text">{{$prof}} , {{ __('msg.driver2-header')}}</h5>
           <hr>
-          <h6 class="blockquote">One of the best companies in the world hired me. I am so lucky!</h6>
-          <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">Train Driver</cite></footer>
+          <h6 class="blockquote">{{ __('msg.driver2-body')}}</h6>
+          <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">{{ __('msg.driver2-block')}}</cite></footer>
           <div>
             <span class="fas fa-star checked"></span>
             <span class="fas fa-star checked"></span>
@@ -119,7 +113,7 @@
         </div>
         <div class="card-footer text-center">
           <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom"
-            title="Contact {{$prof}}">Contact</a>
+            title="{{ __('msg.contact')}} {{$prof}}">{{ __('msg.contact')}}</a>
         </div>
       </div>
 
@@ -129,10 +123,10 @@
           <h3 class="card-title driver driver-3">{{$prof = 'Bob2'}}</h3>
         </div>
         <div class="card-body">
-          <h5 class="card-text">{{$prof}} was hired recently and he's eager to start working</h5>
+          <h5 class="card-text">{{$prof}} {{ __('msg.driver3-header')}}</h5>
           <hr>
-          <h6 class="blockquote">I found out about Apollon from internet. They had good reviews so i joined them</h6>
-          <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">Train Driver</cite></footer>
+          <h6 class="blockquote">{{ __('msg.driver3-body')}}</h6>
+          <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">{{ __('msg.driver2-block')}}</cite></footer>
           <div>
             <span class="fas fa-star checked"></span>
             <span class="fas fa-star checked"></span>
@@ -143,7 +137,7 @@
         </div>
         <div class="card-footer text-center">
           <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom"
-            title="Contact {{$prof}}">Contact</a>
+            title="{{ __('msg.contact')}} {{$prof}}">{{ __('msg.contact')}}</a>
         </div>
       </div>
 
@@ -152,12 +146,11 @@
           <img src="https://img.icons8.com/dusk/100/000000/person-female.png" />
           <h3 class="card-title driver driver-4">{{$prof = 'Amy'}}</h3>
         </div>
-        <div class="card-body">
-          <h5 class="card-text">{{$prof}} , has been in this field for a long time.She couldnt find a company that would
-            offer her good salary</h5>
+        <div class="card-body" >
+          <h5 class="card-text" style="font-size:100%;">{{$prof}} , {{ __('msg.driver4-header')}}</h5>
           <hr>
-          <h6 class="blockquote">I am grateful for working here in Apollon</h6>
-          <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">Train Driver</cite></footer>
+          <h6 class="blockquote">{{ __('msg.driver4-body')}}</h6>
+          <footer class="blockquote-footer">{{$prof}} ,<cite title="Source Title">{{ __('msg.driver4-block')}}</cite></footer>
           <div>
             <span class="fas fa-star checked"></span>
             <span class="fas fa-star checked"></span>
@@ -168,7 +161,7 @@
         </div>
         <div class="card-footer text-center">
           <a class="btn btn-outline-danger" href="#" data-toggle="tooltip" data-placement="bottom"
-            title="Contact {{$prof}}">Contact</a>
+            title="{{ __('msg.contact')}} {{$prof}}">{{ __('msg.contact')}}</a>
         </div>
       </div>
     </div>

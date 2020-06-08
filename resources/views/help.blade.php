@@ -48,10 +48,6 @@
                                         <li class="mb-3">
                                             <b>Stripe</b> (when purchase happens). Its used so that we would be able to see your payment progress and cancellations in stripe.
                                         </li>
-
-                                        <li>
-                                            
-                                        </li>
                                     </ol>
                                 </div>
                             </div>
