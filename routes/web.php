@@ -90,7 +90,9 @@ Route::post('/store','citycontroller@store');
 Route::put('/upd/{id}','citycontroller@update');
 Route::delete('/del/{id}','citycontroller@destroy');
 Route::resource('useres','usercontroller');
-
+Route::post('/store','tripcontroller@store');
+Route::put('/upd/{id}','tripcontroller@update');
+Route::delete('/del/{id}','tripcontroller@destroy');
 Route::resource('myprofile','rigestercontroller');
 
 Route::put('/upd/{id}','rigestercontroller@update');
@@ -124,3 +126,6 @@ Route::get('ad','admincontroller@index');
 
 
 Route::post('/uplade','usercontroller@updateavatar');
+Route::post('/store','traincontroller@store');
+Route::put('/upd/{id}','traincontroller@update');
+Route::delete('/del/{id}','traincontroller@destroy');

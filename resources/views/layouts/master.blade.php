@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    @yield('title');
+    @yield('title')Applon Admin
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -29,15 +29,15 @@
       <div class="logo">
         
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-        Appolo
+        Appolon
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="ad">
+            <a href="#">
               <i class="now-ui-icons design_app"></i>
-              <p>admins</p>
+              <p>{{ Auth::user()->name }}</p>
             </a>
           </li>
           <li>
@@ -53,9 +53,16 @@
             </a>
           </li>
           <li>
-            <a href="tickets">
-              <i class="fas fa-calendar-check"></i>
-              <p>ticket</p>
+            <a href="trains">
+              <i class="fas fa-train"></i>
+              <p>Train</p>
+            </a>
+          </li>
+         
+          <li class="active ">
+            <a href="trips">
+              <i class="fas fa-train"></i>
+              <p>trips</p>
             </a>
           </li>
           <li>
@@ -64,19 +71,7 @@
               <p>paSSENGER LIST</p>
             </a>
           </li>
-          <li class="active ">
-            <a href="trips">
-              <i class="fas fa-train"></i>
-              <p>trips</p>
-            </a>
-          </li>
-          <li>
-            <a href="./typography.html">
-              <i class="fas fa-cogs"></i>
-              <p>settings</p>
-            </a>
-          </li>
-          <
+          
         </ul>
       </div>
     </div>

@@ -25,36 +25,32 @@
         <input type="text" class="form-control" name="id">
       </div>
       <br>
+     
       <div class="form-group">
-        <label for="trip_date">trip_date</label>
-        <input type="text" class="form-control" name="trip_date" >
+        <label for="train_number">train_number</label>
+        <input type="text" class="form-control" name="train_number" >
       </div>
       <br>
       <div class="form-group">
-        <label for="from">from</label>
-        <input type="value" class="form-control" name="from" >
+        <label for="driver_name">driver_name</label>
+        <input type="value" class="form-control" name="driver_name" >
       </div>
       <br>
       <div class="form-group">
-        <label for="to">to</label>
-        <input type="text" class="form-control" name="to" >
+        <label for="driver_info">driver_info</label>
+        <input type="text" class="form-control" name="driver_info" >
       </div>
       <br>
       <div class="form-group">
-        <label for="time_depart">time_depart</label>
-        <input type="value" class="form-control" name="time_depart" >
+        <label for="seats_number">seats_number</label>
+        <input type="value" class="form-control" name="seats_number" >
       </div>
       <br>
       <div class="form-group">
-        <label for="Train_number">Train_number</label>
-        <input type="value" class="form-control" name="Train_number" >
+        <label for="passengers_number">passengers_number</label>
+        <input type="value" class="form-control" name="Tpassengers_number" >
       </div>
-      <br>
-      <div class="form-group">
-        <label for="price">price</label>
-        <input type="value" class="form-control" name="price" >
-      </div>
-      <br>
+      
       <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </body>
