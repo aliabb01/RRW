@@ -16,7 +16,7 @@
 <div class="container">
 <br>
     <h2 class="text-center">edit Data trip</h2>
-<form action="{{'/upd/'. $train>id }}" method="POST" >
+<form action="{{'/upd2/'. $train>id }}" method="POST" >
 @csrf
 @method('PUT')
       <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">

@@ -17,7 +17,7 @@
 <div class="container">
 <br>
     <h2 class="text-center">Form Insert Data trip</h2>
-<form action="/store" method="post">
+<form action="/store2" method="post">
 @csrf
       <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
       <div class="form-group">

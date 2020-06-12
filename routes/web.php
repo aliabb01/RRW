@@ -126,6 +126,6 @@ Route::get('ad','admincontroller@index');
 
 
 Route::post('/uplade','usercontroller@updateavatar');
-Route::post('/store','traincontroller@store');
-Route::put('/upd/{id}','traincontroller@update');
-Route::delete('/del/{id}','traincontroller@destroy');
+Route::post('/store2','traincontroller@store');
+Route::put('/upd2/{id}','traincontroller@update');
+Route::delete('/del2/{id}','traincontroller@destroy');

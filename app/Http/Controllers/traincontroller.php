@@ -84,11 +84,7 @@ class traincontroller extends Controller
 
     public function update(Request $request, train $train)
     {
-        $cities->id=$request->input('id');
-         $cities->driver_name=$request->input('driver_name');
-         $cities->driver_info=$request->input('driver_info');
-         $cities->seats_number=$request->input('seats_number');
-         $cities->passengers_number=$request->input('passengers_number');
+       
         $request->validate([
             'id'=> 'required',
             'driver_name'=> 'required',
