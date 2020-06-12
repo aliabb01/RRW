@@ -20,8 +20,8 @@ class CreateTripsTable extends Migration
             $table->string('from');
             $table->string('to');
             $table->time('time_depart');
-            $table->string('driver_arrive');
-            $table->unsignedBigInteger('Train_number');
+           
+            $table->unsignedBigInteger('train_number');
             $table->integer('price');
             $table->timestamps();
         });

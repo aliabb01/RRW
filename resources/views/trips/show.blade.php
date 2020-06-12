@@ -17,7 +17,7 @@
 <div class="container">
 <br>
     <h2 class="text-center"> Data citiy</h2>
-<form action="{{'/del/'. $trip->id }}" method="POST" >
+<form action="{{'/del3/'. $trip->id }}" method="POST" >
 @csrf
 @method('delete')
       <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">

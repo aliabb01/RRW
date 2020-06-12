@@ -17,7 +17,7 @@
 <div class="container">
 <br>
     <h2 class="text-center">Form Insert Data trip</h2>
-<form action="/store" method="post">
+<form action="/store3" method="post">
 @csrf
       <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
       <div class="form-group">
@@ -27,7 +27,7 @@
       <br>
       <div class="form-group">
         <label for="trip_date">trip_date</label>
-        <input type="text" class="form-control" name="trip_date" >
+        <input type="date" class="form-control" name="trip_date" >
       </div>
       <br>
       <div class="form-group">

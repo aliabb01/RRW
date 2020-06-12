@@ -48,7 +48,7 @@
       <br>
       <div class="form-group">
         <label for="passengers_number">passengers_number</label>
-        <input type="value" class="form-control" name="Tpassengers_number" >
+        <input type="value" class="form-control" name="passengers_number" >
       </div>
       
       <button type="submit" class="btn btn-primary">Submit</button>

@@ -16,7 +16,7 @@
 <div class="container">
 <br>
     <h2 class="text-center">edit Data trip</h2>
-<form action="{{'/upd/'. $trip>id }}" method="POST" >
+<form action="{{'/upd3/'. $trip>id }}" method="POST" >
 @csrf
 @method('PUT')
       <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
@@ -29,7 +29,7 @@
       
       <div class="form-group">
         <label for="trip_date">trip_date</label>
-        <input type="text" class="form-control" name="trip_date" value="{{$trip->city_name}}">
+        <input type="date" class="form-control" name="trip_date" value="{{$trip->trip_date}}">
       </div>
       <br>
       <div class="form-group">

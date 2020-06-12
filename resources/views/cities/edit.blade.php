@@ -16,7 +16,7 @@
 <div class="container">
 <br>
     <h2 class="text-center">edit Data citiy</h2>
-<form action="{{'/upd/'. $city->id }}" method="POST" >
+<form action="{{'/upd1/'. $city->id }}" method="POST" >
 @csrf
 @method('PUT')
       <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">

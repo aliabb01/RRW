@@ -39,6 +39,7 @@ class traincontroller extends Controller
     {
         $cities=new train;
         $cities->id=$request->input('id');
+        $cities->train_number=$request->input('train_number');
          $cities->driver_name=$request->input('driver_name');
          $cities->driver_info=$request->input('driver_info');
          $cities->seats_number=$request->input('seats_number');
@@ -58,7 +59,7 @@ class traincontroller extends Controller
      */
     public function show(train $train)
     {
-        $tr=train::find($train);
+        $trains=train::find($train);
         return view('trains.show',compact('trains','train'));
     }
 
@@ -82,11 +83,12 @@ class traincontroller extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, train $train)
+    public function update(Request $request,$train)
     {
        
         $request->validate([
             'id'=> 'required',
+            'train_number'=>'required',
             'driver_name'=> 'required',
             'driver_info'=> 'required',
             'seats_number'=> 'required',
@@ -98,7 +100,8 @@ class traincontroller extends Controller
               $cit=train::find($train);
              // $cities=city::all();
                $cit->id=$request['id'];
-               $cit->driver_name=$request['tdriver_name'];
+               $cit->train_number=$request['train_number'];
+               $cit->driver_name=$request['driver_name'];
                $cit->driver_info=$request['driver_info'];
                $cit->seats_number=$request['seats_number'];
                $cit->passengers_number=$request['passengers_number'];
@@ -121,7 +124,7 @@ class traincontroller extends Controller
      * @param  \App\train  $train
      * @return \Illuminate\Http\Response
      */
-    public function destroy(train $train)
+    public function destroy($train)
     {
         $city=train::find($train);
         $city->delete();

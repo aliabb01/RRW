@@ -15,8 +15,8 @@
 <body>
 <div class="container">
 <br>
-    <h2 class="text-center">edit Data trip</h2>
-<form action="{{'/upd2/'. $train>id }}" method="POST" >
+    <h2 class="text-center">edit Data train</h2>
+<form action="{{'/upd2/'. $train->id }}" method="POST" >
 @csrf
 @method('PUT')
       <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
@@ -26,12 +26,7 @@
       <input type="text" class="form-control" name="id" value="{{$train->id}}">
       </div>
       <br>
-      <td>{{$i->id}}</td>
-      <td>{{$i->train_number}}</td>
-      <td>{{$i->driver_name}}</td>
-      <td>{{$i->driver_info}}</td>
-      <td>{{$i->seats_number}}</td>
-      <td>{{$i->passengers_number}}</td>
+      
      
       <div class="form-group">
         <label for="train_number">train_number</label>
@@ -56,7 +51,7 @@
       <br>
       <div class="form-group">
         <label for="passengers_number">passengers_number</label>
-        <input type="value" class="form-control" name="passengers_number" value="{{$trip->passengers_number}}" >
+        <input type="value" class="form-control" name="passengers_number" value="{{$train->passengers_number}}" >
       </div>
       <br>
       
