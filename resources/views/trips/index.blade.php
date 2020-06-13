@@ -11,9 +11,9 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
-      <h1>Cities </h1>
+      <h1>Trips </h1>
       <br>
-      <li><a href="#"><i class="fas fa-plus-square"></i>new item</a></li>
+      
       <table class="table table-bordered table-dark">
         <thead>
           <tr>
